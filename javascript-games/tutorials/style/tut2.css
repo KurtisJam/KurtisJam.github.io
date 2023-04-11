@@ -1,0 +1,15 @@
+#canvas1 {
+    width: 800px;
+    height: 700px;
+}
+
+#container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+p {
+    color: white;
+}

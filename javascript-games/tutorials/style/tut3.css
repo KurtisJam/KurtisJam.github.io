@@ -1,0 +1,9 @@
+#canvas1,
+#canvas2,
+#canvas3,
+#canvas4 {
+    border: 5px solid black;
+    width: 500px;
+    height: 1000px;
+    margin-top: 25px;
+}

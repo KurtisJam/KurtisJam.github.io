@@ -1,0 +1,10 @@
+#canvas1,
+#collision {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+#collision {
+    opacity: 0;
+}
