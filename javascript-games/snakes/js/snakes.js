@@ -1,7 +1,20 @@
+let snake = null;
+
 function startGame(level) {
   document.getElementById("SplashScreen").style.display = "none";
   document.getElementById("SnakeGame").style.display = "block";
-  const snake = new SnakeGame("canvas", level);
+
+  if (!snake) {
+    snake = new SnakeGame("canvas", level);
+  } else {
+    snake.stopGame = false;
+  }
+}
+
+function restart() {
+  document.getElementById("SplashScreen").style.display = "block";
+  document.getElementById("SnakeGame").style.display = "none";
+  snake.resetGame();
 }
 
 const width = 600;
@@ -64,6 +77,24 @@ class SnakeGame {
   init() {
     this.listenForKeyboardEvents();
     this.gameLoop();
+  }
+
+  resetGame() {
+    this.snakeLength = 3;
+    this.snake = [
+      { x: width / 2, y: height / 2 },
+      { x: width / 2 - segmentLength, y: height / 2 },
+      { x: width / 2 - segmentLength * 2, y: height / 2 },
+      { x: width / 2 - segmentLength * 3, y: height / 2 },
+      { x: width / 2 - segmentLength * 4, y: height / 2 },
+    ];
+    this.food = {
+      x: this.getRndInteger(0, width, segmentLength),
+      y: this.getRndInteger(0, height, segmentLength),
+    };
+    this.directionY = 0;
+    this.directionX = segmentLength;
+    this.stopGame = true;
   }
 
   handleGameStop() {
