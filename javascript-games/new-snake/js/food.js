@@ -5,7 +5,7 @@ export class Food {
     this.game = game;
     this.x = 0;
     this.y = 0;
-    this.initialise();
+    this.initialize();
     this.currentX = startingX !== undefined ? startingX : this.x;
     this.currentY = startingY !== undefined ? startingY : this.y;
 
@@ -17,7 +17,9 @@ export class Food {
     return this.currentX !== this.x || this.currentY !== this.y;
   }
 
-  initialise() {
+  // Set the x and y position,
+  // make sure we don't land on a snake part or another piece of food
+  initialize() {
     this.x = getRndInteger(0, this.game.width, this.game.cellSize);
     this.y = getRndInteger(
       this.game.marginTop,
@@ -30,10 +32,11 @@ export class Food {
       this.game.foods.some((f) => f.x === this.x && f.y === this.y)
     ) {
       console.log("food in same spot!");
-      this.initialise();
+      this.initialize();
     }
   }
 
+  // Move the food if it's not in position
   update(deltaTime) {
     if (this.isMoving()) {
       if (this.currentX !== this.x) {
