@@ -9,6 +9,10 @@ export class UI {
     context.font = this.fontSize + "px " + this.fontFamily;
     context.textAlign = "left";
     context.fillStyle = this.game.fontColour;
+
+    if (this.game.giganticTimer > 0) {
+      context.fillText((this.game.giganticTimer * 0.001).toFixed(1), 200, 28);
+    }
     //score
     context.fillText("Score: " + this.game.score, 20, 28);
 
