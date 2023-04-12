@@ -4,7 +4,8 @@ import { Food } from "./food.js";
 export const powerUps = {
   foodOverload: 0,
   slowDown: 1,
-  gigantic: 2,
+  sweep: 2,
+  gigantic: 3,
 };
 
 class PowerUp {
@@ -12,16 +13,15 @@ class PowerUp {
     this.game = game;
     this.x = 0;
     this.y = 0;
-    this.initialise();
+    this.initialize();
   }
 
   handleCollision() {
     this.game.powerUps = this.game.powerUps.filter((p) => p.type !== this.type);
-    console.log("collision");
     this.game.pauseSnake = true;
   }
 
-  initialise() {
+  initialize() {
     this.x = getRndInteger(
       this.game.marginTop,
       this.game.width,
@@ -37,11 +37,9 @@ class PowerUp {
       this.game.snake.snake.some((s) => s.x === this.x && s.y === this.y) ||
       this.game.foods.some((f) => f.x === this.x && f.y === this.y)
     ) {
-      this.initialise();
+      this.initialize();
     }
   }
-
-  update() {}
 
   draw(ctx) {
     ctx.fillStyle = this.color;
@@ -59,11 +57,10 @@ export class FoodOverload extends PowerUp {
     this.type = powerUps.foodOverload;
   }
 
-  update() {}
-
   handleCollision() {
     super.handleCollision();
 
+    // Add some food
     for (var i = 0; i < this.game.foodOverloadAmount; i++) {
       this.game.foods.push(
         new Food(
@@ -85,21 +82,37 @@ export class SlowDown extends PowerUp {
 
   handleCollision() {
     super.handleCollision();
+
+    // Slow down the snake
     this.game.snakeFps = Math.max(this.game.snakeFps - 10, 7);
     this.game.snakeUpdateInterval = 1000 / this.game.snakeFps;
+  }
+}
+
+export class SweepMap extends PowerUp {
+  constructor(game) {
+    super(game);
+    this.color = "purple";
+    this.type = powerUps.sweep;
+  }
+
+  handleCollision() {
+    super.handleCollision();
   }
 }
 
 export class Gigantic extends PowerUp {
   constructor(game) {
     super(game);
-    this.color = "purple";
+    this.color = "orange";
     this.type = powerUps.gigantic;
   }
 
   handleCollision() {
     super.handleCollision();
+
+    // Make the snake bigger
     this.game.snakeSize = this.game.cellSize * this.game.giganticMultiplier;
-    this.game.giganticTimer = this.game.giganticTimeLimit;
+    this.game.timer = 10 * 1000;
   }
 }

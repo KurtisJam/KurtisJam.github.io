@@ -6,16 +6,28 @@ export class UI {
   }
 
   draw(context) {
+    this.drawScore(context);
+    this.drawTimer(context);
+    this.drawPowerText(context);
+    this.drawPowerSquares(context);
+    this.drawSeparator(context);
+  }
+
+  drawScore(context) {
     context.font = this.fontSize + "px " + this.fontFamily;
     context.textAlign = "left";
     context.fillStyle = this.game.fontColour;
-
-    if (this.game.giganticTimer > 0) {
-      context.fillText((this.game.giganticTimer * 0.001).toFixed(1), 200, 28);
-    }
     //score
     context.fillText("Score: " + this.game.score, 20, 28);
+  }
 
+  drawTimer(context) {
+    if (this.game.timer > 0) {
+      context.fillText((this.game.timer * 0.001).toFixed(1), 200, 28);
+    }
+  }
+
+  drawPowerSquares(context) {
     context.fillStyle = "red";
     context.fillRect(
       this.game.width - 95,
@@ -37,14 +49,19 @@ export class UI {
       this.game.cellSize / 2,
       this.game.cellSize / 2
     );
+  }
+
+  drawPowerText(context) {
     context.fillStyle = "white";
     context.textAlign = "left";
     context.font = this.fontSize * 0.5 + "px " + this.fontFamily;
     context.fillText("Power ups:", this.game.width - 280, 19);
     context.fillText("food overload", this.game.width - 80, 19);
     context.fillText("slow", this.game.width - 130, 19);
-    context.fillText("gigantic", this.game.width - 195, 19);
+    context.fillText("sweep", this.game.width - 195, 19);
+  }
 
+  drawSeparator(context) {
     context.lineWidth = 2;
     context.strokeStyle = "white";
     context.beginPath();
@@ -58,6 +75,7 @@ export class UI {
       console.log("game over");
       context.textAlign = "center";
       context.font = this.fontSize * 1.5 + "px " + this.fontFamily;
+      context.fillStyle = this.game.fontColour;
       context.fillText(
         "Game Over",
         this.game.width * 0.5,

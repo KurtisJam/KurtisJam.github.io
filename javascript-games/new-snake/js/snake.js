@@ -61,6 +61,7 @@ export class Snake {
     });
   }
 
+  // Point check or point to square check
   collisionResult(pointCheck, newX, newY, fx, fy) {
     return pointCheck
       ? newX == fx && newY == fy
@@ -70,6 +71,7 @@ export class Snake {
           fy <= newY + this.game.snakeSize;
   }
 
+  // Check for snake collision
   checkForCollision() {
     for (var i = 3; i < this.snake.length; i++) {
       if (
