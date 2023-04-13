@@ -2,7 +2,13 @@ import { Snake } from "./snake.js";
 import { Food } from "./food.js";
 import InputHandler from "./input.js";
 import { UI } from "./UI.js";
-import { FoodOverload, SweepMap, SlowDown } from "./powerup.js";
+import {
+  FoodOverload,
+  SweepOverMap,
+  SlowDown,
+  Gigantic,
+  SpeedUp,
+} from "./powerup.js";
 
 window.onload = function () {
   const canvas = document.getElementById("snake-canvas");
@@ -59,38 +65,30 @@ window.onload = function () {
     }
 
     update(deltaTime) {
+      if (this.timer > 0 && !this.pauseSnake) {
+        this.timer -= deltaTime;
+        if (this.timer < 0) this.timer = 0;
+      }
+
       // Add power ups every few seconds
       this.addPowerUps(deltaTime);
-      this.handleGiganticSnake(deltaTime);
 
       if (!this.pauseSnake) this.snake.update(deltaTime);
       this.foods.forEach((food) => food.update(deltaTime));
-
-      if (!this.foods.some((f) => f.isMoving())) {
-        this.pauseSnake = false;
-      }
-    }
-
-    handleGiganticSnake(deltaTime) {
-      if (this.snakeSize !== this.cellSize) {
-        this.timer -= deltaTime;
-        if (this.timer < 0) {
-          this.snakeSize = this.cellSize;
-          this.timer = 0;
-        }
-      }
     }
 
     addPowerUps(deltaTime) {
-      if (this.powerUps.length <= 0) this.powerUpTimer += deltaTime;
+      if (this.powerUps.length <= 1) this.powerUpTimer += deltaTime;
       if (this.powerUpTimer >= this.powerUpInterval) {
         this.powerUpTimer = 0;
-        const powerUp =
-          Math.random() < 0.4
-            ? Math.random() < 0.5
-              ? new SweepMap(this)
-              : new SlowDown(this)
-            : new FoodOverload(this);
+        const hasPowerUpWithTimer = this.timer > 0;
+        const powerUp = hasPowerUpWithTimer
+          ? new FoodOverload(this)
+          : Math.random() > 0.66
+          ? new SlowDown(this)
+          : Math.random() > 0.5
+          ? new SpeedUp(this)
+          : new FoodOverload(this);
         this.powerUps.push(powerUp);
       }
     }
@@ -106,10 +104,14 @@ window.onload = function () {
       this.gameOver = true;
     }
 
+    updateSnakeSpeed(fps) {
+      this.snakeFps = fps;
+      this.snakeUpdateInterval = 1000 / this.snakeFps;
+    }
+
     foodCollisionOccurred() {
       this.score++;
-      this.snakeFps += 0.25;
-      this.snakeUpdateInterval = 1000 / this.snakeFps;
+      this.updateSnakeSpeed((this.snakeFps += 0.25));
 
       if (this.foods.length < 1) {
         this.foods.push(new Food(this));

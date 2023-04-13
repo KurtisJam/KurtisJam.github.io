@@ -1,16 +1,18 @@
 import { getRndInteger } from "./utils.js";
 import { Food } from "./food.js";
 
-export const powerUps = {
-  foodOverload: 0,
-  slowDown: 1,
-  sweep: 2,
-  gigantic: 3,
-};
+const PowerUpTypes = Object.freeze({
+  FOOD_OVERLOAD: 0,
+  SLOW_DOWN: 1,
+  SWEEP_MAP: 2,
+  GIGANTIC: 3,
+});
 
 class PowerUp {
-  constructor(game) {
+  constructor(game, type, color) {
     this.game = game;
+    this.type = type;
+    this.color = color;
     this.x = 0;
     this.y = 0;
     this.initialize();
@@ -18,7 +20,6 @@ class PowerUp {
 
   handleCollision() {
     this.game.powerUps = this.game.powerUps.filter((p) => p.type !== this.type);
-    this.game.pauseSnake = true;
   }
 
   initialize() {
@@ -51,10 +52,7 @@ class PowerUp {
 
 export class FoodOverload extends PowerUp {
   constructor(game) {
-    super(game);
-    this.game = game;
-    this.color = "red";
-    this.type = powerUps.foodOverload;
+    super(game, PowerUpTypes.FOOD_OVERLOAD, "red");
   }
 
   handleCollision() {
@@ -70,30 +68,38 @@ export class FoodOverload extends PowerUp {
         )
       );
     }
+    this.game.pauseSnake = true;
+    setTimeout(() => {
+      this.game.pauseSnake = false;
+    }, 500);
   }
 }
 
 export class SlowDown extends PowerUp {
   constructor(game) {
-    super(game);
-    this.color = "white";
-    this.type = powerUps.slowDown;
+    super(game, PowerUpTypes.SLOW_DOWN, "white");
   }
 
   handleCollision() {
     super.handleCollision();
 
     // Slow down the snake
-    this.game.snakeFps = Math.max(this.game.snakeFps - 10, 7);
-    this.game.snakeUpdateInterval = 1000 / this.game.snakeFps;
+    const oldFps = this.game.snakeFps;
+
+    this.game.updateSnakeSpeed(Math.max(this.game.snakeFps - 10, 7));
+
+    this.game.timer = 5 * 1000;
+
+    setTimeout(() => {
+      this.game.snakeIsInvincible = false;
+      this.game.updateSnakeSpeed(oldFps);
+    }, 5 * 1000);
   }
 }
 
-export class SweepMap extends PowerUp {
+export class SweepOverMap extends PowerUp {
   constructor(game) {
-    super(game);
-    this.color = "purple";
-    this.type = powerUps.sweep;
+    super(game, PowerUpTypes.SWEEP_MAP, "purple");
   }
 
   handleCollision() {
@@ -103,9 +109,7 @@ export class SweepMap extends PowerUp {
 
 export class Gigantic extends PowerUp {
   constructor(game) {
-    super(game);
-    this.color = "orange";
-    this.type = powerUps.gigantic;
+    super(game, PowerUpTypes.GIGANTIC, "orange");
   }
 
   handleCollision() {
@@ -114,5 +118,47 @@ export class Gigantic extends PowerUp {
     // Make the snake bigger
     this.game.snakeSize = this.game.cellSize * this.game.giganticMultiplier;
     this.game.timer = 10 * 1000;
+
+    setTimeout(() => {
+      this.game.snakeSize = this.game.cellSize;
+    }, this.game.timer);
+  }
+}
+
+export class SpeedUp extends PowerUp {
+  constructor(game) {
+    super(game, PowerUpTypes.SPEED_UP, "green");
+  }
+
+  handleCollision() {
+    super.handleCollision();
+
+    const oldFps = this.game.snakeFps;
+    this.game.updateSnakeSpeed(Math.min(this.game.snakeFps + 10, 50));
+
+    this.game.timer = 5 * 1000;
+
+    setTimeout(() => {
+      this.game.snakeIsInvincible = false;
+      this.game.updateSnakeSpeed(oldFps);
+    }, this.game.timer);
+  }
+}
+
+export class Invincibility extends PowerUp {
+  constructor(game) {
+    super(game, PowerUpTypes.INVINCIBILITY, "gold");
+  }
+
+  handleCollision() {
+    super.handleCollision();
+
+    // Make the snake invincible for 10 seconds
+    this.game.snakeIsInvincible = true;
+    this.game.timer = 10 * 1000;
+
+    setTimeout(() => {
+      this.game.snakeIsInvincible = false;
+    }, this.game.timer);
   }
 }

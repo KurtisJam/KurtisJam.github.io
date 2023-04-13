@@ -22,9 +22,7 @@ export class UI {
   }
 
   drawTimer(context) {
-    if (this.game.timer > 0) {
-      context.fillText((this.game.timer * 0.001).toFixed(1), 200, 28);
-    }
+    context.fillText((this.game.timer * 0.001).toFixed(1), 200, 28);
   }
 
   drawPowerSquares(context) {
