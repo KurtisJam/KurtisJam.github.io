@@ -122,6 +122,7 @@ export class Snake {
     if (collisionOfFoodIndex > -1) {
       this.game.foods.splice(collisionOfFoodIndex, 1);
       this.game.foodCollisionOccurred();
+      this.updateSnakePosition(); // To keep smooth motion
       return;
     }
 
