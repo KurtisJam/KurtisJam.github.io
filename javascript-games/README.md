@@ -13,12 +13,17 @@ A classic game of snakes where the player controls a snake that grows longer as 
 
 ### Side Scroller
 A side-scrolling game where the player controls a character that jumps over obstacles to reach the end of the level.
+This was created with the help of the online youtube tutorial "*JavaScript Game Development Course for Beginners*"
 
 ### Object Collision
 A game where the player controls a character that must avoid colliding with obstacles in order to reach the end of the level.
 
-### Getting started
+<br />
+
+## Getting started
 To get started with the games, simply download or clone the repository and open the index.html file in your web browser. Use the live-server extension to run the website.
 
-### Credits
+<br />
+
+## Credits
 These games were created by Kurtis Mason. If you have any questions or feedback, please feel free to contact me at kurtismason1995@gmail.com.
