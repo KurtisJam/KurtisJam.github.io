@@ -1,5 +1,5 @@
 # JavaScript Games
-This is a collection of JavaScript games I have created for my portfolio. They are pure JavaScript games, so no need to run any commands. Just use the live-server extension to run the website.
+This is a collection of JavaScript games I have created for my portfolio. They are pure JavaScript games, so no need to run any commands. You can use the live-server extension on vscode to run the website or visit [Javascript Games - Portfolio](https://kurtismason1995.github.io/javascript-games/index.html).
 
 ## Games included
 ### 2048
