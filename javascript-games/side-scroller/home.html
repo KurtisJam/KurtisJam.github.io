@@ -11,16 +11,20 @@
     <style>
       .card-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        grid-gap: 1rem;
-        margin-top: 2rem;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        justify-content: center;
+        gap: 2rem;
+        margin: 2rem;
+        max-width: 900px;
+        margin-left: auto;
+        margin-right: auto;
       }
 
       .card {
         border: 1px solid #ccc;
-        border-radius: 5px;
-        padding: 1rem;
-        box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
+        padding: 1.5rem;
+        border-radius: 0.25rem;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         text-align: center;
       }
 
@@ -30,28 +34,43 @@
       }
 
       .card p {
-        font-size: 1rem;
+        font-size: 1.125rem;
+        color: #666;
         margin-bottom: 1rem;
       }
 
       .card a {
         display: inline-block;
-        background-color: #3498db;
+        background-color: #0077cc;
         color: #fff;
-        padding: 0.5rem 1rem;
-        border-radius: 5px;
+        padding: 0.75rem 1.5rem;
+        border-radius: 0.25rem;
         text-decoration: none;
-        transition: background-color 0.3s ease;
+        transition: background-color 0.2s ease;
       }
 
       .card a:hover {
-        background-color: #2980b9;
+        background-color: #005fa3;
+      }
+
+      .back-button {
+        display: inline-block;
+        padding: 0.5rem 1rem;
+        background-color: #0077cc;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 0.25rem;
+        transition: background-color 0.2s ease;
+      }
+
+      .back-button:hover {
+        background-color: #005fa3;
       }
     </style>
   </head>
 
   <body>
-    <a href="../index.html">Back</a>
+    <a href="../index.html" class="back-button">Back</a>
 
     <div class="card-grid">
       <div class="card">
