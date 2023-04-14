@@ -2,23 +2,108 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-
     <title>HTML5 Game | Kurtis Mason</title>
     <meta name="description" content="HTML5 game" />
     <meta name="author" content="Kurtis Mason" />
     <link rel="stylesheet" href="./../styles.css" />
+    
+    <style>
+      /* card styles */
+      .card {
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        padding: 20px;
+        margin-bottom: 20px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease-in-out;
+      }
+      .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+      .card h2 {
+        margin-top: 0;
+      }
+      .card p {
+        margin-bottom: 0;
+      }
+      .card a {
+        display: block;
+        text-align: center;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #f2f2f2;
+        color: #333;
+        font-weight: bold;
+        text-decoration: none;
+        transition: all 0.3s ease-in-out;
+      }
+      .card a:hover {
+        background-color: #333;
+        color: #f2f2f2;
+        border-color: #333;
+      }
+    </style>
   </head>
 
   <body>
     <a href="../index.html">Back</a>
-    <p><a href="1.html">1. Sprite Animation</a></p>
-    <p><a href="2.html">2. Scrolling Background</a></p>
-    <p><a href="3.html">3. Sprite Movements</a></p>
-    <p><a href="4.html">4. User Clicks</a></p>
-    <p><a href="5.html">5. Bird Shooting Game</a></p>
-    <p><a href="6.html">6. Enemy Types</a></p>
-    <p><a href="7.html">7. Scrolling Jumper</a></p>
-    <p><a href="8.html">8. Sprite Movement</a></p>
-    <p><a href="9.html">9. Final Game</a></p>
+    
+    <!-- card items -->
+    <div class="card">
+      <h2>Sprite Animation</h2>
+      <p>A simple sprite animation example.</p>
+      <a href="1.html">Play now</a>
+    </div>
+    
+    <div class="card">
+      <h2>Scrolling Background</h2>
+      <p>A scrolling background game demo.</p>
+      <a href="2.html">Play now</a>
+    </div>
+    
+    <div class="card">
+      <h2>Sprite Movements</h2>
+      <p>A demo of sprite movements.</p>
+      <a href="3.html">Play now</a>
+    </div>
+    
+    <div class="card">
+      <h2>User Clicks</h2>
+      <p>An example of a game based on user clicks.</p>
+      <a href="4.html">Play now</a>
+    </div>
+    
+    <div class="card">
+      <h2>Bird Shooting Game</h2>
+      <p>A fun bird shooting game.</p>
+      <a href="5.html">Play now</a>
+    </div>
+    
+    <div class="card">
+      <h2>Enemy Types</h2>
+      <p>A demo of different enemy types.</p>
+      <a href="6.html">Play now</a>
+    </div>
+    
+    <div class="card">
+      <h2>Scrolling Jumper</h2>
+      <p>A jumping game with scrolling backgrounds.</p>
+      <a href="7.html">Play now</a>
+    </div>
+    
+    <div class="card">
+      <h2>Sprite Movement</h2>
+      <p>A sprite movement example.</p>
+      <a href="8.html">Play now</a>
+    </div>
+
+    <div class="card">
+      <h2>Final Game</h2>
+      <p>The final game demo.</p>
+      <a href="9.html">Play now</a>
+    </div>
   </body>
 </html>
+
