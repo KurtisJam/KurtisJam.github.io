@@ -1,5 +1,5 @@
 # Kurtis Mason's Portfolio
-Welcome to my personal portfolio repository! This repository contains the source code for my personal website hosted at (https://kurtismason1995.github.io/).
+Welcome to my personal portfolio repository! This repository contains the source code for my personal website hosted at https://kurtismason1995.github.io/.
 
 # Technologies Used
 The website is built using the following technologies:
@@ -8,8 +8,10 @@ The website is built using the following technologies:
 - CSS
 - JavaScript
 
+The website template was taken from HTML5up
+
 # Getting Started
-To view the website, simply click on the following link: (https://kurtismason1995.github.io/). Alternatively, you can clone the repository to your local machine and open the index.html file in your browser.
+To view the website, simply click on the following link: https://kurtismason1995.github.io/. Alternatively, you can clone the repository to your local machine and open the index.html file in your browser.
 ```
 git clone https://github.com/kurtismason1995/kurtismason1995.github.io.git
 ```
