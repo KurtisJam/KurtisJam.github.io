@@ -1,0 +1,6 @@
+List of todo items for this game set
+
+-- Remove some of the selections, as they are just showing the process of making the game
+
+-- Improve the final game
+  * Add some new enemies
