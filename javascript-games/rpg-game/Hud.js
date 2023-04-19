@@ -1,0 +1,56 @@
+import { Combatant } from "./Battle/Combatant.js";
+
+export class Hud {
+  constructor() {
+    this.scoreboards = [];
+  }
+
+  update() {
+    this.scoreboards.forEach((scoreBoard) => {
+      scoreBoard.update(window.playerState.pizzas[scoreBoard.id]);
+    });
+  }
+
+  createElement() {
+    if (this.element) {
+      this.element.remove();
+      this.scoreboards = [];
+    }
+
+    this.element = document.createElement("div");
+    this.element.classList.add("Hud");
+
+    const { playerState } = window;
+    playerState.lineup.forEach((key) => {
+      const pizza = playerState.pizzas[key];
+      const scoreBoard = new Combatant(
+        {
+          id: key,
+          ...window.Pizzas[pizza.pizzaId],
+          ...pizza,
+        },
+        null
+      );
+
+      scoreBoard.createElement();
+      this.scoreboards.push(scoreBoard);
+      this.element.appendChild(scoreBoard.hudElement);
+    });
+
+    this.update();
+  }
+
+  init(container) {
+    this.createElement();
+    container.appendChild(this.element);
+
+    document.addEventListener("PlayerStateUpdated", () => {
+      this.update();
+    });
+
+    document.addEventListener("LineupChanged", () => {
+      this.createElement();
+      container.appendChild(this.element);
+    });
+  }
+}
