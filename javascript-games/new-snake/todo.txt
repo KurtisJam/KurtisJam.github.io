@@ -1,0 +1,18 @@
+List of improvements and things to do for the snake game
+
+-- Add new power ups
+  * Sweep - a snake coloured line that sweeps across the screen and eats all the food in its path
+  * Invincibility - Snake can hit itself and obstacles for a short period of time
+  
+-- Add levels
+  * Create new levels and goals to reach on each level
+  
+-- Level select / title screen
+  * Add a level selection 
+  * Add a title screen
+  
+-- Load and save state to show completed games
+  * Save the progress of the player
+  * Load the progress if selected
+  
+  
