@@ -10,18 +10,24 @@ export class Person extends GameObject {
 
     this.isPlayerControlled = config.isPlayerControlled || false;
 
+    this.speedMs = 100;
+    this.oneTileMove = 16;
+
+    this.movePerMs = this.oneTileMove / this.speedMs;
+
     this.directionUpdate = {
-      up: ["y", -1],
-      down: ["y", 1],
-      left: ["x", -1],
-      right: ["x", 1],
+      up: ["y", -this.movePerMs],
+      down: ["y", this.movePerMs],
+      left: ["x", -this.movePerMs],
+      right: ["x", this.movePerMs],
     };
     this.standBehaviorTimeout;
   }
 
   update(state) {
+    const deltaTime = state.deltaTime;
     if (this.movementProgressRemaining > 0) {
-      this.updatePosition();
+      this.updatePosition(deltaTime);
     } else {
       // More cases for starting to walk will come here
 
@@ -36,12 +42,19 @@ export class Person extends GameObject {
     }
   }
 
-  updatePosition() {
+  updatePosition(deltaTime) {
     const [property, change] = this.directionUpdate[this.direction];
-    this[property] += change;
-    this.movementProgressRemaining -= 1;
 
-    if (this.movementProgressRemaining === 0) {
+    let movement = change * deltaTime;
+    if (this.movementProgressRemaining < Math.abs(movement)) {
+      movement = movement < 0 ? -this.movementProgressRemaining : this.movementProgressRemaining;
+    }
+
+    this[property] += movement;
+    this.movementProgressRemaining -= Math.abs(movement);
+
+    if (this.movementProgressRemaining <= 0) {
+      this[property] = Math.round(this[property]);
       // We finished walking
       this.intentPosition = null;
       utils.emitEvent("PersonWalkingComplete", {
@@ -74,7 +87,7 @@ export class Person extends GameObject {
         return;
       }
 
-      this.movementProgressRemaining = 16;
+      this.movementProgressRemaining = this.oneTileMove;
 
       const intentPosition = utils.nextPosition(this.x, this.y, this.direction);
       this.intentPosition = [intentPosition.x, intentPosition.y];

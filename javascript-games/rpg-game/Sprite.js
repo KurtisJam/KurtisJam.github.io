@@ -61,6 +61,11 @@ export class Sprite {
 
     // Reference the game object
     this.gameObject = config.gameObject;
+
+    this.fps = config.fps || 100;
+    this.frameTimer = 0;
+
+    this.frameInterval = 1000 / this.fps;
   }
 
   get frame() {
@@ -75,22 +80,28 @@ export class Sprite {
     }
   }
 
-  updateAnimationProgress() {
-    if (this.animationFrameProgress > 0) {
-      this.animationFrameProgress--;
-      return;
-    }
+  updateAnimationProgress(deltaTime) {
+    if (this.frameTimer > this.frameInterval) {
+      this.frameTimer = 0;
 
-    this.animationFrameProgress = this.animationFrameLimit;
+      if (this.animationFrameProgress > 0) {
+        this.animationFrameProgress--;
+        return;
+      }
 
-    this.currentAnimationFrame++;
+      this.animationFrameProgress = this.animationFrameLimit;
 
-    if (this.frame == undefined) {
-      this.currentAnimationFrame = 0;
+      this.currentAnimationFrame++;
+
+      if (this.frame == undefined) {
+        this.currentAnimationFrame = 0;
+      }
+    } else {
+      this.frameTimer += deltaTime;
     }
   }
 
-  draw(ctx, cameraPerson) {
+  draw(ctx, cameraPerson, deltaTime) {
     const x = this.gameObject.x - 8 + utils.withGrid(10.5) - cameraPerson.x;
     const y = this.gameObject.y - 16 + utils.withGrid(6) - cameraPerson.y;
     this.isShadowLoaded && this.useShadow && ctx.drawImage(this.shadow, x, y);
@@ -109,6 +120,6 @@ export class Sprite {
         this.spriteHeight
       );
 
-    this.updateAnimationProgress();
+    this.updateAnimationProgress(deltaTime);
   }
 }

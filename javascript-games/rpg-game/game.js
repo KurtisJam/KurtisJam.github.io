@@ -46,7 +46,7 @@ export class Game {
           return a.y - b.y;
         })
         .forEach((obj) => {
-          obj.sprite.draw(this.ctx, cameraPerson);
+          obj.sprite.draw(this.ctx, cameraPerson, deltaTime);
         });
 
       // Draw upper map
