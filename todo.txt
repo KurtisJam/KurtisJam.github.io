@@ -1,0 +1,10 @@
+List of new portfolio items to add
+
+* React website - 
+
+* Angular website -
+
+* CSS animation examples
+
+* Mobile application 
+
