@@ -74,8 +74,6 @@ export class GameEvent {
   }
 
   changeMap(resolve) {
-    console.log(this.map.gameObjects.hero.x / 16, this.map.gameObjects.hero.y / 16);
-    console.log(this.event);
     //Deactivate old objects
     Object.values(this.map.gameObjects).forEach((obj) => {
       obj.isMounted = false;

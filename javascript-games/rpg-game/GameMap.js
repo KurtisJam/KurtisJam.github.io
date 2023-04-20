@@ -18,16 +18,76 @@ export class GameMap {
     this.upperImage = new Image();
     this.upperImage.src = config.upperSrc;
 
+    this.hugMapCorners = config.hugMapCorners || false;
     this.isCutscenePlaying = false;
     this.isPaused = false;
   }
 
   drawLowerImage(ctx, cameraPerson) {
-    ctx.drawImage(this.lowerImage, utils.withGrid(10.5) - cameraPerson.x, utils.withGrid(6) - cameraPerson.y);
+    const imageWidth = this.lowerImage.naturalWidth;
+    const imageHeight = this.upperImage.naturalHeight;
+    let x = utils.withGrid(10.5) - cameraPerson.x;
+    let y = utils.withGrid(6) - cameraPerson.y;
+
+    /** Code to hug map to edges when player is on edge of map */
+
+    if (this.hugMapCorners) {
+      // Left
+      if (cameraPerson.x < utils.withGrid(10.5)) {
+        x = 0;
+      }
+
+      // Right
+      if (cameraPerson.x > imageWidth - utils.withGrid(10.5) - 16) {
+        x = -imageWidth + utils.withGrid(22);
+      }
+
+      // Top
+      if (cameraPerson.y < utils.withGrid(6)) {
+        y = 0;
+      }
+
+      // Bottom
+      if (cameraPerson.y > imageHeight - utils.withGrid(6)) {
+        y = -imageHeight + utils.withGrid(12);
+      }
+    }
+    /** End Code to hug map to edges when player is on edge of map */
+
+    ctx.drawImage(this.lowerImage, x, y);
   }
 
   drawUpperImage(ctx, cameraPerson) {
-    ctx.drawImage(this.upperImage, utils.withGrid(10.5) - cameraPerson.x, utils.withGrid(6) - cameraPerson.y);
+    const imageWidth = this.upperImage.naturalWidth;
+    const imageHeight = this.upperImage.naturalHeight;
+    let x = utils.withGrid(10.5) - cameraPerson.x;
+    let y = utils.withGrid(6) - cameraPerson.y;
+
+    /** Code to hug map to edges when player is on edge of map */
+    if (this.hugMapCorners) {
+      // Left
+      if (cameraPerson.x < utils.withGrid(10.5)) {
+        x = 0;
+      }
+
+      // Right
+      if (cameraPerson.x > imageWidth - utils.withGrid(10.5) - 16) {
+        x = -imageWidth + utils.withGrid(22);
+      }
+
+      // Top
+      if (cameraPerson.y < utils.withGrid(6)) {
+        y = 0;
+      }
+
+      // Bottom
+      if (cameraPerson.y > imageHeight - utils.withGrid(6)) {
+        y = -imageHeight + utils.withGrid(12);
+      }
+    }
+    /** End Code to hug map to edges when player is on edge of map */
+
+    ctx.drawImage(this.upperImage, x, y);
   }
 
   isSpaceTaken(currentX, currentY, direction) {

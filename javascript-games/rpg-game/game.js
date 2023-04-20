@@ -46,7 +46,15 @@ export class Game {
           return a.y - b.y;
         })
         .forEach((obj) => {
-          obj.sprite.draw(this.ctx, cameraPerson, deltaTime);
+          obj.sprite.draw(
+            this.ctx,
+            cameraPerson,
+            deltaTime,
+            obj.isPlayerControlled,
+            this.map.hugMapCorners,
+            this.map.lowerImage.naturalWidth,
+            this.map.lowerImage.naturalHeight
+          );
         });
 
       // Draw upper map
