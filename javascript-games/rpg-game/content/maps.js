@@ -5,6 +5,7 @@ export class Maps {
     this.maps = {
       Outside: {
         id: "Outside",
+        hugMapCorners: true,
         lowerSrc: "./assets/maps/newmaps/start-area-outside-lowerImage.png",
         upperSrc: "./assets/maps/newmaps/start-area-outside-upperImage.png",
         configObjects: {
@@ -505,6 +506,7 @@ export class Maps {
       },
       LowerLeft: {
         id: "LowerLeft",
+        hugMapCorners: true,
         lowerSrc: "./assets/maps/newmaps/bottom-left-area_lower.png",
         upperSrc: "./assets/maps/newmaps/bottom-left-area_upper.png",
         configObjects: {
@@ -706,6 +708,7 @@ export class Maps {
       },
       OutsideRight: {
         id: "OutsideRight",
+        hugMapCorners: true,
         lowerSrc: "./assets/maps/newmaps/right-area_lower.png",
         upperSrc: "./assets/maps/newmaps/right-area_upper.png",
         configObjects: {
