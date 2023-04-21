@@ -128,7 +128,6 @@
   position: absolute;
   transform: scale(2);
   transition: opacity 0.4s, transform 0.4s;
-  background: url(./../assets/characters/pizzas/pizza-shadow.png) no-repeat no-repeat;
 }
 
 .Pizza[data-team="player"] {

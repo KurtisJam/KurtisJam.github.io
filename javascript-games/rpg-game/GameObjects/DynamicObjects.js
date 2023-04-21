@@ -1,21 +1,11 @@
-import { Sprite } from "./Sprite.js";
-import { GameEvent } from "./GameEvent.js";
+import { GameEvent } from "../GameEvent.js";
+import { GameObject } from "./GameObject.js";
 
-export class GameObject {
+export class DynamicObjects extends GameObject {
   constructor(config) {
-    this.id = null;
+    super(config);
     this.isMounted = false;
-    this.x = config.x || 0;
-    this.y = config.y || 0;
     this.direction = config.direction || "down";
-
-    this.sprite = new Sprite({
-      gameObject: this,
-      src: config.src || "./assets/characters/people/hero.png",
-      useShadow: config.useShadow,
-      spriteWidth: config.spriteWidth,
-      spriteHeight: config.spriteHeight,
-    });
 
     this.behaviorLoop = config.behaviorLoop || [];
     this.behaviorLoopIndex = 0;
@@ -25,6 +15,7 @@ export class GameObject {
   }
 
   mount(map) {
+    super.mount(map);
     this.isMounted = true;
 
     // If we have a behaviour, kick off after a short delay

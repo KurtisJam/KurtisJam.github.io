@@ -15,38 +15,283 @@ export class Maps {
             src: "./assets/characters/people/hero.png",
             x: utils.withGrid(17),
             y: utils.withGrid(20),
-            useShadow: true,
-            spriteWidth: 32,
-            spriteHeight: 32,
           },
-          npcA: {
+          chest1: {
+            type: "Chest",
+            x: utils.withGrid(21),
+            y: utils.withGrid(16),
+          },
+          fire1: {
+            type: "Fire",
+            x: utils.withGrid(19) - 2,
+            y: utils.withGrid(13) - 8,
+          },
+          cow1: {
+            type: "Cow",
+            x: utils.withGrid(17),
+            y: utils.withGrid(20),
+            behaviorLoop: [
+              { type: "walk", direction: "right" },
+              { type: "stand", direction: "right", time: 5000 },
+            ],
+          },
+          npc1: {
             type: "Person",
             x: utils.withGrid(20),
             y: utils.withGrid(19),
-            src: "./assets/characters/people/npc2.png",
+            src: "./assets/characters/people/alchemist.png",
             behaviorLoop: [
               { type: "stand", direction: "down", time: 3000 },
               { type: "stand", direction: "right", time: 3000 },
             ],
             talking: [
               {
-                required: ["TALKED_TO_NPCA_OUTSIDE"],
+                required: ["TALKED_TO_npc1_OUTSIDE"],
                 events: [
                   {
                     type: "textMessage",
                     text: "Oh by the way, I saw your dad get taken by a group of cultists.",
-                    faceHero: "npcA",
+                    faceHero: "npc1",
                   },
                   { type: "textMessage", text: "They were heading to the town I think." },
                 ],
               },
               {
                 events: [
-                  { type: "addStoryFlag", flag: "TALKED_TO_NPCA_OUTSIDE" },
+                  { type: "addStoryFlag", flag: "TALKED_TO_npc1_OUTSIDE" },
                   {
                     type: "textMessage",
                     text: "Hey! There is a patch of herbs down by the water south, but watch out for the wolves.",
-                    faceHero: "npcA",
+                    faceHero: "npc1",
+                  },
+                ],
+              },
+            ],
+          },
+          npc2: {
+            type: "Person",
+            x: utils.withGrid(20),
+            y: utils.withGrid(9),
+            src: "./assets/characters/people/kid.png",
+            behaviorLoop: [
+              { type: "walk", direction: "right" },
+              { type: "walk", direction: "right" },
+              { type: "walk", direction: "right" },
+              { type: "walk", direction: "right" },
+              { type: "walk", direction: "right" },
+              { type: "walk", direction: "right" },
+              { type: "walk", direction: "right" },
+              { type: "walk", direction: "right" },
+              { type: "walk", direction: "right" },
+              { type: "walk", direction: "right" },
+              { type: "walk", direction: "right" },
+              { type: "walk", direction: "right" },
+              { type: "walk", direction: "down" },
+              { type: "stand", direction: "down", time: 200 },
+              { type: "stand", direction: "right", time: 300 },
+              { type: "stand", direction: "down", time: 700 },
+              { type: "walk", direction: "left" },
+              { type: "walk", direction: "left" },
+              { type: "walk", direction: "left" },
+              { type: "walk", direction: "left" },
+              { type: "walk", direction: "left" },
+              { type: "walk", direction: "left" },
+              { type: "stand", direction: "down", time: 500 },
+              { type: "stand", direction: "right", time: 200 },
+              { type: "stand", direction: "down", time: 700 },
+              { type: "walk", direction: "down" },
+              { type: "walk", direction: "down" },
+              { type: "walk", direction: "down" },
+              { type: "walk", direction: "down" },
+              { type: "walk", direction: "left" },
+              { type: "walk", direction: "left" },
+              { type: "stand", direction: "left", time: 600 },
+              { type: "stand", direction: "down", time: 200 },
+              { type: "stand", direction: "right", time: 200 },
+              { type: "walk", direction: "up" },
+              { type: "walk", direction: "up" },
+              { type: "walk", direction: "up" },
+              { type: "walk", direction: "up" },
+              { type: "walk", direction: "left" },
+              { type: "walk", direction: "left" },
+              { type: "walk", direction: "left" },
+              { type: "walk", direction: "left" },
+              { type: "stand", direction: "down", time: 700 },
+              { type: "walk", direction: "up" },
+              { type: "stand", direction: "up", time: 900 },
+              { type: "stand", direction: "left", time: 200 },
+              { type: "stand", direction: "right", time: 400 },
+            ],
+            talking: [
+              {
+                required: ["TALKED_TO_npc2_OUTSIDE"],
+                events: [
+                  {
+                    type: "textMessage",
+                    text: "Hey! We just spoke",
+                    faceHero: "npc2",
+                  },
+                ],
+              },
+              {
+                events: [
+                  { type: "addStoryFlag", flag: "TALKED_TO_npc2_OUTSIDE" },
+                  {
+                    type: "textMessage",
+                    text: "Hey! ",
+                    faceHero: "npc2",
+                  },
+                ],
+              },
+            ],
+          },
+          npc3: {
+            type: "Person",
+            x: utils.withGrid(20),
+            y: utils.withGrid(12),
+            src: "./assets/characters/people/blacksmith.png",
+            behaviorLoop: [{ type: "stand", direction: "left", time: 1000 }],
+            talking: [
+              {
+                required: ["TALKED_TO_npc3_OUTSIDE"],
+                events: [
+                  {
+                    type: "textMessage",
+                    text: "Hey. We just spoke.",
+                    faceHero: "npc3",
+                  },
+                ],
+              },
+              {
+                events: [
+                  { type: "addStoryFlag", flag: "TALKED_TO_npc3_OUTSIDE" },
+                  {
+                    type: "textMessage",
+                    text: "Hey! ",
+                    faceHero: "npc3",
+                  },
+                ],
+              },
+            ],
+          },
+          npc4: {
+            type: "Person",
+            x: utils.withGrid(21),
+            y: utils.withGrid(3),
+            src: "./assets/characters/people/kid2.png",
+            behaviorLoop: [{ type: "stand", direction: "down", time: 1000 }],
+            talking: [
+              {
+                required: ["TALKED_TO_npc4_OUTSIDE"],
+                events: [
+                  {
+                    type: "textMessage",
+                    text: "Hey. We just spoke.",
+                    faceHero: "npc4",
+                  },
+                ],
+              },
+              {
+                events: [
+                  { type: "addStoryFlag", flag: "TALKED_TO_npc4_OUTSIDE" },
+                  {
+                    type: "textMessage",
+                    text: "Hey! ",
+                    faceHero: "npc4",
+                  },
+                ],
+              },
+            ],
+          },
+          npc5: {
+            type: "Person",
+            x: utils.withGrid(38),
+            y: utils.withGrid(4),
+            src: "./assets/characters/people/merchant1.png",
+            behaviorLoop: [{ type: "stand", direction: "down", time: 1000 }],
+            talking: [
+              {
+                required: ["TALKED_TO_npc5_OUTSIDE"],
+                events: [
+                  {
+                    type: "textMessage",
+                    text: "Hey. We just spoke.",
+                    faceHero: "npc5",
+                  },
+                ],
+              },
+              {
+                events: [
+                  { type: "addStoryFlag", flag: "TALKED_TO_npc5_OUTSIDE" },
+                  {
+                    type: "textMessage",
+                    text: "Hey! ",
+                    faceHero: "npc5",
+                  },
+                ],
+              },
+            ],
+          },
+          npc6: {
+            type: "Person",
+            x: utils.withGrid(41),
+            y: utils.withGrid(18),
+            src: "./assets/characters/people/kid2.png",
+            behaviorLoop: [
+              { type: "stand", direction: "right", time: 1000 },
+              { type: "stand", direction: "down", time: 2000 },
+              { type: "walk", direction: "left" },
+              { type: "stand", direction: "down", time: 2000 },
+              { type: "stand", direction: "up", time: 1000 },
+              { type: "walk", direction: "right" },
+            ],
+            talking: [
+              {
+                required: ["TALKED_TO_npc6_OUTSIDE"],
+                events: [
+                  {
+                    type: "textMessage",
+                    text: "Hey. We just spoke.",
+                    faceHero: "npc6",
+                  },
+                ],
+              },
+              {
+                events: [
+                  { type: "addStoryFlag", flag: "TALKED_TO_npc6_OUTSIDE" },
+                  {
+                    type: "textMessage",
+                    text: "Hey! ",
+                    faceHero: "npc6",
+                  },
+                ],
+              },
+            ],
+          },
+          npc7: {
+            type: "Person",
+            x: utils.withGrid(42),
+            y: utils.withGrid(18),
+            src: "./assets/characters/people/kid.png",
+            behaviorLoop: [{ type: "stand", direction: "left", time: 1000 }],
+            talking: [
+              {
+                required: ["TALKED_TO_npc7_OUTSIDE"],
+                events: [
+                  {
+                    type: "textMessage",
+                    text: "Hey. We just spoke.",
+                    faceHero: "npc7",
+                  },
+                ],
+              },
+              {
+                events: [
+                  { type: "addStoryFlag", flag: "TALKED_TO_npc7_OUTSIDE" },
+                  {
+                    type: "textMessage",
+                    text: "Hey! ",
+                    faceHero: "npc7",
                   },
                 ],
               },
@@ -465,15 +710,12 @@ export class Maps {
             src: "./assets/characters/people/hero.png",
             x: utils.withGrid(7),
             y: utils.withGrid(3),
-            useShadow: true,
-            spriteWidth: 32,
-            spriteHeight: 32,
           },
           mum: {
             type: "Person",
             x: utils.withGrid(2),
             y: utils.withGrid(5),
-            src: "./assets/characters/people/mum.png",
+            src: "./assets/characters/people/barmaid.png",
             behaviorLoop: [
               { type: "walk", direction: "up" },
               { type: "walk", direction: "up" },
@@ -602,9 +844,11 @@ export class Maps {
             src: "./assets/characters/people/hero.png",
             x: utils.withGrid(7),
             y: utils.withGrid(1),
-            useShadow: true,
-            spriteWidth: 32,
-            spriteHeight: 32,
+          },
+          fire1: {
+            type: "Fire",
+            x: utils.withGrid(10),
+            y: utils.withGrid(9) - 8,
           },
           npcA: {
             type: "Person",
@@ -810,9 +1054,11 @@ export class Maps {
             src: "./assets/characters/people/hero.png",
             x: utils.withGrid(1),
             y: utils.withGrid(9),
-            useShadow: true,
-            spriteWidth: 32,
-            spriteHeight: 32,
+          },
+          fire1: {
+            type: "Fire",
+            x: utils.withGrid(8),
+            y: utils.withGrid(5) + 8,
           },
         },
         walls: {
@@ -1202,9 +1448,6 @@ export class Maps {
             src: "./assets/characters/people/hero.png",
             x: utils.withGrid(10),
             y: utils.withGrid(16),
-            useShadow: true,
-            spriteWidth: 32,
-            spriteHeight: 32,
           },
         },
         walls: {
@@ -1321,18 +1564,12 @@ export class Maps {
             src: "./assets/characters/people/hero.png",
             x: utils.withGrid(4),
             y: utils.withGrid(8),
-            useShadow: true,
-            spriteWidth: 32,
-            spriteHeight: 32,
           },
           oldMan: {
             type: "Person",
             src: "./assets/characters/people/npc5.png",
             x: utils.withGrid(1),
             y: utils.withGrid(3),
-            useShadow: true,
-            spriteWidth: 32,
-            spriteHeight: 32,
             behaviorLoop: [
               { type: "stand", direction: "up", time: 2000 },
               { type: "stand", direction: "down", time: 300 },
@@ -1436,9 +1673,6 @@ export class Maps {
             src: "./assets/characters/people/hero.png",
             x: utils.withGrid(4),
             y: utils.withGrid(10),
-            useShadow: true,
-            spriteWidth: 32,
-            spriteHeight: 32,
           },
         },
         walls: {
@@ -1542,9 +1776,6 @@ export class Maps {
             src: "./assets/characters/people/hero.png",
             x: utils.withGrid(5),
             y: utils.withGrid(8),
-            useShadow: true,
-            spriteWidth: 32,
-            spriteHeight: 32,
           },
         },
         walls: {
@@ -1625,9 +1856,6 @@ export class Maps {
             src: "./assets/characters/people/hero.png",
             x: utils.withGrid(4),
             y: utils.withGrid(9),
-            useShadow: true,
-            spriteWidth: 32,
-            spriteHeight: 32,
           },
         },
         walls: {
@@ -1712,9 +1940,6 @@ export class Maps {
             src: "./assets/characters/people/hero.png",
             x: utils.withGrid(9),
             y: utils.withGrid(12),
-            useShadow: true,
-            spriteWidth: 32,
-            spriteHeight: 32,
           },
         },
         walls: {
@@ -1832,9 +2057,6 @@ export class Maps {
             src: "./assets/characters/people/hero.png",
             x: utils.withGrid(9),
             y: utils.withGrid(12),
-            useShadow: true,
-            spriteWidth: 32,
-            spriteHeight: 32,
           },
         },
         walls: {
@@ -1963,9 +2185,6 @@ export class Maps {
             src: "./assets/characters/people/hero.png",
             x: utils.withGrid(5),
             y: utils.withGrid(7),
-            useShadow: true,
-            spriteWidth: 32,
-            spriteHeight: 32,
           },
         },
         walls: {
@@ -2021,9 +2240,6 @@ export class Maps {
             src: "./assets/characters/people/hero.png",
             x: utils.withGrid(3),
             y: utils.withGrid(9),
-            useShadow: true,
-            spriteWidth: 32,
-            spriteHeight: 32,
           },
         },
         walls: {

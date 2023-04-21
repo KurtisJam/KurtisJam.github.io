@@ -1,7 +1,7 @@
-import { utils } from "./utils.js";
-import { GameObject } from "./GameObject.js";
+import { utils } from "../utils.js";
+import { DynamicObjects } from "./DynamicObjects.js";
 
-export class Person extends GameObject {
+export class Person extends DynamicObjects {
   constructor(config) {
     super(config);
     this.movementProgressRemaining = 0;

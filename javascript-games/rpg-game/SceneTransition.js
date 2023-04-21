@@ -9,14 +9,16 @@ export class SceneTransition {
   }
 
   fadeOut() {
-    this.element.classList.add("fade-out");
-    this.element.addEventListener(
-      "animationend",
-      () => {
-        this.element.remove();
-      },
-      { once: true }
-    );
+    if (this.element?.classList) {
+      this.element.classList.add("fade-out");
+      this.element.addEventListener(
+        "animationend",
+        () => {
+          this.element.remove();
+        },
+        { once: true }
+      );
+    }
   }
 
   init(container, callback) {

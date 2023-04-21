@@ -13,7 +13,6 @@
 .Battle_enemy {
   position: absolute;
   transform: scale(2);
-  background: url(./../assets/characters/shadow.png) no-repeat no-repeat;
 
   /* Only show one of the sprites in the character sprite sheet */
   width: 32px;

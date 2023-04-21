@@ -1,7 +1,10 @@
 import { GameEvent } from "./GameEvent.js";
-import { Person } from "./Person.js";
-import { PizzaStone } from "./PizzaStone.js";
+import { Person } from "./GameObjects/Person.js";
+import { PizzaStone } from "./GameObjects/PizzaStone.js";
+import { Fire } from "./GameObjects/Fire.js";
+import { Cow } from "./GameObjects/Cow.js";
 import { utils } from "./utils.js";
+import { Chest } from "./GameObjects/Chest.js";
 
 export class GameMap {
   constructor(config, sceneTransition) {
@@ -122,6 +125,24 @@ export class GameMap {
       let instance;
       if (configObj.type === "Person") {
         instance = new Person(configObj);
+      }
+      if (configObj.type === "Chest") {
+        instance = new Chest({
+          ...configObj,
+          src: "./assets/characters/chest.png",
+        });
+      }
+      if (configObj.type === "Fire") {
+        instance = new Fire({
+          ...configObj,
+          src: "./assets/characters/fire.png",
+        });
+      }
+      if (configObj.type === "Cow") {
+        instance = new Cow({
+          ...configObj,
+          src: "./assets/characters/cow.png",
+        });
       }
       if (configObj.type === "PizzaStone") {
         instance = new PizzaStone(configObj);

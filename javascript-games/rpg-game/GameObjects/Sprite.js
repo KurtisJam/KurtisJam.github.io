@@ -1,4 +1,4 @@
-import { utils } from "./utils.js";
+import { utils } from "../utils.js";
 
 export class Sprite {
   constructor(config) {
@@ -9,48 +9,58 @@ export class Sprite {
       this.isLoaded = true;
     };
 
-    this.spriteWidth = config.spriteWidth || 32;
-    this.spriteHeight = config.spriteHeight || 32;
-
-    // Shadow
-    this.shadow = new Image();
-    this.useShadow = config.useShadow || false;
-    if (this.useShadow) {
-      this.shadow.src = "./assets/characters/shadow.png";
-    }
-    this.shadow.onload = () => {
-      this.isShadowLoaded = true;
-    };
+    this.spriteWidth = config.spriteWidth || 16;
+    this.spriteHeight = config.spriteHeight || 24;
 
     // Configure animations and state
     this.animations = config.animations || {
-      "idle-down": [[0, 0]],
-      "idle-right": [[0, 1]],
-      "idle-up": [[0, 2]],
-      "idle-left": [[0, 3]],
-      "walk-down": [
+      "idle-down": [
+        [0, 0],
         [1, 0],
-        [0, 0],
+        [2, 0],
         [3, 0],
-        [0, 0],
       ],
-      "walk-right": [
+      "idle-left": [
+        [0, 1],
         [1, 1],
-        [0, 1],
+        [2, 1],
         [3, 1],
-        [0, 1],
       ],
-      "walk-up": [
+      "idle-right": [
+        [0, 2],
         [1, 2],
-        [0, 2],
+        [2, 2],
         [3, 2],
-        [0, 2],
+      ],
+      "idle-up": [
+        [0, 3],
+        [1, 3],
+        [2, 3],
+        [3, 3],
+      ],
+      "walk-down": [
+        [0, 4],
+        [1, 4],
+        [2, 4],
+        [3, 4],
       ],
       "walk-left": [
-        [1, 3],
-        [0, 3],
-        [3, 3],
-        [0, 3],
+        [0, 5],
+        [1, 5],
+        [2, 5],
+        [3, 5],
+      ],
+      "walk-right": [
+        [0, 6],
+        [1, 6],
+        [2, 6],
+        [3, 6],
+      ],
+      "walk-up": [
+        [0, 7],
+        [1, 7],
+        [2, 7],
+        [3, 7],
       ],
     };
     this.currentAnimation = config.currentAnimation || "idle-down";
@@ -105,6 +115,8 @@ export class Sprite {
     if (this.frameTimer > this.frameInterval && this.gameObject.isPlayerControlled) {
       // TODO:
     }
+    const xOffset = (32 - this.spriteWidth) / 2;
+    const yOffset = (32 - this.spriteHeight) / 2;
 
     let x = this.gameObject.x - 8 + utils.withGrid(10.5) - cameraPerson.x;
     let y = this.gameObject.y - 16 + utils.withGrid(6) - cameraPerson.y;
@@ -158,7 +170,8 @@ export class Sprite {
     }
     /** END Code to hug map to edges when player is on edge of map */
 
-    this.isShadowLoaded && this.useShadow && ctx.drawImage(this.shadow, x, y);
+    x += xOffset;
+    y += yOffset;
 
     const [frameX, frameY] = this.frame;
     this.isLoaded &&
