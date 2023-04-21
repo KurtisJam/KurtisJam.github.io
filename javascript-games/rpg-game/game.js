@@ -4,6 +4,7 @@ import { KeyPressListener } from "./KeyPressListener.js";
 import { Hud } from "./Hud.js";
 import { Progress } from "./Progress.js";
 import { TitleScreen } from "./TitleScreen.js";
+import { SceneTransition } from "./SceneTransition.js";
 
 export class Game {
   constructor(config) {
@@ -91,8 +92,8 @@ export class Game {
     });
   }
 
-  startMap(mapConfig, heroInitialState = null) {
-    this.map = new GameMap(mapConfig);
+  startMap(mapConfig, heroInitialState = null, sceneTransition) {
+    this.map = new GameMap(mapConfig, sceneTransition);
     this.map.game = this;
     this.map.mountObjects();
 
@@ -137,8 +138,9 @@ export class Game {
     this.hud = new Hud();
     this.hud.init(container);
 
+    const sceneTransition = new SceneTransition();
     // Start the first map
-    this.startMap(window.GameMaps[this.progress.mapId], initialHeroState);
+    this.startMap(window.GameMaps[this.progress.mapId], initialHeroState, sceneTransition);
 
     // Create controls
     this.bindActionInput();

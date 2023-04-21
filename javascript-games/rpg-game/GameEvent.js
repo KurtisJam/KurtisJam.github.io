@@ -81,14 +81,16 @@ export class GameEvent {
 
     const sceneTransition = new SceneTransition();
     sceneTransition.init(document.querySelector(".game-container"), () => {
-      this.map.game.startMap(window.GameMaps[this.event.map], {
-        x: this.event.x,
-        y: this.event.y,
-        direction: this.event.direction,
-      });
+      this.map.game.startMap(
+        window.GameMaps[this.event.map],
+        {
+          x: this.event.x,
+          y: this.event.y,
+          direction: this.event.direction,
+        },
+        sceneTransition
+      );
       resolve();
-
-      sceneTransition.fadeOut();
     });
   }
 

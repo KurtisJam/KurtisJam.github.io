@@ -4,7 +4,7 @@ import { PizzaStone } from "./PizzaStone.js";
 import { utils } from "./utils.js";
 
 export class GameMap {
-  constructor(config) {
+  constructor(config, sceneTransition) {
     this.game = null;
     this.gameObjects = {}; // Live objects are in here
     this.configObjects = config.configObjects;
@@ -17,6 +17,10 @@ export class GameMap {
 
     this.upperImage = new Image();
     this.upperImage.src = config.upperSrc;
+
+    this.lowerImage.onload = () => {
+      sceneTransition.fadeOut();
+    };
 
     this.hugMapCorners = config.hugMapCorners || false;
     this.isCutscenePlaying = false;
@@ -38,7 +42,7 @@ export class GameMap {
       }
 
       // Right
-      if (cameraPerson.x > imageWidth - utils.withGrid(10.5) - 16) {
+      if (cameraPerson.x > imageWidth - utils.withGrid(11.5)) {
         x = -imageWidth + utils.withGrid(22);
       }
 
@@ -71,7 +75,7 @@ export class GameMap {
       }
 
       // Right
-      if (cameraPerson.x > imageWidth - utils.withGrid(10.5) - 16) {
+      if (cameraPerson.x > imageWidth - utils.withGrid(11.5)) {
         x = -imageWidth + utils.withGrid(22);
       }
 
