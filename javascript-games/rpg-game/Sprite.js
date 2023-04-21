@@ -111,31 +111,49 @@ export class Sprite {
 
     /** Code to hug map to edges when player is on edge of map */
     if (hugMapCorners) {
-      if (!isPlayerControlled && cameraPerson.y > mapHeight - utils.withGrid(6)) {
-        y = y + (cameraPerson.y - (mapHeight - utils.withGrid(6)));
+      // Adjust non player objects
+      if (!isPlayerControlled) {
+        if (cameraPerson.x < utils.withGrid(10.5)) {
+          x = x + (cameraPerson.x - utils.withGrid(10.5));
+        }
+
+        if (cameraPerson.x > mapWidth - utils.withGrid(11.5)) {
+          x = x + (cameraPerson.x - (mapWidth - utils.withGrid(11.5)));
+        }
+
+        if (cameraPerson.y < utils.withGrid(6)) {
+          y = y + (cameraPerson.y - utils.withGrid(6));
+        }
+
+        if (cameraPerson.y > mapHeight - utils.withGrid(6)) {
+          y = y + (cameraPerson.y - (mapHeight - utils.withGrid(6)));
+        }
       }
 
-      // Left side
-      if (this.gameObject.x < utils.withGrid(10.5)) {
-        x = this.gameObject.x - 8;
-      }
+      // Adjust player position
+      if (isPlayerControlled) {
+        // Left side
+        if (this.gameObject.x < utils.withGrid(10.5)) {
+          x = this.gameObject.x - 8;
+        }
 
-      // Right side
-      if (this.gameObject.x > mapWidth - utils.withGrid(10.5) - 16) {
-        // Almost correct!
-        x = this.gameObject.x - 12 - (mapWidth - utils.withGrid(22));
-      }
+        // Right side
+        if (this.gameObject.x > mapWidth - utils.withGrid(11.5)) {
+          // Almost correct!
+          x = this.gameObject.x - 12 - (mapWidth - utils.withGrid(22));
+        }
 
-      // Top side
-      if (this.gameObject.y < utils.withGrid(6)) {
-        // Almost correct!
-        y = this.gameObject.y - 16;
-      }
+        // Top side
+        if (this.gameObject.y < utils.withGrid(6)) {
+          // Almost correct!
+          y = this.gameObject.y - 16;
+        }
 
-      // Bottom side
-      if (this.gameObject.y > mapHeight - utils.withGrid(6)) {
-        // Almost correct!
-        y = this.gameObject.y - 16 - (mapHeight - utils.withGrid(12));
+        // Bottom side
+        if (this.gameObject.y > mapHeight - utils.withGrid(6)) {
+          // Almost correct!
+          y = this.gameObject.y - 16 - (mapHeight - utils.withGrid(12));
+        }
       }
     }
     /** END Code to hug map to edges when player is on edge of map */
