@@ -11,7 +11,6 @@ window.Animals = {
   // Stone
   Rocky: {
     name: "Rocky",
-    animal: "cow",
     description: "Rocky the Stone Cow: Heavy and durable cow made of rock.",
     type: AnimalTypes.stone,
     src: "./assets/characters/animals/static/white_chicken.png",

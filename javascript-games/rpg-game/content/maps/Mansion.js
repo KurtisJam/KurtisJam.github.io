@@ -96,20 +96,16 @@ export const Mansion = {
           events: [
             {
               type: "textMessage",
-              text: "Oh by the way, I saw your dad get taken by a group of cultists.",
+              text: "All the best. I've told you all I can.",
               faceHero: "npc1",
             },
-            { type: "textMessage", text: "They were heading to the town I think." },
           ],
         },
         {
           events: [
             { type: "addStoryFlag", flag: "TALKED_TO_npc1_OUTSIDE" },
-            {
-              type: "textMessage",
-              text: "Hey! There is a patch of herbs down by the water south, but watch out for the wolves.",
-              faceHero: "npc1",
-            },
+            { type: "textMessage", text: "In order to get your father back you must defeat the leaders." },
+            { type: "textMessage", text: "They are strong, it is best if you train up as much as you can." },
           ],
         },
       ],

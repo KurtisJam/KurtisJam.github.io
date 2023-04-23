@@ -22,14 +22,14 @@ export const OutsideRight = {
       type: "Chest",
       x: utils.withGrid(9),
       y: utils.withGrid(30),
-      storyFlag: "CHEST1_OUTSIDERIGHT",
+      storyFlag: "CHEST1_OUTSIDERIGHTRIGHT",
       item: "item_hayBale",
     },
     chest2: {
       type: "Chest",
       x: utils.withGrid(26),
       y: utils.withGrid(4),
-      storyFlag: "CHEST2_OUTSIDERIGHT",
+      storyFlag: "CHEST2_OUTSIDERIGHTRIGHT",
       item: "item_hayBale",
     },
     cow1: {
@@ -58,24 +58,25 @@ export const OutsideRight = {
       ],
       talking: [
         {
-          required: ["TALKED_TO_npc1_OUTSIDE"],
+          required: ["TALKED_TO_npc1_OUTSIDERIGHT"],
           events: [
             {
               type: "textMessage",
-              text: "Oh by the way, I saw your dad get taken by a group of cultists.",
+              text: "Wow...",
               faceHero: "npc1",
             },
-            { type: "textMessage", text: "They were heading to the town I think." },
           ],
         },
         {
           events: [
-            { type: "addStoryFlag", flag: "TALKED_TO_npc1_OUTSIDE" },
+            { type: "addStoryFlag", flag: "TALKED_TO_npc1_OUTSIDERIGHT" },
             {
               type: "textMessage",
-              text: "Hey! There is a patch of herbs down by the water south, but watch out for the wolves.",
+              text: "Hey! You seem strong, lets battle.",
               faceHero: "npc1",
             },
+            { type: "battle", enemyId: "Bartender" },
+            { type: "addStoryFlag", flag: "DEFEATED_npc1_OUTSIDERIGHT" },
           ],
         },
       ],
@@ -112,22 +113,32 @@ export const OutsideRight = {
       ],
       talking: [
         {
-          required: ["TALKED_TO_npc2_OUTSIDE"],
+          required: ["DEFEATED_npc2_OUTSIDERIGHT"],
           events: [
             {
               type: "textMessage",
-              text: "Hey! We just spoke",
+              text: "No time to talk, I need to train!",
               faceHero: "npc2",
             },
           ],
         },
         {
           events: [
-            { type: "addStoryFlag", flag: "TALKED_TO_npc2_OUTSIDE" },
             {
               type: "textMessage",
-              text: "Hey! ",
+              text: "Hey! hey! hey! Guess what, my dad is part of this secret group!",
               faceHero: "npc2",
+            },
+            {
+              type: "textMessage",
+              text: "He gave me this animal to fight people with. Bring it on!",
+              faceHero: "npc2",
+            },
+            { type: "battle", enemyId: "Bartender" },
+            { type: "addStoryFlag", flag: "DEFEATED_npc2_OUTSIDERIGHT" },
+            {
+              type: "textMessage",
+              text: "Wow, you are so strong! I'm telling my dad I need another one!",
             },
           ],
         },
@@ -141,22 +152,38 @@ export const OutsideRight = {
       behaviorLoop: [{ type: "stand", direction: "down", time: 1000 }],
       talking: [
         {
-          required: ["TALKED_TO_npc3_OUTSIDE"],
+          required: ["TALKED_TO_npc3_OUTSIDERIGHT"],
           events: [
             {
               type: "textMessage",
-              text: "Hey. We just spoke.",
+              text: "I hope they let me join, I wonder how they are creating these new farm animals.",
               faceHero: "npc3",
+            },
+            {
+              type: "textMessage",
+              text: "The meeting is in the blue house just down the road abit.",
             },
           ],
         },
         {
           events: [
-            { type: "addStoryFlag", flag: "TALKED_TO_npc3_OUTSIDE" },
+            { type: "addStoryFlag", flag: "TALKED_TO_npc3_OUTSIDERIGHT" },
             {
               type: "textMessage",
-              text: "Hey! ",
+              text: "Are you part of this new group? The work they are doing seems groundbreaking.",
               faceHero: "npc3",
+            },
+            {
+              type: "textMessage",
+              text: "They say they can help feed the world's population and improve the quality of life for millions.",
+            },
+            {
+              type: "textMessage",
+              text: "I'm thinking of joining, they are having a meeting today in one of the leaders houses.",
+            },
+            {
+              type: "textMessage",
+              text: "It's the blue house just down the road abit.",
             },
           ],
         },
@@ -170,21 +197,21 @@ export const OutsideRight = {
       behaviorLoop: [{ type: "stand", direction: "down", time: 1000 }],
       talking: [
         {
-          required: ["TALKED_TO_npc4_OUTSIDE"],
+          required: ["TALKED_TO_npc4_OUTSIDERIGHT"],
           events: [
             {
               type: "textMessage",
-              text: "Hey. We just spoke.",
+              text: "They are so fluffy.",
               faceHero: "npc4",
             },
           ],
         },
         {
           events: [
-            { type: "addStoryFlag", flag: "TALKED_TO_npc4_OUTSIDE" },
+            { type: "addStoryFlag", flag: "TALKED_TO_npc4_OUTSIDERIGHT" },
             {
               type: "textMessage",
-              text: "Hey! ",
+              text: "I love cows.",
               faceHero: "npc4",
             },
           ],
@@ -199,22 +226,43 @@ export const OutsideRight = {
       behaviorLoop: [{ type: "stand", direction: "right", time: 1000 }],
       talking: [
         {
-          required: ["TALKED_TO_npc5_OUTSIDE"],
+          required: ["DEFEATED_npc5_OUTSIDERIGHT"],
           events: [
             {
               type: "textMessage",
-              text: "Hey. We just spoke.",
+              text: "We plan to use his work for the greater good!",
               faceHero: "npc5",
             },
           ],
         },
         {
           events: [
-            { type: "addStoryFlag", flag: "TALKED_TO_npc5_OUTSIDE" },
             {
               type: "textMessage",
-              text: "Hey! ",
+              text: "Hello...",
               faceHero: "npc5",
+            },
+            {
+              type: "textMessage",
+              text: "I'm looking for signatures to sign my petition. We are wanting to expand the town!",
+            },
+            {
+              type: "textMessage",
+              text: "pppssstt... There are some big advances coming, this secret group I'm in is doing some amazing stuff!",
+            },
+            {
+              type: "textMessage",
+              text: "Me: Do you know where my father is!",
+            },
+            {
+              type: "textMessage",
+              text: "Oh no it's you! Forget what I said!",
+            },
+            { type: "battle", enemyId: "Bartender" },
+            { type: "addStoryFlag", flag: "DEFEATED_npc5_OUTSIDERIGHT" },
+            {
+              type: "textMessage",
+              text: "I'm sorry about your father, we need his expertise in genetics.",
             },
           ],
         },
@@ -235,7 +283,7 @@ export const OutsideRight = {
       ],
       talking: [
         {
-          required: ["TALKED_TO_npc6_OUTSIDE"],
+          required: ["TALKED_TO_npc6_OUTSIDERIGHT"],
           events: [
             {
               type: "textMessage",
@@ -246,12 +294,13 @@ export const OutsideRight = {
         },
         {
           events: [
-            { type: "addStoryFlag", flag: "TALKED_TO_npc6_OUTSIDE" },
             {
               type: "textMessage",
-              text: "Hey! ",
+              text: "Let me show you my clucker.",
               faceHero: "npc6",
             },
+            { type: "battle", enemyId: "Bartender" },
+            { type: "addStoryFlag", flag: "DEFEATED_npc6_OUTSIDERIGHT" },
           ],
         },
       ],
@@ -264,7 +313,7 @@ export const OutsideRight = {
       behaviorLoop: [{ type: "stand", direction: "left", time: 1000 }],
       talking: [
         {
-          required: ["TALKED_TO_npc7_OUTSIDE"],
+          required: ["DEFEATED_npc7_OUTSIDERIGHT"],
           events: [
             {
               type: "textMessage",
@@ -275,12 +324,13 @@ export const OutsideRight = {
         },
         {
           events: [
-            { type: "addStoryFlag", flag: "TALKED_TO_npc7_OUTSIDE" },
             {
               type: "textMessage",
-              text: "Hey! ",
+              text: "Let me show you my piggy.",
               faceHero: "npc7",
             },
+            { type: "battle", enemyId: "Bartender" },
+            { type: "addStoryFlag", flag: "DEFEATED_npc7_OUTSIDERIGHT" },
           ],
         },
       ],
@@ -293,22 +343,62 @@ export const OutsideRight = {
       behaviorLoop: [{ type: "stand", direction: "left", time: 1000 }],
       talking: [
         {
-          required: ["TALKED_TO_npc8_OUTSIDE"],
+          required: ["TALKED_TO_npc8_OUTSIDERIGHT_2"],
           events: [
             {
               type: "textMessage",
-              text: "Hey. We just spoke.",
+              text: "Can you find my Mum (crying...)",
+              faceHero: "npc8",
+            },
+          ],
+        },
+        {
+          required: ["TALKED_TO_npc8_OUTSIDERIGHT"],
+          events: [
+            { type: "addStoryFlag", flag: "TALKED_TO_npc8_OUTSIDERIGHT_2" },
+            {
+              type: "textMessage",
+              text: "Ouch!! A crab bit me.",
               faceHero: "npc8",
             },
           ],
         },
         {
           events: [
-            { type: "addStoryFlag", flag: "TALKED_TO_npc8_OUTSIDE" },
+            { type: "addStoryFlag", flag: "TALKED_TO_npc8_OUTSIDERIGHT" },
             {
               type: "textMessage",
-              text: "Hey! ",
+              text: "I love playing in the sand.",
               faceHero: "npc8",
+            },
+          ],
+        },
+      ],
+    },
+    npc9: {
+      type: "Person",
+      x: utils.withGrid(14),
+      y: utils.withGrid(7),
+      src: "./assets/characters/people/merchant1.png",
+      behaviorLoop: [],
+      talking: [
+        {
+          required: ["TALKED_TO_npc9_OUTSIDERIGHT"],
+          events: [
+            {
+              type: "textMessage",
+              text: "Hey. We just spoke.",
+              faceHero: "npc9",
+            },
+          ],
+        },
+        {
+          events: [
+            { type: "addStoryFlag", flag: "TALKED_TO_npc9_OUTSIDERIGHT" },
+            {
+              type: "textMessage",
+              text: "Hey! This should be an exciting tournament. Can't wait to give out the prize.",
+              faceHero: "npc9",
             },
           ],
         },
@@ -551,6 +641,33 @@ export const OutsideRight = {
   },
   cutsceneSpaces: {
     /* OutsideRight - NPC interactions */
+    [utils.asGridCoord(13, 7)]: [
+      {
+        events: [
+          { who: "hero", type: "stand", direction: "right", time: 200 },
+          { type: "textMessage", text: "Welcome to the tournment of Hay!", faceHero: "npc9" },
+          {
+            type: "textMessage",
+            text: "This is the annual event, a special prize has been announced this year by an anonymous group.",
+          },
+          { type: "textMessage", text: "Let me see if you are part of the event. What is your name?" },
+          { type: "textMessage", text: "Me: Sam." },
+          { type: "textMessage", text: "Let me see here..." },
+          { who: "npc9", type: "stand", direction: "down", time: 1000 },
+          {
+            type: "textMessage",
+            text: "Hmmm... I don't see you on the list here",
+            faceHero: "npc9",
+          },
+          {
+            type: "textMessage",
+            text: "You will have to talk with the townsfolk around town. Someone should be able to invite you if you are strong enough.",
+          },
+          { who: "hero", type: "walk", direction: "down" },
+          { who: "npc9", type: "stand", direction: "down", time: 200 },
+        ],
+      },
+    ],
     /* OutsideRight - NPC interactions end */
 
     /* OutsideRight - Room map changing */

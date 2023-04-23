@@ -51,6 +51,39 @@ export const Home = {
         },
       ],
     },
+    chicken1: {
+      type: "Chicken",
+      x: utils.withGrid(7),
+      y: utils.withGrid(4),
+      color: "white",
+      behaviorLoop: [{ type: "stand", direction: "right", time: 4000 }],
+      talking: [
+        {
+          events: [
+            {
+              type: "textMessage",
+              text: "Moooo!",
+            },
+          ],
+        },
+      ],
+    },
+    cow1: {
+      type: "Cow",
+      x: utils.withGrid(2),
+      y: utils.withGrid(2),
+      behaviorLoop: [{ type: "stand", direction: "right", time: 3000 }],
+      talking: [
+        {
+          events: [
+            {
+              type: "textMessage",
+              text: "Moooo!",
+            },
+          ],
+        },
+      ],
+    },
   },
   walls: {
     [utils.asGridCoord(1, 1)]: true,

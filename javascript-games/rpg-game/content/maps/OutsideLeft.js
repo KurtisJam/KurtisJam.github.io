@@ -114,6 +114,32 @@ export const OutsideLeft = {
         },
       ],
     },
+    chicken1: {
+      type: "Chicken",
+      x: utils.withGrid(40),
+      y: utils.withGrid(14),
+      color: "black",
+      behaviorLoop: [
+        { type: "walk", direction: "right" },
+        { type: "walk", direction: "right" },
+        { type: "stand", direction: "right", time: 4000 },
+        { type: "stand", direction: "left", time: 3000 },
+        { type: "walk", direction: "left" },
+        { type: "walk", direction: "left" },
+        { type: "stand", direction: "left", time: 3000 },
+        { type: "stand", direction: "right", time: 4000 },
+      ],
+      talking: [
+        {
+          events: [
+            {
+              type: "textMessage",
+              text: "Moooo!",
+            },
+          ],
+        },
+      ],
+    },
     npc1: {
       type: "Person",
       x: utils.withGrid(20),

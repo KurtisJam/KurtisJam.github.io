@@ -4,6 +4,7 @@ import { Fire } from "./GameObjects/Fire.js";
 import { Cow } from "./GameObjects/Cow.js";
 import { utils } from "./utils.js";
 import { Chest } from "./GameObjects/Chest.js";
+import { Chicken } from "./GameObjects/Chicken.js";
 
 export class GameMap {
   constructor(config, sceneTransition) {
@@ -140,7 +141,13 @@ export class GameMap {
       if (configObj.type === "Cow") {
         instance = new Cow({
           ...configObj,
-          src: "./assets/characters/cow.png",
+          src: "./assets/characters/animals/cow.png",
+        });
+      }
+      if (configObj.type === "Chicken") {
+        instance = new Chicken({
+          ...configObj,
+          src: `./assets/characters/animals/chicken_${configObj.color || "white"}.png`,
         });
       }
       this.gameObjects[key] = instance;
