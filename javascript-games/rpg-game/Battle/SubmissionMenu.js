@@ -41,7 +41,7 @@ export class SubmissionMenu {
           label: "Attack",
           description: "Choose an attack",
           handler: () => {
-            //Do something when chosen...
+            // Do something when chosen...
             this.keyboardMenu.setOptions(this.getPages().attacks);
           },
         },
@@ -49,16 +49,23 @@ export class SubmissionMenu {
           label: "Items",
           description: "Choose an item",
           handler: () => {
-            //Go to items page...
+            // Go to items page...
             this.keyboardMenu.setOptions(this.getPages().items);
           },
         },
         {
           label: "Swap",
-          description: "Change to another pizza",
+          description: "Change to another Farm Animal",
           handler: () => {
-            //See pizza options
+            // See animal options
             this.keyboardMenu.setOptions(this.getPages().replacements);
+          },
+        },
+        {
+          label: "Flee",
+          description: "Flee the battle",
+          handler: () => {
+            this.menuSubmit({ flee: true });
           },
         },
       ],

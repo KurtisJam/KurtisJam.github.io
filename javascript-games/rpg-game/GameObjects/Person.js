@@ -76,7 +76,7 @@ export class Person extends DynamicObjects {
       return;
     }
 
-    this.direction = behaviour.direction;
+    this.direction = behaviour.direction || this.direction;
 
     if (behaviour.type === "walk") {
       if (state.map.isSpaceTaken(this.x, this.y, this.direction)) {

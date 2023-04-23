@@ -19,12 +19,12 @@ export class Battle {
 
     // Dynamically adding player team
     window.playerState.lineup.forEach((id) => {
-      this.addCombatant(id, "player", window.playerState.pizzas[id]);
+      this.addCombatant(id, "player", window.playerState.animals[id]);
     });
 
     // Dynamically adding enemy team
-    Object.keys(this.enemy.pizzas).forEach((key) => {
-      this.addCombatant("e_" + key, "enemy", this.enemy.pizzas[key]);
+    Object.keys(this.enemy.animals).forEach((key) => {
+      this.addCombatant("e_" + key, "enemy", this.enemy.animals[key]);
     });
 
     this.items = [];
@@ -42,7 +42,7 @@ export class Battle {
   addCombatant(id, team, config) {
     this.combatants[id] = new Combatant(
       {
-        ...window.Pizzas[config.pizzaId],
+        ...window.Animals[config.animalId],
         ...config,
         team,
         isPlayerControlled: team === "player",
@@ -50,7 +50,7 @@ export class Battle {
       this
     );
 
-    // Populate first active pizza
+    // Populate first active Animal
     this.activeCombatants[team] = this.activeCombatants[team] || id;
   }
 
@@ -106,14 +106,14 @@ export class Battle {
       onWinner: (winner) => {
         if (winner === "player") {
           const playerState = window.playerState;
-          Object.keys(playerState.pizzas).forEach((id) => {
-            const playerStatePizza = playerState.pizzas[id];
+          Object.keys(playerState.animals).forEach((id) => {
+            const playerStateAnimal = playerState.animals[id];
             const combatant = this.combatants[id];
             if (combatant) {
-              playerStatePizza.hp = combatant.hp;
-              playerStatePizza.xp = combatant.xp;
-              playerStatePizza.maxHp = combatant.maxHp;
-              playerStatePizza.level = combatant.level;
+              playerStateAnimal.hp = combatant.hp;
+              playerStateAnimal.xp = combatant.xp;
+              playerStateAnimal.maxHp = combatant.maxHp;
+              playerStateAnimal.level = combatant.level;
             }
           });
 
@@ -125,6 +125,10 @@ export class Battle {
         }
         this.element.remove();
         this.onComplete(winner === "player");
+      },
+      onFlee: () => {
+        this.element.remove();
+        this.onComplete(false);
       },
     });
 

@@ -1,8 +1,9 @@
 export class TurnCycle {
-  constructor({ battle, onNewEvent, onWinner }) {
+  constructor({ battle, onNewEvent, onWinner, onFlee }) {
     this.battle = battle;
     this.onNewEvent = onNewEvent;
     this.onWinner = onWinner;
+    this.onFlee = onFlee;
     this.currentTeam = "player"; // or enemy
   }
 
@@ -17,6 +18,11 @@ export class TurnCycle {
       caster,
       enemy,
     });
+
+    if (submission.action?.flee) {
+      this.onFlee();
+      return;
+    }
 
     // Stop here if we are wanting to swap
     if (submission.replacement) {
@@ -60,7 +66,7 @@ export class TurnCycle {
       });
 
       if (submission.target.team === "enemy") {
-        const playerActivePizzaId = this.battle.activeCombatants.player;
+        const playerActiveAnimalId = this.battle.activeCombatants.player;
         const xp = submission.target.givesXp;
         await this.onNewEvent({
           type: "textMessage",
@@ -69,7 +75,7 @@ export class TurnCycle {
         await this.onNewEvent({
           type: "giveXp",
           xp,
-          combatant: this.battle.combatants[playerActivePizzaId],
+          combatant: this.battle.combatants[playerActiveAnimalId],
         });
       }
     }

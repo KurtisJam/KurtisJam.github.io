@@ -1,10 +1,10 @@
 export class Progress {
   constructor() {
-    this.mapId = "Outside";
+    this.mapId = "Mansion";
     this.startingHeroX = 0;
     this.startingHeroY = 0;
     this.startingHeroDirection = "down";
-    this.saveFileKey = "PizzaLegends_SaveFile1";
+    this.saveFileKey = "rpgGame_SaveFile1";
   }
 
   save() {
@@ -16,7 +16,7 @@ export class Progress {
         startingHeroY: this.startingHeroY,
         startingHeroDirection: this.startingHeroDirection,
         playerState: {
-          pizzas: window.playerState.pizzas,
+          animals: window.playerState.animals,
           lineup: window.playerState.lineup,
           items: window.playerState.items,
           storyFlags: window.playerState.storyFlags,
@@ -42,7 +42,7 @@ export class Progress {
       this.startingHeroX = file.startingHeroX;
       this.startingHeroY = file.startingHeroY;
       this.startingHeroDirection = file.startingHeroDirection;
-      window.playerState.pizzas = file.playerState.pizzas;
+      window.playerState.animals = file.playerState.animals;
       window.playerState.lineup = file.playerState.lineup;
       window.playerState.items = file.playerState.items;
       window.playerState.storyFlags = file.playerState.storyFlags;

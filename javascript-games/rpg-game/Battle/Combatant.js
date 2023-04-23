@@ -51,11 +51,11 @@ export class Combatant {
       <p class="Combatant_status"></p>
     `;
 
-    this.pizzaElement = document.createElement("img");
-    this.pizzaElement.classList.add("Pizza");
-    this.pizzaElement.setAttribute("src", this.src);
-    this.pizzaElement.setAttribute("alt", this.name);
-    this.pizzaElement.setAttribute("data-team", this.team);
+    this.animalElement = document.createElement("img");
+    this.animalElement.classList.add("Animal");
+    this.animalElement.setAttribute("src", this.src);
+    this.animalElement.setAttribute("alt", this.name);
+    this.animalElement.setAttribute("data-team", this.team);
 
     this.hpFills = this.hudElement.querySelectorAll(".Combatant_life-container > rect");
     this.xpFills = this.hudElement.querySelectorAll(".Combatant_xp-container > rect");
@@ -67,7 +67,7 @@ export class Combatant {
     });
 
     this.hudElement.setAttribute("data-active", this.isActive);
-    this.pizzaElement.setAttribute("data-active", this.isActive);
+    this.animalElement.setAttribute("data-active", this.isActive);
 
     this.hpFills.forEach((fill) => (fill.style.width = `${this.hpPercent}%`));
     this.xpFills.forEach((fill) => (fill.style.width = `${this.xpPercent}%`));
@@ -119,7 +119,7 @@ export class Combatant {
   init(container) {
     this.createElement();
     container.appendChild(this.hudElement);
-    container.appendChild(this.pizzaElement);
+    container.appendChild(this.animalElement);
     this.update();
   }
 }

@@ -2,9 +2,9 @@ import { utils } from "../utils.js";
 
 export class PlayerState {
   constructor() {
-    this.pizzas = {
+    this.animals = {
       p1: {
-        pizzaId: "s001",
+        animalId: "Rocky",
         hp: 50,
         maxHp: 50,
         xp: 0,
@@ -14,17 +14,22 @@ export class PlayerState {
       },
     };
     this.lineup = ["p1"];
-    this.items = [
-      { actionId: "item_recoverStatus", instanceId: "item1" },
-      { actionId: "item_recoverStatus", instanceId: "item2" },
-    ];
+    this.items = [];
     this.storyFlags = {};
   }
 
-  addPizza(pizzaId) {
+  addItem(itemId) {
+    const newInstanceId = `i_${Date.now()}`;
+    this.items.push({
+      actionId: itemId,
+      instanceId: newInstanceId,
+    });
+  }
+
+  addAnimal(animalId) {
     const newId = `p_${Date.now()}`; // Math.floor(Math.random() * 9999)
-    this.pizzas[newId] = {
-      pizzaId,
+    this.animals[newId] = {
+      animalId,
       hp: 50,
       maxHp: 50,
       xp: 0,

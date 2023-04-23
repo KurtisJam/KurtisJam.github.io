@@ -10,9 +10,9 @@ export class PauseMenu {
 
   getOptions(pageKey) {
     if (pageKey === "root") {
-      const lineupPizzas = window.playerState.lineup.map((id) => {
-        const { pizzaId } = playerState.pizzas[id];
-        const base = window.Pizzas[pizzaId];
+      const lineupAnimals = window.playerState.lineup.map((id) => {
+        const { animalId } = playerState.animals[id];
+        const base = window.Animals[animalId];
         return {
           label: base.name,
           description: base.description,
@@ -23,7 +23,7 @@ export class PauseMenu {
       });
 
       return [
-        ...lineupPizzas,
+        ...lineupAnimals,
         {
           label: "Save",
           description: "Save your progress",
@@ -42,14 +42,14 @@ export class PauseMenu {
       ];
     }
 
-    // Options for a single pizza
-    const unequipped = Object.keys(window.playerState.pizzas)
+    // Options for a single farm animal
+    const unequipped = Object.keys(window.playerState.animals)
       .filter((id) => {
         return window.playerState.lineup.indexOf(id) === -1;
       })
       .map((id) => {
-        const { pizzaId } = playerState.pizzas[id];
-        const base = window.Pizzas[pizzaId];
+        const { animalId } = playerState.animals[id];
+        const base = window.Animals[animalId];
         return {
           label: `Swap for ${base.name}`,
           description: base.description,
@@ -64,7 +64,7 @@ export class PauseMenu {
       ...unequipped,
       {
         label: "Move to front",
-        description: "Move pizza to front",
+        description: "Move farm animal to front",
         handler: () => {
           window.playerState.moveToFront(pageKey);
           this.keyboardMenu.setOptions(this.getOptions("root"));

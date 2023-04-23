@@ -34,14 +34,14 @@
   left: 3px;
   width: 22px;
   height: 12px;
-  overflow: hidden;
 }
 
 .Combatant_character {
   display: block;
   position: absolute;
-  left: -11px;
-  bottom: -7px;
+  width: 16px;
+  height: 16px;
+  bottom: 0;
 }
 
 .Battle .Combatant_character_crop {
@@ -124,28 +124,28 @@
   background: #582a79;
 }
 
-.Pizza {
+.Animal {
   position: absolute;
   transform: scale(2);
   transition: opacity 0.4s, transform 0.4s;
 }
 
-.Pizza[data-team="player"] {
+.Animal[data-team="player"] {
   bottom: 73px;
   left: 51px;
 }
 
-.Pizza[data-team="enemy"] {
+.Animal[data-team="enemy"] {
   top: 47px;
   right: 100px;
 }
 
-.Pizza[data-active="false"] {
+.Animal[data-active="false"] {
   opacity: 0;
   transform: translate3d(0, 16px, 0) scale(2);
 }
 
-.Pizza[data-active="true"] {
+.Animal[data-active="true"] {
   opacity: 1;
   transform: translate3d(0, 0, 0) scale(2);
 }

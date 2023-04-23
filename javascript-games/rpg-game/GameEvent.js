@@ -112,12 +112,17 @@ export class GameEvent {
 
   craftingMenu(resolve) {
     const menu = new CraftingMenu({
-      pizzas: this.event.pizzas,
+      animals: this.event.animals,
       onComplete: () => {
         resolve();
       },
     });
     menu.init(document.querySelector(".game-container"));
+  }
+
+  addItem(resolve) {
+    window.playerState.addItem(this.event.itemId);
+    resolve();
   }
 
   pause(resolve) {

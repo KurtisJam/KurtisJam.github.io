@@ -7,7 +7,7 @@ export class Hud {
 
   update() {
     this.scoreboards.forEach((scoreBoard) => {
-      scoreBoard.update(window.playerState.pizzas[scoreBoard.id]);
+      scoreBoard.update(window.playerState.animals[scoreBoard.id]);
     });
   }
 
@@ -22,12 +22,12 @@ export class Hud {
 
     const { playerState } = window;
     playerState.lineup.forEach((key) => {
-      const pizza = playerState.pizzas[key];
+      const animal = playerState.animals[key];
       const scoreBoard = new Combatant(
         {
           id: key,
-          ...window.Pizzas[pizza.pizzaId],
-          ...pizza,
+          ...window.Animals[animal.animalId],
+          ...animal,
         },
         null
       );

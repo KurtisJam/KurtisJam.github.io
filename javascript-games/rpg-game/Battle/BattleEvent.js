@@ -38,7 +38,7 @@ export class BattleEvent {
       target.update({
         hp: target.hp - damage,
       });
-      target.pizzaElement.classList.add("battle-damage-blink");
+      target.animalElement.classList.add("battle-damage-blink");
     }
 
     if (recover) {
@@ -63,7 +63,7 @@ export class BattleEvent {
     this.battle.playerTeam.update();
     this.battle.enemyTeam.update();
 
-    target.pizzaElement.classList.remove("battle-damage-blink");
+    target.animalElement.classList.remove("battle-damage-blink");
     resolve();
   }
 

@@ -1,6 +1,5 @@
 import { GameEvent } from "./GameEvent.js";
 import { Person } from "./GameObjects/Person.js";
-import { PizzaStone } from "./GameObjects/PizzaStone.js";
 import { Fire } from "./GameObjects/Fire.js";
 import { Cow } from "./GameObjects/Cow.js";
 import { utils } from "./utils.js";
@@ -143,9 +142,6 @@ export class GameMap {
           ...configObj,
           src: "./assets/characters/cow.png",
         });
-      }
-      if (configObj.type === "PizzaStone") {
-        instance = new PizzaStone(configObj);
       }
       this.gameObjects[key] = instance;
       this.gameObjects[key].id = key;

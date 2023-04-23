@@ -4,7 +4,7 @@
   top: 0;
   right: 0;
   bottom: 0;
-  background-image: url(./../assets/maps/StreetBattle.png);
+  background-image: url(./../assets/maps/Outside_battle.png);
   background-size: cover;
   image-rendering: pixelated;
 }
@@ -15,8 +15,8 @@
   transform: scale(2);
 
   /* Only show one of the sprites in the character sprite sheet */
-  width: 32px;
-  height: 32px;
+  width: 16px;
+  height: 24px;
   overflow: hidden;
 }
 
@@ -27,16 +27,16 @@
 
 .Battle_hero {
   bottom: 57px;
-  left: 1px;
+  left: 8px;
 }
 
 .Battle_hero img {
-  transform: translateY(-64px); /* Nudge hero spritesheet so the up direction */
+  transform: translateY(-74px); /* Nudge hero spritesheet so the up direction */
 }
 
 .Battle_enemy {
   top: 42px;
-  right: -1px;
+  right: 10px;
 }
 
 @keyframes battle-damage-blink {

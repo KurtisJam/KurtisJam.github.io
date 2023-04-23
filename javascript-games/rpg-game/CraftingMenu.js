@@ -1,8 +1,8 @@
 import { KeyboardMenu } from "./KeyboardMenu.js";
 
 export class CraftingMenu {
-  constructor({ pizzas, onComplete }) {
-    this.pizzas = pizzas;
+  constructor({ animals, onComplete }) {
+    this.animals = animals;
     this.onComplete = onComplete;
   }
 
@@ -12,17 +12,17 @@ export class CraftingMenu {
     this.element.classList.add("overlayMenu");
 
     this.element.innerHTML = `
-    <h2>Create a Pizza</h2>`;
+    <h2>Select an Animal</h2>`;
   }
 
   getOptions() {
-    return this.pizzas.map((id) => {
-      const base = window.Pizzas[id];
+    return this.animals.map((id) => {
+      const base = window.Animals[id];
       return {
         label: base.name,
         description: base.description,
         handler: () => {
-          window.playerState.addPizza(id);
+          window.playerState.addAnimal(id);
           this.close();
         },
       };

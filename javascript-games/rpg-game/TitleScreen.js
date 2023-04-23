@@ -38,7 +38,7 @@ export class TitleScreen {
     this.element = document.createElement("div");
     this.element.classList.add("TitleScreen");
     this.element.innerHTML = `
-        <img class="TitleScreen_logo" src="./assets/logo.png" alt="Pizza Legends" />`;
+        <img class="TitleScreen_logo" src="./assets/logo.png" alt="Rpg Game" />`;
   }
 
   async init(container) {

@@ -12,18 +12,18 @@
   right: 4px;
 }
 
-.Team .dead-pizza {
+.Team .dead-animal {
   display: none;
 }
 
-.Team .active-pizza-indicator {
+.Team .active-animal-indicator {
   display: none;
 }
 
-.Team [data-dead="true"] .dead-pizza {
+.Team [data-dead="true"] .dead-animal {
   display: block;
 }
 
-.Team [data-active="true"] .active-pizza-indicator {
+.Team [data-active="true"] .active-animal-indicator {
   display: block;
 }
