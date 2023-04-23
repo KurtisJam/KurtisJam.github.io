@@ -20,11 +20,11 @@
 
 .Combatant[data-team="player"] {
   left: 46px;
-  top: 70px;
+  top: 60px;
 }
 
 .Combatant[data-team="enemy"] {
-  top: 28px;
+  top: 20px;
   right: 77px;
 }
 
@@ -50,14 +50,15 @@
 
 .Combatant_name {
   position: absolute;
-  left: -2px;
-  top: -8px;
+  top: -5px;
+  left: 2px;
   white-space: nowrap;
   background: var(--menu-font-color);
   color: #fff;
-  font-size: 5px; /*This is only so small because the component is scaled 2x in battle which is weird */
+  font-size: 3px; /*This is only so small because the component is scaled 2x in battle which is weird */
   padding-left: 2px;
   padding-right: 2px;
+  padding-bottom: 1px;
   margin: 0;
 }
 
@@ -91,7 +92,7 @@
 
 .Combatant_level {
   position: absolute;
-  font-size: 12px;
+  font-size: 10px;
   right: 2px;
   top: -1px;
   width: 17px;
@@ -106,9 +107,9 @@
 
 .Combatant_status {
   position: absolute;
-  font-size: 5px;
-  left: 47px;
-  bottom: -3px;
+  font-size: 3px;
+  left: 49px;
+  bottom: -1px;
   padding-left: 2px;
   padding-right: 2px;
   background: rgba(0, 0, 0, 0.8);
@@ -126,26 +127,33 @@
 
 .Animal {
   position: absolute;
-  transform: scale(2);
+  transform: scale(1.5);
   transition: opacity 0.4s, transform 0.4s;
 }
 
 .Animal[data-team="player"] {
-  bottom: 73px;
+  bottom: 70px;
   left: 51px;
+  transform: scaleX(-1);
 }
 
 .Animal[data-team="enemy"] {
-  top: 47px;
+  top: 55px;
   right: 100px;
 }
 
 .Animal[data-active="false"] {
   opacity: 0;
-  transform: translate3d(0, 16px, 0) scale(2);
+  transform: translate3d(0, 16px, 0) scale(1.5);
 }
 
 .Animal[data-active="true"] {
   opacity: 1;
-  transform: translate3d(0, 0, 0) scale(2);
+  transform: translate3d(0, 0, 0) scale(1.5);
+}
+
+.Animal[data-team="player"] {
+  bottom: 70px;
+  left: 51px;
+  transform: scaleX(-1);
 }

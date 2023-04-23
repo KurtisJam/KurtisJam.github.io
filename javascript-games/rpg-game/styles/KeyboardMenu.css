@@ -12,12 +12,12 @@
   -webkit-appearance: none;
   border: 0;
   background: none;
-  height: 20px;
+  height: 15px;
   cursor: pointer;
   font-family: inherit;
   padding: 0;
   padding-left: 1em;
-  font-size: 10px;
+  font-size: 8px;
 }
 
 .KeyboardMenu button:focus {
@@ -34,7 +34,7 @@
   right: 0;
   top: 0;
   bottom: 0;
-  font-size: 10px;
+  font-size: 8px;
   display: flex;
   align-items: center;
   padding-right: 3px;
@@ -52,12 +52,12 @@
 }
 
 .DescriptionBox p {
-  font-size: 10px;
+  font-size: 6px;
   margin: 0;
 }
 
 .Battle .KeyboardMenu {
-  right: 0;
-  bottom: 0;
+  right: -1px;
+  bottom: 12px;
   width: 140px;
 }
