@@ -20,7 +20,22 @@ export const MediumHouse = {
       behaviorLoop: [{ type: "stand", direction: "up", time: 1000 }],
       talking: [
         {
+          required: ["TALKED_TO_npc1_MEDIUMHOUSE"],
           events: [
+            {
+              type: "textMessage",
+              text: "Please don't tell anyone about this...",
+              faceHero: "npc1",
+            },
+            {
+              type: "textMessage",
+              text: "Look, I will let you know. The green house is having a secret meeting..",
+            },
+          ],
+        },
+        {
+          events: [
+            { type: "addStoryFlag", flag: "TALKED_TO_npc1_MEDIUMHOUSE" },
             {
               type: "textMessage",
               text: "Ohh! You startled me, nothing to see here, just admiring this plant.",

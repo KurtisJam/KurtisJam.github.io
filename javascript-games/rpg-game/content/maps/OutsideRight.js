@@ -90,7 +90,7 @@ export const OutsideRight = {
               text: "Hey! You seem strong, lets battle.",
               faceHero: "npc1",
             },
-            { type: "battle", enemyId: "Bartender" },
+            { type: "battle", enemyId: "Becky" },
             { type: "addStoryFlag", flag: "DEFEATED_npc1_OUTSIDERIGHT" },
           ],
         },
@@ -302,7 +302,7 @@ export const OutsideRight = {
           events: [
             {
               type: "textMessage",
-              text: "Hey. We just spoke.",
+              text: "That group is having a meeting in the blue house up the road.",
               faceHero: "npc6",
             },
           ],
@@ -311,7 +311,12 @@ export const OutsideRight = {
           events: [
             {
               type: "textMessage",
-              text: "Let me show you my clucker.",
+              text: "That group is having a meeting in the blue house up the road.",
+              faceHero: "npc6",
+            },
+            {
+              type: "textMessage",
+              text: "But wait, let me show you my clucker.",
               faceHero: "npc6",
             },
             { type: "battle", enemyId: "Bartender" },

@@ -26,6 +26,22 @@ export const BigHouse = {
               text: "I can't believe this!",
               faceHero: "npc1",
             },
+            {
+              type: "textMessage",
+              text: "The group has taken a man hostage and forced him to engineer super farm animals.",
+            },
+            {
+              type: "textMessage",
+              text: "Don't they realize the implications!",
+            },
+            {
+              type: "textMessage",
+              text: "You must do something please, they are having a meeting in the green house further up the road.",
+            },
+            {
+              type: "textMessage",
+              text: "Uncover what you can you must!",
+            },
           ],
         },
       ],
@@ -77,7 +93,7 @@ export const BigHouse = {
           events: [
             {
               type: "textMessage",
-              text: "I hurt my tummy",
+              text: "My tummy hurtssssssss DAD",
               faceHero: "npc4",
             },
           ],
@@ -92,12 +108,23 @@ export const BigHouse = {
       behaviorLoop: [{ type: "stand", direction: "right", time: 1000 }],
       talking: [
         {
+          required: ["TALKED_TO_npc5_BIGHOUSE"],
+          events: [{ type: "textMessage", text: "I bet it was that group." }],
+        },
+        {
           events: [
+            { type: "addStoryFlag", flag: "TALKED_TO_npc5_BIGHOUSE" },
             {
               type: "textMessage",
-              text: "Waiting...",
+              text: "My kid is sick again...",
               faceHero: "npc5",
             },
+            {
+              type: "textMessage",
+              text: "Somethink strange is in the air, causing people to get sick. My crops are dieing too.",
+              faceHero: "npc5",
+            },
+            { type: "textMessage", text: "I bet it was that group." },
           ],
         },
       ],
@@ -113,7 +140,7 @@ export const BigHouse = {
           events: [
             {
               type: "textMessage",
-              text: "Waiting...",
+              text: "I'm hungry",
               faceHero: "npc6",
             },
           ],
@@ -131,8 +158,45 @@ export const BigHouse = {
           events: [
             {
               type: "textMessage",
-              text: "Waiting...",
+              text: "If you ask me, someone better stop this group. They are having big fight in the Arena soon.",
               faceHero: "npc7",
+            },
+            {
+              type: "textMessage",
+              text: "Hopefully someone whoops there asses.",
+            },
+          ],
+        },
+      ],
+    },
+    npc8: {
+      type: "Person",
+      x: utils.withGrid(17),
+      y: utils.withGrid(4),
+      src: "./assets/characters/people/blacksmith.png",
+      behaviorLoop: [{ type: "stand", direction: "left", time: 1000 }],
+      talking: [
+        {
+          required: ["TALKED_TO_npc8_BIGHOUSE"],
+          events: [
+            {
+              type: "textMessage",
+              text: "Wow, you are strong",
+              faceHero: "npc8",
+            },
+          ],
+        },
+        {
+          events: [
+            { type: "addStoryFlag", flag: "TALKED_TO_npc8_BIGHOUSE" },
+            {
+              type: "textMessage",
+              text: "May as well train while we wait...",
+              faceHero: "npc8",
+            },
+            {
+              type: "battle",
+              enemyId: "Frank",
             },
           ],
         },

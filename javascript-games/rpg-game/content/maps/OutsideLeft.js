@@ -165,12 +165,12 @@ export const OutsideLeft = {
           events: [
             {
               type: "textMessage",
-              text: "If you need any help, just let us know. We're all behind you.",
+              text: "Sandra: If you need any help, just let us know. We're all behind you.",
               faceHero: "npc1",
             },
             {
               type: "textMessage",
-              text: "Be careful, that secret society is strong. You will want to train your farm animals up.",
+              text: "Sandra: Be careful, that secret society is strong. You will want to train your farm animals up.",
             },
           ],
         },
@@ -179,16 +179,16 @@ export const OutsideLeft = {
             { type: "addStoryFlag", flag: "TALKED_TO_npc1_OUTSIDELEFT" },
             {
               type: "textMessage",
-              text: "Hey Sam, I heard about your father.",
+              text: "Sandra: Hey Sam, I heard about your father.",
               faceHero: "npc1",
             },
             {
               type: "textMessage",
-              text: "Some folks say those people who took your father are part of a secret society.",
+              text: "Sandra: Some folks say those people who took your father are part of a secret society.",
             },
             {
               type: "textMessage",
-              text: "They say they have some kind of grand plan. Ask around, someone must know his whereabouts",
+              text: "Sandra: They say they have some kind of grand plan. Ask around, someone must know his whereabouts",
             },
           ],
         },
@@ -372,7 +372,7 @@ export const OutsideLeft = {
           events: [
             {
               type: "textMessage",
-              text: "Come back with the password. Only members may come past this point.",
+              text: "Unknown: Come back with the password. Only members may come past this point.",
               faceHero: "npc75",
             },
           ],
@@ -382,7 +382,7 @@ export const OutsideLeft = {
             { type: "addStoryFlag", flag: "TALKED_TO_npc5_OUTSIDELEFT" },
             {
               type: "textMessage",
-              text: "Only members may come past this point.",
+              text: "Unknown: Only members may come past this point.",
               faceHero: "npc5",
             },
           ],
@@ -675,14 +675,14 @@ export const OutsideLeft = {
           { who: "npc5", type: "walk", direction: "up" },
           { who: "npc5", type: "walk", direction: "left" },
           { who: "npc5", type: "stand", direction: "down", time: 500 },
-          { type: "textMessage", text: "What is the password?" },
+          { type: "textMessage", text: "Unknown: What is the password?" },
           { type: "textMessage", text: "Me: huh, what password?" },
-          { type: "textMessage", text: "I'm sorry you cannot enter here, this is a private area." },
+          { type: "textMessage", text: "Unknown: I'm sorry you cannot enter here, this is a private area." },
           { who: "hero", type: "walk", direction: "down" },
           { who: "hero", type: "walk", direction: "down" },
           { who: "npc5", type: "walk", direction: "down" },
           { who: "npc5", type: "walk", direction: "down" },
-          { type: "textMessage", text: "Come back with the password and you can enter." },
+          { type: "textMessage", text: "Unknown: Come back with the password and you can enter." },
           { who: "npc5", type: "walk", direction: "right" },
           { who: "npc5", type: "stand", direction: "down", time: 50 },
           { who: "hero", type: "walk", direction: "down" },

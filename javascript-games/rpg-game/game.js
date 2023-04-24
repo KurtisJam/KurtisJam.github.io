@@ -116,12 +116,11 @@ export class Game {
     // Create progress tracker for load and save
     this.progress = new Progress();
 
-    /*
     // Show the title screen
     this.titleScreen = new TitleScreen({
       progress: this.progress,
     });
-    await this.titleScreen.init(container);*/
+    await this.titleScreen.init(container);
 
     const useSaveFile = false;
     // Potentially load saved data
