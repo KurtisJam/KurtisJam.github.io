@@ -54,7 +54,7 @@ export const OutsideBottom = {
       type: "Person",
       x: utils.withGrid(6),
       y: utils.withGrid(1),
-      src: "./assets/characters/people/mum.png",
+      src: "./assets/characters/people/barmaid2.png",
     },
     npc5: {
       type: "Person",
@@ -169,6 +169,9 @@ export const OutsideBottom = {
     },
   },
   walls: {
+    [utils.asGridCoord(9, 10)]: true,
+    [utils.asGridCoord(10, 10)]: true,
+    [utils.asGridCoord(11, 10)]: true,
     [utils.asGridCoord(3, 0)]: true,
     [utils.asGridCoord(4, 0)]: true,
     [utils.asGridCoord(5, 0)]: true,
@@ -304,8 +307,8 @@ export const OutsideBottom = {
           {
             type: "changeMap",
             map: "OutsideLeft",
-            x: utils.withGrid(19),
-            y: utils.withGrid(26),
+            x: utils.withGrid(18),
+            y: utils.withGrid(25),
             direction: "up",
           },
         ],
@@ -317,8 +320,8 @@ export const OutsideBottom = {
           {
             type: "changeMap",
             map: "OutsideLeft",
-            x: utils.withGrid(20),
-            y: utils.withGrid(26),
+            x: utils.withGrid(19),
+            y: utils.withGrid(25),
             direction: "up",
           },
         ],

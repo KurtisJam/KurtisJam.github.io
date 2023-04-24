@@ -66,7 +66,7 @@ export const OutsideRight = {
       type: "Person",
       x: utils.withGrid(24),
       y: utils.withGrid(22),
-      src: "./assets/characters/people/alchemist.png",
+      src: "./assets/characters/people/alchemist2.png",
       behaviorLoop: [
         { type: "stand", direction: "left", time: 3000 },
         { type: "stand", direction: "down", time: 3000 },
@@ -163,7 +163,7 @@ export const OutsideRight = {
       type: "Person",
       x: utils.withGrid(8),
       y: utils.withGrid(2),
-      src: "./assets/characters/people/blacksmith.png",
+      src: "./assets/characters/people/blacksmith2.png",
       behaviorLoop: [{ type: "stand", direction: "down", time: 1000 }],
       talking: [
         {
@@ -287,7 +287,7 @@ export const OutsideRight = {
       type: "Person",
       x: utils.withGrid(20),
       y: utils.withGrid(29),
-      src: "./assets/characters/people/kid2.png",
+      src: "./assets/characters/people/kid4.png",
       behaviorLoop: [
         { type: "stand", direction: "right", time: 1000 },
         { type: "stand", direction: "down", time: 2000 },
@@ -329,7 +329,7 @@ export const OutsideRight = {
       type: "Person",
       x: utils.withGrid(22),
       y: utils.withGrid(29),
-      src: "./assets/characters/people/kid.png",
+      src: "./assets/characters/people/kid3.png",
       behaviorLoop: [{ type: "stand", direction: "left", time: 1000 }],
       talking: [
         {
@@ -399,7 +399,7 @@ export const OutsideRight = {
       type: "Person",
       x: utils.withGrid(14),
       y: utils.withGrid(7),
-      src: "./assets/characters/people/merchant1.png",
+      src: "./assets/characters/people/merchant2.png",
       behaviorLoop: [],
       talking: [
         {
@@ -778,8 +778,8 @@ export const OutsideRight = {
           {
             type: "changeMap",
             map: "OutsideLeft",
-            x: utils.withGrid(45),
-            y: utils.withGrid(9),
+            x: utils.withGrid(44),
+            y: utils.withGrid(8),
             direction: "left",
           },
         ],
@@ -791,8 +791,8 @@ export const OutsideRight = {
           {
             type: "changeMap",
             map: "OutsideLeft",
-            x: utils.withGrid(45),
-            y: utils.withGrid(10),
+            x: utils.withGrid(44),
+            y: utils.withGrid(9),
             direction: "left",
           },
         ],

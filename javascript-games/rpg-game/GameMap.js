@@ -55,8 +55,8 @@ export class GameMap {
       }
 
       // Bottom
-      if (cameraPerson.y > imageHeight - utils.withGrid(6)) {
-        y = -imageHeight + utils.withGrid(12);
+      if (cameraPerson.y > imageHeight - utils.withGrid(7)) {
+        y = -imageHeight + utils.withGrid(13);
       }
     }
     /** End Code to hug map to edges when player is on edge of map */
@@ -88,8 +88,8 @@ export class GameMap {
       }
 
       // Bottom
-      if (cameraPerson.y > imageHeight - utils.withGrid(6)) {
-        y = -imageHeight + utils.withGrid(12);
+      if (cameraPerson.y > imageHeight - utils.withGrid(7)) {
+        y = -imageHeight + utils.withGrid(13);
       }
     }
     /** End Code to hug map to edges when player is on edge of map */

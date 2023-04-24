@@ -137,8 +137,8 @@ export class Sprite {
           y = y + (cameraPerson.y - utils.withGrid(6));
         }
 
-        if (cameraPerson.y > mapHeight - utils.withGrid(6)) {
-          y = y + (cameraPerson.y - (mapHeight - utils.withGrid(6)));
+        if (cameraPerson.y > mapHeight - utils.withGrid(7)) {
+          y = y + (cameraPerson.y - (mapHeight - utils.withGrid(7)));
         }
       }
 
@@ -162,9 +162,9 @@ export class Sprite {
         }
 
         // Bottom side
-        if (this.gameObject.y > mapHeight - utils.withGrid(6)) {
+        if (this.gameObject.y > mapHeight - utils.withGrid(7)) {
           // Almost correct!
-          y = this.gameObject.y - 16 - (mapHeight - utils.withGrid(12));
+          y = this.gameObject.y - 16 - (mapHeight - utils.withGrid(13));
         }
       }
     }

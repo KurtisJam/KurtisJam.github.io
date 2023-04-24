@@ -67,8 +67,8 @@ const exitMansion = [
       {
         type: "changeMap",
         map: "OutsideLeft",
-        x: utils.withGrid(33),
-        y: utils.withGrid(15),
+        x: utils.withGrid(32),
+        y: utils.withGrid(14),
         direction: "down",
       },
     ],
@@ -91,7 +91,7 @@ export const Mansion = {
       type: "Person",
       x: utils.withGrid(13),
       y: utils.withGrid(6),
-      src: "./assets/characters/people/alchemist.png",
+      src: "./assets/characters/people/alchemist2.png",
       behaviorLoop: [],
       talking: [
         {

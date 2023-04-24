@@ -12,7 +12,7 @@ window.Enemies = {
   },
   Billy: {
     name: "Billy",
-    src: "./assets/characters/people/kid.png",
+    src: "./assets/characters/people/kid3.png",
     animals: {
       a: {
         animalId: "Pyrogoat",
@@ -44,7 +44,7 @@ window.Enemies = {
   },
   Fred: {
     name: "Fred",
-    src: "./assets/characters/people/kid.png",
+    src: "./assets/characters/people/kid3.png",
     animals: {
       a: {
         animalId: "Rocky",
@@ -55,7 +55,7 @@ window.Enemies = {
   },
   Becky: {
     name: "Becky",
-    src: "./assets/characters/people/kid2.png",
+    src: "./assets/characters/people/kid4.png",
     animals: {
       a: {
         animalId: "Wingcluck",

@@ -16,7 +16,7 @@ export const SmallHouse = {
       type: "Person",
       x: utils.withGrid(8),
       y: utils.withGrid(6),
-      src: "./assets/characters/people/kid2.png",
+      src: "./assets/characters/people/kid4.png",
       behaviorLoop: [{ type: "stand", direction: "up", time: 1000 }],
       talking: [
         {
@@ -34,7 +34,7 @@ export const SmallHouse = {
       type: "Person",
       x: utils.withGrid(7),
       y: utils.withGrid(6),
-      src: "./assets/characters/people/barmaid.png",
+      src: "./assets/characters/people/barmaid2.png",
       behaviorLoop: [{ type: "stand", direction: "up", time: 1000 }],
       talking: [
         {
@@ -52,7 +52,7 @@ export const SmallHouse = {
       type: "Person",
       x: utils.withGrid(8),
       y: utils.withGrid(3),
-      src: "./assets/characters/people/kid.png",
+      src: "./assets/characters/people/kid3.png",
       behaviorLoop: [{ type: "stand", direction: "right", time: 1000 }],
       talking: [
         {

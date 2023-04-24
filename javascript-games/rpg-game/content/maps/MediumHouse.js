@@ -49,7 +49,7 @@ export const MediumHouse = {
       type: "Person",
       x: utils.withGrid(6),
       y: utils.withGrid(5),
-      src: "./assets/characters/people/barmaid.png",
+      src: "./assets/characters/people/barmaid2.png",
       behaviorLoop: [{ type: "stand", direction: "right", time: 1000 }],
       talking: [
         {

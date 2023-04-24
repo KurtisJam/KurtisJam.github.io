@@ -176,8 +176,8 @@ export const Home = {
           {
             type: "changeMap",
             map: "OutsideLeft",
-            x: utils.withGrid(17),
-            y: utils.withGrid(19),
+            x: utils.withGrid(16),
+            y: utils.withGrid(18),
             direction: "down",
           },
         ],

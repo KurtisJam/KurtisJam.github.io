@@ -68,7 +68,7 @@ export const BigHouse = {
       type: "Person",
       x: utils.withGrid(10),
       y: utils.withGrid(4),
-      src: "./assets/characters/people/barmaid.png",
+      src: "./assets/characters/people/barmaid2.png",
       behaviorLoop: [{ type: "stand", direction: "down", time: 1000 }],
       talking: [
         {
@@ -86,7 +86,7 @@ export const BigHouse = {
       type: "Person",
       x: utils.withGrid(1),
       y: utils.withGrid(12),
-      src: "./assets/characters/people/kid.png",
+      src: "./assets/characters/people/kid3.png",
       behaviorLoop: [{ type: "stand", direction: "right", time: 1000 }],
       talking: [
         {
@@ -104,7 +104,7 @@ export const BigHouse = {
       type: "Person",
       x: utils.withGrid(1),
       y: utils.withGrid(11),
-      src: "./assets/characters/people/farmer.png",
+      src: "./assets/characters/people/farmer2.png",
       behaviorLoop: [{ type: "stand", direction: "right", time: 1000 }],
       talking: [
         {
@@ -151,7 +151,7 @@ export const BigHouse = {
       type: "Person",
       x: utils.withGrid(17),
       y: utils.withGrid(9),
-      src: "./assets/characters/people/blacksmith.png",
+      src: "./assets/characters/people/blacksmith2.png",
       behaviorLoop: [{ type: "stand", direction: "left", time: 1000 }],
       talking: [
         {

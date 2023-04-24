@@ -70,8 +70,8 @@ export const LocalShop = {
           {
             type: "changeMap",
             map: "OutsideLeft",
-            x: utils.withGrid(20),
-            y: utils.withGrid(3),
+            x: utils.withGrid(19),
+            y: utils.withGrid(2),
             direction: "down",
           },
         ],
@@ -83,8 +83,8 @@ export const LocalShop = {
           {
             type: "changeMap",
             map: "OutsideLeft",
-            x: utils.withGrid(20),
-            y: utils.withGrid(3),
+            x: utils.withGrid(19),
+            y: utils.withGrid(2),
             direction: "down",
           },
         ],

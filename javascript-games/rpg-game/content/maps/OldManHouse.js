@@ -14,7 +14,7 @@ export const OldManHouse = {
     },
     oldMan: {
       type: "Person",
-      src: "./assets/characters/people/farmer.png",
+      src: "./assets/characters/people/farmer2.png",
       x: utils.withGrid(1),
       y: utils.withGrid(3),
       behaviorLoop: [
