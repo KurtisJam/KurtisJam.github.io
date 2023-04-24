@@ -86,16 +86,16 @@ export class Combatant {
 
   getReplacedEvents(originalEvents) {
     if (this.status?.type === "clumsy" && utils.randomFromArray([true, false, false])) {
-      return [{ type: "textMessage", text: `${this.name} flops around` }];
+      return [{ type: "textMessage", text: `${this.name} is stumbling around.` }];
     }
     return originalEvents;
   }
 
   getPostEvents() {
-    if (this.status?.type === "saucy") {
+    if (this.status?.type === "regen") {
       return [
-        { type: "textMessage", text: "You are saucy!" },
-        { type: "stateChange", recover: 5, onCaster: true },
+        { type: "textMessage", text: "You regenerate some health" },
+        { type: "stateChange", recover: 20, onCaster: true },
       ];
     }
     return [];

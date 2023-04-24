@@ -116,8 +116,9 @@ export class Game {
     // Create progress tracker for load and save
     this.progress = new Progress();
 
+    /*
     // Show the title screen
-    /*this.titleScreen = new TitleScreen({
+    this.titleScreen = new TitleScreen({
       progress: this.progress,
     });
     await this.titleScreen.init(container);*/

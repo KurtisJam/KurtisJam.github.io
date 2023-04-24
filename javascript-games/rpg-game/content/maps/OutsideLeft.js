@@ -110,6 +110,11 @@ export const OutsideLeft = {
               type: "textMessage",
               text: "Moooo!",
             },
+            { type: "healAnimals" },
+            {
+              type: "textMessage",
+              text: "Wow talking with the animals has re-invigorated your own.",
+            },
           ],
         },
       ],
@@ -134,7 +139,12 @@ export const OutsideLeft = {
           events: [
             {
               type: "textMessage",
-              text: "Moooo!",
+              text: "Cluck cluck!",
+            },
+            { type: "healAnimals" },
+            {
+              type: "textMessage",
+              text: "Wow talking with the animals has re-invigorated your own.",
             },
           ],
         },
@@ -260,7 +270,7 @@ export const OutsideLeft = {
               text: "Hey! My favourite farm animals are definitely cows! They're so cute and cuddly.",
               faceHero: "npc2",
             },
-            { type: "battle", enemyId: "Bartender" },
+            { type: "battle", enemyId: "Fred" },
             { type: "addStoryFlag", flag: "DEFEATED_npc2_OUTSIDELEFT" },
             {
               type: "textMessage",
@@ -340,7 +350,7 @@ export const OutsideLeft = {
               text: "Bring it on!",
               faceHero: "npc4",
             },
-            { type: "battle", enemyId: "Bartender" },
+            { type: "battle", enemyId: "Bob" },
             { type: "addStoryFlag", flag: "DEFEATED_npc4_OUTSIDELEFT" },
             {
               type: "textMessage",
@@ -410,7 +420,7 @@ export const OutsideLeft = {
               text: "My brother is really strong, he has been training me!",
               faceHero: "npc6",
             },
-            { type: "battle", enemyId: "Bartender" },
+            { type: "battle", enemyId: "Elly" },
             { type: "addStoryFlag", flag: "DEFEATED_npc6_OUTSIDELEFT" },
           ],
         },
@@ -440,7 +450,7 @@ export const OutsideLeft = {
               text: "I'm the greatest! Bring it on.",
               faceHero: "npc7",
             },
-            { type: "battle", enemyId: "Bartender" },
+            { type: "battle", enemyId: "Billy" },
             { type: "addStoryFlag", flag: "DEFEATED_npc7_OUTSIDELEFT" },
           ],
         },

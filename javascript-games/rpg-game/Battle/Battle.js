@@ -73,6 +73,26 @@ export class Battle {
     `;
   }
 
+  updatePlayerState() {
+    const playerState = window.playerState;
+    Object.keys(playerState.animals).forEach((id) => {
+      const playerStateAnimal = playerState.animals[id];
+      const combatant = this.combatants[id];
+      if (combatant) {
+        playerStateAnimal.hp = combatant.hp;
+        playerStateAnimal.xp = combatant.xp;
+        playerStateAnimal.maxHp = combatant.maxHp;
+        playerStateAnimal.level = combatant.level;
+      }
+    });
+
+    playerState.items = playerState.items.filter((item) => {
+      return !this.usedInstanceIds[item.instanceId];
+    });
+
+    utils.emitEvent("PlayerStateUpdated");
+  }
+
   init(container) {
     this.createElement();
     container.appendChild(this.element);
@@ -104,29 +124,12 @@ export class Battle {
         });
       },
       onWinner: (winner) => {
-        if (winner === "player") {
-          const playerState = window.playerState;
-          Object.keys(playerState.animals).forEach((id) => {
-            const playerStateAnimal = playerState.animals[id];
-            const combatant = this.combatants[id];
-            if (combatant) {
-              playerStateAnimal.hp = combatant.hp;
-              playerStateAnimal.xp = combatant.xp;
-              playerStateAnimal.maxHp = combatant.maxHp;
-              playerStateAnimal.level = combatant.level;
-            }
-          });
-
-          playerState.items = playerState.items.filter((item) => {
-            return !this.usedInstanceIds[item.instanceId];
-          });
-
-          utils.emitEvent("PlayerStateUpdated");
-        }
+        this.updatePlayerState();
         this.element.remove();
         this.onComplete(winner === "player");
       },
       onFlee: () => {
+        this.updatePlayerState();
         this.element.remove();
         this.onComplete(false);
       },

@@ -46,8 +46,12 @@ export const Home = {
       ],
       talking: [
         {
-          required: ["SEEN_INTRO"],
-          events: [{ type: "textMessage", text: "You are quite capable.", faceHero: "mum" }],
+          events: [
+            {
+              type: "textMessage",
+              text: "The animals are on your side son, talk to them to restore our farm animals.",
+            },
+          ],
         },
       ],
     },
@@ -62,7 +66,12 @@ export const Home = {
           events: [
             {
               type: "textMessage",
-              text: "Moooo!",
+              text: "Cluck cluck!",
+            },
+            { type: "healAnimals" },
+            {
+              type: "textMessage",
+              text: "Wow talking with the animals has re-invigorated your own.",
             },
           ],
         },
@@ -79,6 +88,11 @@ export const Home = {
             {
               type: "textMessage",
               text: "Moooo!",
+            },
+            { type: "healAnimals" },
+            {
+              type: "textMessage",
+              text: "Wow talking with the animals has re-invigorated your own.",
             },
           ],
         },
@@ -143,7 +157,13 @@ export const Home = {
             text: "(Crying...) You're all I have left in this world.",
             faceHero: "mum",
           },
-          { type: "stand", who: "hero", direction: "down", time: 100 },
+          { type: "stand", who: "hero", direction: "down", time: 1000 },
+          { type: "stand", who: "hero", direction: "up", time: 10 },
+          {
+            type: "textMessage",
+            text: "Oh and son, take Rocky with you! The animals around town will help him.",
+          },
+          { type: "stand", who: "hero", direction: "down", time: 500 },
         ],
       },
     ],

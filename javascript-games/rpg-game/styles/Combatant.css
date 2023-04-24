@@ -68,6 +68,7 @@
   top: -2px;
   width: 16px;
   height: 16px;
+  transform: scale(0.8);
 }
 
 .Combatant_life-container {
@@ -127,14 +128,14 @@
 
 .Animal {
   position: absolute;
-  transform: scale(1.5);
+  transform: scale(2);
   transition: opacity 0.4s, transform 0.4s;
 }
 
 .Animal[data-team="player"] {
   bottom: 70px;
   left: 51px;
-  transform: scaleX(-1);
+  transform: scaleX(-1) scale(2);
 }
 
 .Animal[data-team="enemy"] {
@@ -144,16 +145,16 @@
 
 .Animal[data-active="false"] {
   opacity: 0;
-  transform: translate3d(0, 16px, 0) scale(1.5);
+  transform: translate3d(0, 16px, 0) scale(2);
 }
 
 .Animal[data-active="true"] {
   opacity: 1;
-  transform: translate3d(0, 0, 0) scale(1.5);
+  transform: translate3d(0, 0, 0) scale(2);
 }
 
 .Animal[data-team="player"] {
   bottom: 70px;
   left: 51px;
-  transform: scaleX(-1);
+  transform: scaleX(-1) scale(2);
 }

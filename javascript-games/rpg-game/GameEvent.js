@@ -125,6 +125,12 @@ export class GameEvent {
     resolve();
   }
 
+  healAnimals(resolve) {
+    window.playerState.healAnimals();
+    utils.emitEvent("PlayerStateUpdated");
+    resolve();
+  }
+
   pause(resolve) {
     this.map.isPaused = true;
     const menu = new PauseMenu({

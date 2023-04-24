@@ -21,6 +21,21 @@ export const OutsideBottom = {
         { type: "stand", direction: "right", time: 8000 },
         { type: "stand", direction: "left", time: 6000 },
       ],
+      talking: [
+        {
+          events: [
+            {
+              type: "textMessage",
+              text: "Moooo!",
+            },
+            { type: "healAnimals" },
+            {
+              type: "textMessage",
+              text: "Wow talking with the animals has re-invigorated your own.",
+            },
+          ],
+        },
+      ],
     },
     fire1: {
       type: "Fire",

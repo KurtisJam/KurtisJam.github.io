@@ -4,6 +4,67 @@ import { SubmissionMenu } from "./SubmissionMenu.js";
 import { BattleAnimations } from "./BattleAnimations.js";
 import { ReplacementMenu } from "./ReplacementMenu.js";
 
+function determineMultiplier(damageType, targetType) {
+  switch (damageType) {
+    case "stone":
+      switch (targetType) {
+        case "fly":
+          return 2; // stone is strong against fly
+        case "water":
+          return 0.5; // stone is weak against water
+        default:
+          return 1; // stone does neutral damage against all other types
+      }
+    case "fly":
+      switch (targetType) {
+        case "shadow":
+          return 2; // fly is strong against shadow
+        case "stone":
+          return 0.5; // fly is weak against stone
+        default:
+          return 1; // fly does neutral damage against all other types
+      }
+    case "fire":
+      switch (targetType) {
+        case "nature":
+          return 2; // fire is strong against nature
+        case "water":
+          return 0.5; // fire is weak against water
+        default:
+          return 1; // fire does neutral damage against all other types
+      }
+    case "water":
+      switch (targetType) {
+        case "fire":
+          return 2; // water is strong against fire
+        case "shadow":
+          return 0.5; // water is weak against shadow
+        default:
+          return 1; // water does neutral damage against all other types
+      }
+    case "shadow":
+      switch (targetType) {
+        case "stone":
+          return 2; // shadow is strong against stone
+        case "nature":
+          return 0.5; // shadow is weak against nature
+        default:
+          return 1; // shadow does neutral damage against all other types
+      }
+    case "nature":
+      switch (targetType) {
+        case "water":
+          return 2; // nature is strong against water
+        case "fire":
+          return 0.5; // nature is weak against fire
+        default:
+          return 1; // nature does neutral damage against all other types
+      }
+    default:
+      return 1; // if the damage type is not recognized, assume it does neutral damage
+  }
+}
+
 export class BattleEvent {
   constructor(event, battle) {
     this.event = event;
@@ -11,11 +72,25 @@ export class BattleEvent {
   }
 
   textMessage(resolve) {
-    const text = this.event.text
+    let text = this.event.text
       .replace("{CASTER}", this.event.caster?.name)
       .replace("{TARGET}", this.event.target?.name)
       .replace("{ACTION}", this.event.action?.name);
 
+    if (text.includes("{EFFECTIVENESS}")) {
+      const attackType = this.event.action.type;
+      const targetType = this.event.target.type;
+
+      const multiplier = determineMultiplier(attackType, targetType);
+      if (multiplier === 2) {
+        text = text.replace("{EFFECTIVENESS}", "SUPER");
+      } else if (multiplier === 0.5) {
+        text = text.replace("{EFFECTIVENESS}", "not very");
+      } else {
+        resolve();
+        return;
+      }
+    }
     const message = new TextMessage({
       text,
       onComplete: () => {
@@ -27,7 +102,7 @@ export class BattleEvent {
   }
 
   async stateChange(resolve) {
-    const { caster, target, damage, recover, status, action } = this.event;
+    const { caster, target, damage, recover, status, action, damageType } = this.event;
     let who = this.event.onCaster ? caster : target;
 
     if (action.targetType === "friendly") {
@@ -35,8 +110,11 @@ export class BattleEvent {
     }
 
     if (damage) {
+      const multiplier = determineMultiplier(damageType, target.type);
+      const levelDamage = damage * (1 + multiplier) * (caster.level / 5);
+
       target.update({
-        hp: target.hp - damage,
+        hp: target.hp - levelDamage,
       });
       target.animalElement.classList.add("battle-damage-blink");
     }

@@ -5,10 +5,10 @@ export class PlayerState {
     this.animals = {
       p1: {
         animalId: "Rocky",
-        hp: 50,
-        maxHp: 50,
+        hp: 100,
+        maxHp: 100,
         xp: 0,
-        maxXp: 100,
+        maxXp: 40,
         level: 1,
         status: null,
       },
@@ -16,6 +16,12 @@ export class PlayerState {
     this.lineup = ["p1"];
     this.items = [];
     this.storyFlags = {};
+  }
+
+  healAnimals() {
+    Object.keys(this.animals).forEach((key) => {
+      this.animals[key].hp = this.animals[key].maxHp;
+    });
   }
 
   addItem(itemId) {

@@ -3,55 +3,67 @@ window.Actions = {
   boulderRoll: {
     name: "Boulder Roll",
     description: "Rolls into a ball and charges at the opponent, dealing heavy damage.",
+    type: "stone",
     success: [
       { type: "textMessage", text: "{CASTER} uses {ACTION}!" },
       { type: "animation", animation: "spin" },
-      { type: "stateChange", damage: 10 }, // damageType: stone
+      { type: "stateChange", damage: 50, damageType: "stone" },
+      { type: "textMessage", text: "It's {EFFECTIVENESS} effective." },
     ],
   },
   wingSlap: {
     name: "Wing Slap",
     description: "Slaps the opponent with its wings, dealing moderate damage.",
+    type: "fly",
     success: [
       { type: "textMessage", text: "{CASTER} uses {ACTION}!" },
-      { type: "animation", animation: "spin" }, // new animation?
-      { type: "stateChange", damage: 10 }, // damageType: fly
+      { type: "animation", animation: "spin" },
+      { type: "stateChange", damage: 50, damageType: "fly" },
+      { type: "textMessage", text: "It's {EFFECTIVENESS} effective." },
     ],
   },
   flameBurst: {
     name: "Flame Burst",
     description: "Creates a burst of flames that damages the opponent and has a chance to cause a burn.",
+    type: "fire",
     success: [
       { type: "textMessage", text: "{CASTER} uses {ACTION}!" },
       { type: "animation", animation: "glob", color: "red" },
-      { type: "stateChange", damage: 10 }, // damageType: fire
+      { type: "stateChange", damage: 50, damageType: "fire" },
+      { type: "textMessage", text: "It's {EFFECTIVENESS} effective." },
     ],
   },
   bubbleBeam: {
     name: "Bubble Beam",
     description: "Fires a beam of bubbles, dealing moderate damage and possibly lowering their speed.",
+    type: "water",
     success: [
       { type: "textMessage", text: "{CASTER} uses {ACTION}!" },
       { type: "animation", animation: "glob", color: "blue" },
-      { type: "stateChange", damage: 10 }, // damageType: water
+      { type: "stateChange", damage: 50, damageType: "water" },
+      { type: "textMessage", text: "It's {EFFECTIVENESS} effective." },
     ],
   },
   shadowBolt: {
     name: "Shadow Bolt",
     description: "A bolt of dark energy, dealing heavy damage and possibly causing them to flinch.",
+    type: "shadow",
     success: [
       { type: "textMessage", text: "{CASTER} uses {ACTION}!" },
       { type: "animation", animation: "glob", color: "purple" },
-      { type: "stateChange", damage: 10 }, // damageType: shadow
+      { type: "stateChange", damage: 50, damageType: "shadow" },
+      { type: "textMessage", text: "It's {EFFECTIVENESS} effective." },
     ],
   },
   blizzard: {
     name: "Blizzard",
     description: "A fierce snowstorm dealing moderate damage and lowering the opponents accuracy.",
+    type: "water",
     success: [
       { type: "textMessage", text: "{CASTER} uses {ACTION}!" },
       { type: "animation", animation: "glob", color: "blue" },
-      { type: "stateChange", damage: 10 }, // damageType: water
+      { type: "stateChange", damage: 50, damageType: "water" },
+      { type: "textMessage", text: "It's {EFFECTIVENESS} effective." },
     ],
   },
 
@@ -83,10 +95,11 @@ window.Actions = {
     success: [
       { type: "textMessage", text: "{CASTER} uses {ACTION} on itself!" },
       { type: "stateChange", status: { type: "regen", expiresIn: 3 } },
+      { type: "textMessage", text: "{CASTER} will regenerate over time!" },
     ],
   },
 
-  //Items
+  // Items
   item_hayBale: {
     name: "Hay Bale",
     description: "Restores a large amount of health to the farm animal.",
@@ -99,19 +112,21 @@ window.Actions = {
   },
   item_flySpray: {
     name: "Fly Spray",
+    description: "Remove all current effects on your farm animal.",
     targetType: "friendly",
     success: [
       { type: "textMessage", text: "{CASTER} uses some {ACTION}." },
       { type: "stateChange", status: null },
-      { type: "textMessage", text: "{CASTER} removed all negative effects!" },
+      { type: "textMessage", text: "{CASTER} removed all effects!" },
     ],
   },
   item_dustBath: {
     name: "Dust Bath",
+    description: "Cover the enemy in dust, causing them to be clumsy.",
     success: [
       { type: "textMessage", text: "{CASTER} uses {ACTION} on {TARGET}." },
       { type: "stateChange", status: { type: "clumsy", expiresIn: 3 } },
-      { type: "textMessage", text: "{CASTER} removed all negative effects!" },
+      { type: "textMessage", text: "{TARGET} is stumbling around." },
     ],
   },
 };

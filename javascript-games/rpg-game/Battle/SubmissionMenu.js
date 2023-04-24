@@ -131,8 +131,9 @@ export class SubmissionMenu {
   }
 
   decide() {
+    const index = Math.floor(Math.random() * this.caster.actions.length);
     //TODO: Enemies should randomly decide what to do...
-    this.menuSubmit(Actions[this.caster.actions[0]]);
+    this.menuSubmit(Actions[this.caster.actions[index]]);
   }
 
   showMenu(container) {
