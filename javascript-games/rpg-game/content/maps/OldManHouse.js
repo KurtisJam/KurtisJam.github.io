@@ -1,5 +1,36 @@
 import { utils } from "./../../utils.js";
 
+const oldManCutscene = [
+  {
+    exclude: "SEEN_OLDMAN_CUTSCENE",
+    events: [
+      { type: "addStoryFlag", flag: "SEEN_OLDMAN_CUTSCENE" },
+      { type: "textMessage", text: "Ahh good you are here.", faceHero: "oldMan" },
+      { who: "hero", type: "walk", direction: "up" },
+      { who: "oldMan", type: "walk", direction: "down" },
+      { who: "oldMan", type: "walk", direction: "down" },
+      { who: "oldMan", type: "walk", direction: "down" },
+      { who: "oldMan", type: "walk", direction: "right" },
+      { who: "oldMan", type: "walk", direction: "right" },
+      { who: "oldMan", type: "walk", direction: "right" },
+      { type: "textMessage", text: "Your dad told me this might happen.", faceHero: "oldMan" },
+      { type: "textMessage", text: "Take one of my animals for your journey, I'm getting too old to use them." },
+      { type: "craftingMenu", animals: ["Waterhog", "Grassmoo", "Wingcluck"] },
+      { type: "textMessage", text: "You received a farm animal!" },
+      { who: "oldMan", type: "walk", direction: "left" },
+      { who: "oldMan", type: "walk", direction: "left" },
+      { who: "oldMan", type: "walk", direction: "left" },
+      { who: "oldMan", type: "walk", direction: "up" },
+      { who: "oldMan", type: "walk", direction: "up" },
+      { who: "oldMan", type: "walk", direction: "up" },
+      {
+        type: "textMessage",
+        text: "Best of luck, the secret society hangs out in the main town hall, follow the road east.",
+      },
+    ],
+  },
+];
+
 export const OldManHouse = {
   id: "OldManHouse",
   lowerSrc: "./assets/maps/newmaps/room2_lower.png",
@@ -44,7 +75,13 @@ export const OldManHouse = {
       talking: [
         {
           required: ["SEEN_INTRO"],
-          events: [{ type: "textMessage", text: "You are quite capable.", faceHero: "mum" }],
+          events: [
+            {
+              type: "textMessage",
+              text: "Head East to the main town and figure out where your Dad is.",
+              faceHero: "oldMan",
+            },
+          ],
         },
       ],
     },
@@ -77,6 +114,7 @@ export const OldManHouse = {
   },
   cutsceneSpaces: {
     /* OldManHouse - NPC interactions */
+    [utils.asGridCoord(4, 8)]: oldManCutscene,
     /* OldManHouse - NPC interactions end */
 
     /* OldManHouse - Room map changing */

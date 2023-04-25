@@ -2,7 +2,9 @@ import { utils } from "./../../utils.js";
 
 const cutscene = (moveLeft) => [
   {
+    exclude: "SEEN_MANSION_CUTSCENE",
     events: [
+      { type: "addStoryFlag", flag: "SEEN_MANSION_CUTSCENE" },
       { who: "hero", type: "stand", direction: "up", time: 50 },
       { type: "textMessage", text: "Sam!", faceHero: "npc1" },
       { who: "npc1", type: "walk", direction: "down" },

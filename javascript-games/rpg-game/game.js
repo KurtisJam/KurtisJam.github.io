@@ -108,6 +108,10 @@ export class Game {
     this.progress.startingHeroX = this.map.gameObjects.hero.x;
     this.progress.startingHeroY = this.map.gameObjects.hero.y;
     this.progress.startingHeroDirection = this.map.gameObjects.hero.direction;
+
+    if (heroInitialState) {
+      this.map.checkForFootstepCutscene();
+    }
   }
 
   async init() {
@@ -120,9 +124,8 @@ export class Game {
     this.titleScreen = new TitleScreen({
       progress: this.progress,
     });
-    await this.titleScreen.init(container);
+    const useSaveFile = await this.titleScreen.init(container);
 
-    const useSaveFile = false;
     // Potentially load saved data
     let initialHeroState = null;
     if (useSaveFile) {

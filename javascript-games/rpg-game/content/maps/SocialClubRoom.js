@@ -1,5 +1,105 @@
 import { utils } from "./../../utils.js";
 
+const socialEventCutscene = [
+  {
+    exclude: "SEEN_SOCIALROOM_SCENE",
+    events: [
+      { type: "addStoryFlag", flag: "SEEN_SOCIALROOM_SCENE" },
+      { type: "stand", who: "npc5", direction: "up", time: 200 },
+      { type: "textMessage", text: "Sandy: Please stop this at once, it has gone to far!" },
+      { type: "walk", who: "hero", direction: "up" },
+      { type: "walk", who: "hero", direction: "up" },
+      { type: "walk", who: "hero", direction: "up" },
+      { type: "walk", who: "hero", direction: "up" },
+      { type: "textMessage", text: "Sandy: Don't you see this is immoral? You are keeping him captive." },
+      { type: "walk", who: "npc3", direction: "down" },
+      { type: "textMessage", text: "Tony: Immoral?? We are creating the future here!" },
+      { type: "stand", who: "npc5", direction: "left", time: 200 },
+      { type: "stand", who: "npc5", direction: "right", time: 200 },
+      { type: "stand", who: "npc5", direction: "up", time: 100 },
+      {
+        type: "textMessage",
+        text: "Sandy: But the poor man, his family must be worried sick!",
+      },
+      {
+        type: "textMessage",
+        text: "Frank: Tony sir, someone is here!",
+      },
+      { type: "walk", who: "npc4", direction: "down" },
+      { type: "walk", who: "npc4", direction: "down" },
+      { type: "walk", who: "npc4", direction: "down" },
+      { type: "textMessage", text: "Frank: It's that fathers son!" },
+      {
+        type: "textMessage",
+        text: "Tony: Hey kiddo, has your dad contacted you yet? He has been really busy on a new project",
+      },
+      {
+        type: "textMessage",
+        text: "Tony: He said he can't wait for you to see what he has done. Says it will change the world.",
+      },
+      {
+        type: "textMessage",
+        text: "Sandy: Don't listen to him! Your father has been taken by them",
+        faceHero: "npc5",
+      },
+      { type: "walk", who: "npc3", direction: "left" },
+      { type: "walk", who: "npc3", direction: "left" },
+      { type: "walk", who: "npc3", direction: "down" },
+      { type: "walk", who: "npc3", direction: "down" },
+      { type: "textMessage", text: "Tony: No trust me, here take this. You can see him in the Tournment." },
+      { type: "walk", who: "npc3", direction: "down" },
+      { type: "walk", who: "npc3", direction: "right" },
+      { type: "stand", who: "npc3", direction: "down", time: 200 },
+      { type: "textMessage", text: "* Tony hands you an invitation to the tournment. *" },
+      { type: "addStoryFlag", flag: "ARENA_INVITATION" },
+      { type: "walk", who: "npc3", direction: "right" },
+      { type: "walk", who: "npc3", direction: "right" },
+      { type: "stand", who: "npc5", direction: "left", time: 200 },
+      { type: "textMessage", text: "Tony: Sandy I'm going to have to ask you to leave..." },
+      { type: "textMessage", text: "Sandy: How dare you!" },
+      { type: "walk", who: "npc5", direction: "down" },
+      { type: "walk", who: "npc5", direction: "down" },
+      { type: "walk", who: "npc5", direction: "down" },
+      { type: "walk", who: "npc5", direction: "down" },
+      { type: "walk", who: "npc5", direction: "down" },
+      { type: "stand", who: "npc5", direction: "down", time: 80 },
+      { type: "walk", who: "npc5", direction: "left" },
+      { type: "walk", who: "npc5", direction: "left" },
+      { type: "walk", who: "npc5", direction: "down" },
+      { type: "walk", who: "npc3", direction: "right" },
+      { type: "walk", who: "npc3", direction: "right" },
+      { type: "walk", who: "npc3", direction: "right" },
+      { type: "walk", who: "npc3", direction: "right" },
+      { type: "walk", who: "npc3", direction: "right" },
+      { type: "stand", who: "npc3", direction: "right", time: 80 },
+      { type: "walk", who: "npc3", direction: "up" },
+      { type: "walk", who: "npc3", direction: "up" },
+      { type: "walk", who: "npc3", direction: "up" },
+      { type: "stand", who: "npc3", direction: "up", time: 80 },
+      { type: "walk", who: "npc3", direction: "left" },
+      { type: "walk", who: "npc3", direction: "left" },
+      { type: "walk", who: "npc3", direction: "left" },
+      { type: "walk", who: "npc3", direction: "left" },
+      { type: "walk", who: "npc3", direction: "left" },
+      { type: "walk", who: "npc3", direction: "left" },
+      { type: "stand", who: "npc3", direction: "down", time: 500 },
+      { type: "textMessage", text: "Tony: Go see your father Sam, he is waiting." },
+    ],
+  },
+  {
+    required: ["SEEN_SOCIALROOM_SCENE"],
+    exclude: "CUTSCENE_SANDY_COMPLETE",
+    events: [
+      { type: "addStoryFlag", flag: "CUTSCENE_SANDY_COMPLETE" },
+      {
+        type: "textMessage",
+        text: "Sandy: Be careful Sam, I don't trust there motives.",
+        faceHero: "npc5",
+      },
+    ],
+  },
+];
+
 export const SocialClubRoom = {
   id: "SocialClubRoom",
   lowerSrc: "./assets/maps/newmaps/room3_lower.png",
@@ -43,7 +143,7 @@ export const SocialClubRoom = {
     npc5: {
       type: "Person",
       x: utils.withGrid(7),
-      y: utils.withGrid(7),
+      y: utils.withGrid(6),
       src: "./assets/characters/people/barmaid2.png",
       behaviorLoop: [{ type: "stand", direction: "up", time: 1000 }],
     },
@@ -106,6 +206,7 @@ export const SocialClubRoom = {
   },
   cutsceneSpaces: {
     /* SocialClubRoom - NPC interactions */
+    [utils.asGridCoord(4, 11)]: socialEventCutscene,
     /* SocialClubRoom - NPC interactions end */
 
     /* SocialClubRoom - Room map changing */

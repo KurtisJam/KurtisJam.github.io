@@ -8,7 +8,7 @@ export class PlayerState {
         hp: 100,
         maxHp: 100,
         xp: 0,
-        maxXp: 40,
+        maxXp: 100,
         level: 1,
         status: null,
       },

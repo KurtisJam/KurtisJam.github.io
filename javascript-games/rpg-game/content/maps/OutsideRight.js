@@ -663,6 +663,41 @@ export const OutsideRight = {
     /* OutsideRight - NPC interactions */
     [utils.asGridCoord(13, 7)]: [
       {
+        required: ["SEEN_SOCIALROOM_SCENE"],
+        exclude: "INVITATION_ACCEPTED",
+        events: [
+          { type: "addStoryFlag", flag: "INVITATION_ACCEPTED" },
+          { who: "hero", type: "stand", direction: "right", time: 200 },
+          { type: "textMessage", text: "Welcome to the tournment of Hay!", faceHero: "npc9" },
+          {
+            type: "textMessage",
+            text: "This is the annual event, a special prize has been announced this year by an anonymous group.",
+          },
+          { type: "textMessage", text: "Let me see if you are part of the event. What is your name?" },
+          { type: "textMessage", text: "Me: Sam." },
+          { type: "textMessage", text: "Let me see here..." },
+          { who: "npc9", type: "stand", direction: "down", time: 1000 },
+          {
+            type: "textMessage",
+            text: "Hmmm... I don't see you on the list here",
+            faceHero: "npc9",
+          },
+          {
+            type: "textMessage",
+            text: "Sam: Wait I have an invitation right here...",
+          },
+          {
+            type: "textMessage",
+            text: "* You hand him the invitation and he looks over it carefully *",
+          },
+          {
+            type: "textMessage",
+            text: "Oh wow, you are taking part of the event, go ahead.",
+          },
+          { who: "hero", type: "walk", direction: "up" },
+        ],
+      },
+      {
         events: [
           { who: "hero", type: "stand", direction: "right", time: 200 },
           { type: "textMessage", text: "Welcome to the tournment of Hay!", faceHero: "npc9" },

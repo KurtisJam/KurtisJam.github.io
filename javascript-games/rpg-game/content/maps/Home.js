@@ -130,7 +130,7 @@ export const Home = {
     /* Home - NPC interactions */
     [utils.asGridCoord(6, 3)]: [
       {
-        disqualify: ["SEEN_INTRO"],
+        exclude: "SEEN_INTRO",
         events: [
           { type: "addStoryFlag", flag: "SEEN_INTRO" },
           { type: "stand", who: "mum", direction: "right", time: 200 },

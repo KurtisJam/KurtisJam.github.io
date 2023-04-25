@@ -24,7 +24,7 @@ export class Combatant {
   }
 
   get givesXp() {
-    return this.level * 20;
+    return this.level * 15 + 40;
   }
 
   createElement() {

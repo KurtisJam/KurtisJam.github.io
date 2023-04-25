@@ -195,7 +195,14 @@ export class GameMap {
     const hero = this.gameObjects.hero;
     const match = this.cutsceneSpaces[`${hero.x},${hero.y}`];
     if (!this.isCutscenePlaying && match) {
-      this.startCustscene(match[0].events);
+      const relevantScenario = match.find((scenario) => {
+        const requiredFlags = (scenario.required || []).every((sf) => {
+          return window.playerState.storyFlags[sf];
+        });
+
+        return requiredFlags && (!scenario.exclude || !window.playerState.storyFlags[scenario.exclude]);
+      });
+      relevantScenario && this.startCustscene(relevantScenario.events);
     }
   }
 }
