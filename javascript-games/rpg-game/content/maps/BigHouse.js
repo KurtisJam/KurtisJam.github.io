@@ -196,7 +196,7 @@ export const BigHouse = {
             },
             {
               type: "battle",
-              enemyId: "Frank",
+              enemyId: "Anthony",
             },
           ],
         },

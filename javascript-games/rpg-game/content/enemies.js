@@ -42,8 +42,8 @@ window.Enemies = {
       },
     },
   },
-  Fred: {
-    name: "Fred",
+  Penny: {
+    name: "Penny",
     src: "./assets/characters/people/kid4.png",
     animals: {
       a: {
@@ -64,6 +64,17 @@ window.Enemies = {
       },
     },
   },
+  Bret: {
+    name: "Bret",
+    src: "./assets/characters/people/kid.png",
+    animals: {
+      a: {
+        animalId: "Pyrogoat",
+        maxHp: 80,
+        level: 2,
+      },
+    },
+  },
   Frank: {
     name: "Frank",
     src: "./assets/characters/people/bartender.png",
@@ -75,9 +86,25 @@ window.Enemies = {
       },
     },
   },
+  John: {
+    name: "John",
+    src: "./assets/characters/people/merchant1.png",
+    animals: {
+      a: {
+        animalId: "Sparksqueak",
+        maxHp: 80,
+        level: 2,
+      },
+      b: {
+        animalId: "Grassmoo",
+        maxHp: 80,
+        level: 2,
+      },
+    },
+  },
   Jessica: {
     name: "Jessica",
-    src: "./assets/characters/people/barmaid.png",
+    src: "./assets/characters/people/alchemist2.png",
     animals: {
       a: {
         animalId: "Darksteed",
