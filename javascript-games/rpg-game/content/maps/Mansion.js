@@ -43,7 +43,7 @@ const cutscene = (moveLeft) => [
       { type: "textMessage", text: "In order to get your father back you must defeat the leaders." },
       { type: "textMessage", text: "They are strong, it is best if you train up as much as you can." },
       { type: "textMessage", text: "Please, take one of my animals on your journey..." },
-      { type: "craftingMenu", animals: ["Pyrogoat", "Wingcluck", "Darksteed"] },
+      { type: "craftingMenu", animals: ["RockClaw", "Aeroonyx", "Sparksqueak", "Pyrogoat", "Waterhog"] },
       { who: "hero", type: "stand", direction: "right", time: 400 },
       { type: "textMessage", text: `You received an animal!` },
       { who: "npc1", type: "walk", direction: "down" },

@@ -15,7 +15,7 @@ const oldManCutscene = [
       { who: "oldMan", type: "walk", direction: "right" },
       { type: "textMessage", text: "Your dad told me this might happen.", faceHero: "oldMan" },
       { type: "textMessage", text: "Take one of my animals for your journey, I'm getting too old to use them." },
-      { type: "craftingMenu", animals: ["Waterhog", "Grassmoo", "Wingcluck"] },
+      { type: "craftingMenu", animals: ["Waterhog", "Grassmoo", "Wingcluck", "Grasserpent"] },
       { type: "textMessage", text: "You received a farm animal!" },
       { who: "oldMan", type: "walk", direction: "left" },
       { who: "oldMan", type: "walk", direction: "left" },

@@ -1,4 +1,3 @@
-import { utils } from "./../utils.js";
 import { OutsideLeft } from "./maps/OutsideLeft.js";
 import { Home } from "./maps/Home.js";
 import { OutsideBottom } from "./maps/OutsideBottom.js";

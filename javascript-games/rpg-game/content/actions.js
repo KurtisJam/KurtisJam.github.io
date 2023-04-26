@@ -11,6 +11,17 @@ window.Actions = {
       { type: "textMessage", text: "It's {EFFECTIVENESS} effective." },
     ],
   },
+  scratch: {
+    name: "Scratch",
+    description: "Pounce at the enemy and scratch.",
+    type: "shadow",
+    success: [
+      { type: "textMessage", text: "{CASTER} uses {ACTION}!" },
+      { type: "animation", animation: "spin" },
+      { type: "stateChange", damage: 55, damageType: "shadow" },
+      { type: "textMessage", text: "It's {EFFECTIVENESS} effective." },
+    ],
+  },
   wingSlap: {
     name: "Wing Slap",
     description: "Slaps the opponent with its wings, dealing moderate damage.",

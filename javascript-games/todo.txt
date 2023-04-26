@@ -1,5 +1,3 @@
 List of more games to add in the future
 
-* 2D RPG game similar to pokemon
-
 * tower defense game

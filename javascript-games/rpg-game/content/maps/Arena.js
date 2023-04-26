@@ -85,11 +85,18 @@ export const Arena = {
       behaviorLoop: [{ type: "stand", direction: "left", time: 1000 }],
       talking: [
         {
+          required: ["DEFEATED_ENEMY_1", "DEFEATED_ENEMY_2"],
           events: [
             {
               type: "textMessage",
-              text: "Welcome, enemy 3",
+              text: "You are no match for my Grassmoo!",
             },
+            {
+              type: "battle",
+              enemyId: "enemy3",
+              arena: "room3_battle",
+            },
+            { type: "addStoryFlag", flag: "DEFEATED_ENEMY_3" },
           ],
         },
       ],
@@ -105,8 +112,14 @@ export const Arena = {
           events: [
             {
               type: "textMessage",
-              text: "Welcome, enemy 2",
+              text: "You are no match for my Grassmoo!",
             },
+            {
+              type: "battle",
+              enemyId: "enemy2",
+              arena: "room3_battle",
+            },
+            { type: "addStoryFlag", flag: "DEFEATED_ENEMY_2" },
           ],
         },
       ],
@@ -122,8 +135,14 @@ export const Arena = {
           events: [
             {
               type: "textMessage",
-              text: "Welcome, enemy 1",
+              text: "You are no match for my Grassmoo!",
             },
+            {
+              type: "battle",
+              enemyId: "enemy1",
+              arena: "room3_battle",
+            },
+            { type: "addStoryFlag", flag: "DEFEATED_ENEMY_1" },
           ],
         },
       ],
@@ -136,11 +155,18 @@ export const Arena = {
       behaviorLoop: [{ type: "stand", direction: "right", time: 1000 }],
       talking: [
         {
+          required: ["DEFEATED_ENEMY_1", "DEFEATED_ENEMY_2"],
           events: [
             {
               type: "textMessage",
-              text: "Welcome, enemy 4",
+              text: "You are no match for my Grassmoo!",
             },
+            {
+              type: "battle",
+              enemyId: "enemy4",
+              arena: "room3_battle",
+            },
+            { type: "addStoryFlag", flag: "DEFEATED_ENEMY_4" },
           ],
         },
       ],
@@ -153,11 +179,18 @@ export const Arena = {
       behaviorLoop: [{ type: "stand", direction: "down", time: 1000 }],
       talking: [
         {
+          required: ["DEFEATED_ENEMY_1", "DEFEATED_ENEMY_2", "DEFEATED_ENEMY_3", "DEFEATED_ENEMY_4"],
           events: [
             {
               type: "textMessage",
-              text: "Welcome, enemy final boss",
+              text: "So you have defeated all my henchmen. No matter...",
             },
+            {
+              type: "battle",
+              enemyId: "boss",
+              arena: "room3_battle",
+            },
+            { type: "addStoryFlag", flag: "DEFEATED_BOSS" },
           ],
         },
       ],

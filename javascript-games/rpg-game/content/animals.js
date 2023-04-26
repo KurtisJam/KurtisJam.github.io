@@ -18,12 +18,29 @@ window.Animals = {
     actions: ["boulderRoll", "harden", "regeneration"],
   },
 
+  RockClaw: {
+    name: "RockClaw",
+    description: "RockClaw is a bear made of stone. Its sharp claws are as hard as rock and used in attacks.",
+    type: AnimalTypes.stone,
+    src: "./assets/characters/animals/static/bear.png",
+    icon: "./assets/icons/stone.png",
+    actions: ["boulderRoll", "regeneration"],
+  },
+
   // Fly
   Wingcluck: {
     name: "Wingcluck",
     description: "Wingcluck the Fly Chicken: Chicken with feathered wings for flight.",
     type: AnimalTypes.fly,
     src: "./assets/characters/animals/static/white_chicken.png",
+    icon: "./assets/icons/fly.png",
+    actions: ["wingSlap"],
+  },
+  Aeroonyx: {
+    name: "Aeroonyx",
+    description: "Aeroonyx is a fly-type pigeon with dark, iridescent feathers.",
+    type: AnimalTypes.fly,
+    src: "./assets/characters/animals/static/pigeon.png",
     icon: "./assets/icons/fly.png",
     actions: ["wingSlap"],
   },
@@ -37,6 +54,14 @@ window.Animals = {
     icon: "./assets/icons/fire.png",
     actions: ["flameBurst"],
   },
+  Sparksqueak: {
+    name: "Sparksqueak",
+    description: "Sparksqueak is a fire-type mouse with a bright, fiery coat.",
+    type: AnimalTypes.fire,
+    src: "./assets/characters/animals/static/mouse.png",
+    icon: "./assets/icons/fire.png",
+    actions: ["flameBurst", "scratch"],
+  },
 
   // Water
   Waterhog: {
@@ -44,6 +69,15 @@ window.Animals = {
     description: "Waterhog the Water Pig: Pig with the ability to hold its breath and swim.",
     type: AnimalTypes.water,
     src: "./assets/characters/animals/static/pig.png",
+    icon: "./assets/icons/water.png",
+    actions: ["bubbleBeam", "blizzard"],
+  },
+  Aquaminotaur: {
+    name: "Aquaminotaur",
+    description:
+      "Aquaminotaur is a water-type minotaur. It has sleek, shimmering scales and is adapted to life in water.",
+    type: AnimalTypes.water,
+    src: "./assets/characters/animals/static/minotaur.png",
     icon: "./assets/icons/water.png",
     actions: ["bubbleBeam", "blizzard"],
   },
@@ -57,15 +91,31 @@ window.Animals = {
     icon: "./assets/icons/veggie.png",
     actions: ["shadowBolt"],
   },
+  Shadowfang: {
+    name: "Shadowfang",
+    description: "Its eyes burn red and its fangs are razor-sharp, capable of tearing through anything.",
+    type: AnimalTypes.shadow,
+    src: "./assets/characters/animals/static/wolf.png",
+    icon: "./assets/icons/veggie.png",
+    actions: ["shadowBolt", "scratch"],
+  },
 
   // Nature
   Grassmoo: {
     name: "Grassmoo",
-    animal: "cow",
     description: "A salty warrior who fears nothing",
     type: AnimalTypes.nature,
     src: "./assets/characters/animals/static/cow.png",
     icon: "./assets/icons/nature.png",
-    actions: ["blizzard", "revitalize", "regeneration", "harden"],
+    actions: ["blizzard", "revitalize", "regeneration", "scratch"],
+  },
+  Grasserpent: {
+    name: "Grasserpent",
+    description:
+      "Grasserpent is a grass-type snake with a sleek and sinuous body. Its skin is a vibrant shade of green and is covered in grassy textures.",
+    type: AnimalTypes.nature,
+    src: "./assets/characters/animals/static/snake.png",
+    icon: "./assets/icons/nature.png",
+    actions: ["blizzard", "revitalize", "regeneration", "shadowBolt"],
   },
 };
