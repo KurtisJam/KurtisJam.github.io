@@ -698,6 +698,7 @@ export const OutsideRight = {
         ],
       },
       {
+        exclude: "INVITATION_ACCEPTED",
         events: [
           { who: "hero", type: "stand", direction: "right", time: 200 },
           { type: "textMessage", text: "Welcome to the tournment of Hay!", faceHero: "npc9" },

@@ -95,7 +95,7 @@ export class Combatant {
     if (this.status?.type === "regen") {
       return [
         { type: "textMessage", text: "You regenerate some health" },
-        { type: "stateChange", recover: 20, onCaster: true },
+        { type: "stateChange", recover: 15, onCaster: true },
       ];
     }
     return [];

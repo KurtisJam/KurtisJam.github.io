@@ -95,7 +95,7 @@ window.Actions = {
     description: "The animal imbues itself with revitalizing energy, instantly restoring a large amount of health.",
     success: [
       { type: "textMessage", text: "{CASTER} uses {ACTION}!" },
-      { type: "stateChange", recover: 50 },
+      { type: "stateChange", recover: 40 },
       { type: "textMessage", text: "{CASTER} recovers HP!" },
     ],
   },
@@ -117,7 +117,7 @@ window.Actions = {
     targetType: "friendly",
     success: [
       { type: "textMessage", text: "{CASTER} eats a {ACTION}!" },
-      { type: "stateChange", recover: 50 },
+      { type: "stateChange", recover: 70 },
       { type: "textMessage", text: "{CASTER} recovers HP!" },
     ],
   },

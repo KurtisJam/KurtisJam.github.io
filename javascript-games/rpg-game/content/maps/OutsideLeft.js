@@ -717,7 +717,6 @@ export const OutsideLeft = {
             y: utils.withGrid(16),
             direction: "up",
           },
-          { type: "textMessage", text: "Who is it?" },
         ],
       },
     ],

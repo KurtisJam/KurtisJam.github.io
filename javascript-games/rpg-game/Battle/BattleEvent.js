@@ -111,7 +111,7 @@ export class BattleEvent {
 
     if (damage) {
       const multiplier = determineMultiplier(damageType, target.type);
-      const levelDamage = damage * (1 + multiplier) * (caster.level / 5);
+      const levelDamage = damage * multiplier + caster.level * 10;
 
       target.update({
         hp: target.hp - levelDamage,

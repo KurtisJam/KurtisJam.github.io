@@ -15,7 +15,7 @@ window.Animals = {
     type: AnimalTypes.stone,
     src: "./assets/characters/animals/static/cow2.png",
     icon: "./assets/icons/stone.png",
-    actions: ["boulderRoll", "harden", "regeneration"],
+    actions: ["boulderRoll", "regeneration"],
   },
 
   RockClaw: {
