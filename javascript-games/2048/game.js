@@ -130,6 +130,7 @@ window.onload = function () {
 
     // Bugs to figure out
     handleKeyDown(event) {
+      let addRandomTile = false;
       switch (event.code) {
         case "ArrowUp":
           for (let j = 1; j < GRID_SIZE; j++) {
@@ -138,12 +139,14 @@ window.onload = function () {
               if (tile) {
                 let k = j - 1;
                 while (k >= 0 && !this.grid[k][i]) {
+                  addRandomTile = true;
                   this.grid[k][i] = tile;
                   this.grid[k + 1][i] = null;
                   tile.y = k * (TILE_SIZE + GRID_PADDING);
                   k--;
                 }
                 if (k >= 0 && this.grid[k][i].value === tile.value) {
+                  addRandomTile = true;
                   this.score += tile.value * 2;
                   this.grid[k][i].value *= 2;
                   this.grid[j][i] = null;
@@ -151,8 +154,6 @@ window.onload = function () {
               }
             }
           }
-          this.addRandomTile();
-          this.draw();
           break;
         case "ArrowDown":
           for (let j = GRID_SIZE - 2; j >= 0; j--) {
@@ -161,12 +162,14 @@ window.onload = function () {
               if (tile) {
                 let k = j + 1;
                 while (k < GRID_SIZE && !this.grid[k][i]) {
+                  addRandomTile = true;
                   this.grid[k][i] = tile;
                   this.grid[k - 1][i] = null;
                   tile.y = k * (TILE_SIZE + GRID_PADDING);
                   k++;
                 }
                 if (k < GRID_SIZE && this.grid[k][i].value === tile.value) {
+                  addRandomTile = true;
                   this.score += tile.value * 2;
                   this.grid[k][i].value *= 2;
                   this.grid[j][i] = null;
@@ -174,9 +177,6 @@ window.onload = function () {
               }
             }
           }
-          console.log("here");
-          this.addRandomTile();
-          this.draw();
           break;
         case "ArrowLeft":
           for (let i = 0; i < GRID_SIZE; i++) {
@@ -185,12 +185,14 @@ window.onload = function () {
               if (tile) {
                 let k = j - 1;
                 while (k >= 0 && !this.grid[i][k]) {
+                  addRandomTile = true;
                   this.grid[i][k] = tile;
                   this.grid[i][k + 1] = null;
                   tile.x = k * (TILE_SIZE + GRID_PADDING);
                   k--;
                 }
                 if (k >= 0 && this.grid[i][k].value === tile.value) {
+                  addRandomTile = true;
                   this.score += tile.value * 2;
                   this.grid[i][k].value *= 2;
                   this.grid[i][j] = null;
@@ -198,8 +200,6 @@ window.onload = function () {
               }
             }
           }
-          this.addRandomTile();
-          this.draw();
           break;
         case "ArrowRight":
           for (let i = 0; i < GRID_SIZE; i++) {
@@ -208,12 +208,14 @@ window.onload = function () {
               if (tile) {
                 let k = j + 1;
                 while (k < GRID_SIZE && !this.grid[i][k]) {
+                  addRandomTile = true;
                   this.grid[i][k] = tile;
                   this.grid[i][k - 1] = null;
                   tile.x = k * (TILE_SIZE + GRID_PADDING);
                   k++;
                 }
                 if (k < GRID_SIZE && this.grid[i][k].value === tile.value) {
+                  addRandomTile = true;
                   this.score += tile.value * 2;
                   this.grid[i][k].value *= 2;
                   this.grid[i][j] = null;
@@ -221,11 +223,14 @@ window.onload = function () {
               }
             }
           }
-          console.log("here");
-          this.addRandomTile();
-          this.draw();
           break;
       }
+
+      if (addRandomTile) {
+        console.log("we are adding a random tile");
+        this.addRandomTile();
+      }
+      this.draw();
     }
   }
 
