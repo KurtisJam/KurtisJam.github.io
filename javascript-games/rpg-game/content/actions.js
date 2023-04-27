@@ -7,7 +7,7 @@ window.Actions = {
     success: [
       { type: "textMessage", text: "{CASTER} uses {ACTION}!" },
       { type: "animation", animation: "spin" },
-      { type: "stateChange", damage: 40, damageType: "stone" },
+      { type: "stateChange", damage: 30, damageType: "stone" },
       { type: "textMessage", text: "It's {EFFECTIVENESS} effective." },
     ],
   },
@@ -18,7 +18,7 @@ window.Actions = {
     success: [
       { type: "textMessage", text: "{CASTER} uses {ACTION}!" },
       { type: "animation", animation: "spin" },
-      { type: "stateChange", damage: 45, damageType: "shadow" },
+      { type: "stateChange", damage: 35, damageType: "shadow" },
       { type: "textMessage", text: "It's {EFFECTIVENESS} effective." },
     ],
   },
@@ -29,7 +29,7 @@ window.Actions = {
     success: [
       { type: "textMessage", text: "{CASTER} uses {ACTION}!" },
       { type: "animation", animation: "spin" },
-      { type: "stateChange", damage: 40, damageType: "fly" },
+      { type: "stateChange", damage: 30, damageType: "fly" },
       { type: "textMessage", text: "It's {EFFECTIVENESS} effective." },
     ],
   },
@@ -40,7 +40,7 @@ window.Actions = {
     success: [
       { type: "textMessage", text: "{CASTER} uses {ACTION}!" },
       { type: "animation", animation: "glob", color: "red" },
-      { type: "stateChange", damage: 40, damageType: "fire" },
+      { type: "stateChange", damage: 30, damageType: "fire" },
       { type: "textMessage", text: "It's {EFFECTIVENESS} effective." },
     ],
   },
@@ -51,7 +51,7 @@ window.Actions = {
     success: [
       { type: "textMessage", text: "{CASTER} uses {ACTION}!" },
       { type: "animation", animation: "glob", color: "blue" },
-      { type: "stateChange", damage: 40, damageType: "water" },
+      { type: "stateChange", damage: 30, damageType: "water" },
       { type: "textMessage", text: "It's {EFFECTIVENESS} effective." },
     ],
   },
@@ -62,7 +62,7 @@ window.Actions = {
     success: [
       { type: "textMessage", text: "{CASTER} uses {ACTION}!" },
       { type: "animation", animation: "glob", color: "purple" },
-      { type: "stateChange", damage: 40, damageType: "shadow" },
+      { type: "stateChange", damage: 30, damageType: "shadow" },
       { type: "textMessage", text: "It's {EFFECTIVENESS} effective." },
     ],
   },
@@ -73,7 +73,7 @@ window.Actions = {
     success: [
       { type: "textMessage", text: "{CASTER} uses {ACTION}!" },
       { type: "animation", animation: "glob", color: "blue" },
-      { type: "stateChange", damage: 40, damageType: "water" },
+      { type: "stateChange", damage: 30, damageType: "water" },
       { type: "textMessage", text: "It's {EFFECTIVENESS} effective." },
     ],
   },
@@ -95,7 +95,7 @@ window.Actions = {
     description: "The animal imbues itself with revitalizing energy, instantly restoring a large amount of health.",
     success: [
       { type: "textMessage", text: "{CASTER} uses {ACTION}!" },
-      { type: "stateChange", recover: 40 },
+      { type: "stateChange", recover: 25 },
       { type: "textMessage", text: "{CASTER} recovers HP!" },
     ],
   },

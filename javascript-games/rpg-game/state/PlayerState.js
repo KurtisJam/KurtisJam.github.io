@@ -2,18 +2,8 @@ import { utils } from "../utils.js";
 
 export class PlayerState {
   constructor() {
-    this.animals = {
-      p1: {
-        animalId: "Rocky",
-        hp: 100,
-        maxHp: 100,
-        xp: 0,
-        maxXp: 100,
-        level: 1,
-        status: null,
-      },
-    };
-    this.lineup = ["p1"];
+    this.animals = {};
+    this.lineup = [];
     this.items = [];
     this.storyFlags = {};
   }
@@ -32,12 +22,12 @@ export class PlayerState {
     });
   }
 
-  addAnimal(animalId) {
+  addAnimal(animalId, hp = null) {
     const newId = `p_${Date.now()}`; // Math.floor(Math.random() * 9999)
     this.animals[newId] = {
       animalId,
-      hp: 50,
-      maxHp: 50,
+      hp: hp || 50,
+      maxHp: hp || 50,
       xp: 0,
       maxXp: 100,
       level: 1,

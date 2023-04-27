@@ -99,7 +99,7 @@ export class GameEvent {
       enemy: window.Enemies[this.event.enemyId],
       arena: this.event.arena || null,
       onComplete: (didWin) => {
-        resolve(didWin ? "WON_BATTLE" : "LOST_BATTLE");
+        resolve(didWin ? `WON_BATTLE` : `LOST_BATTLE`);
       },
     });
     battle.init(document.querySelector(".game-container"));
@@ -118,6 +118,11 @@ export class GameEvent {
       },
     });
     menu.init(document.querySelector(".game-container"));
+  }
+
+  addAnimal(resolve) {
+    window.playerState.addAnimal(this.event.animalId, this.event.hp);
+    resolve();
   }
 
   addItem(resolve) {

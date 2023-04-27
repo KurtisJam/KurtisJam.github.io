@@ -77,26 +77,34 @@ export const Arena = {
       y: utils.withGrid(12),
     },
 
-    enemy3: {
+    enemy1: {
       type: "Person",
-      x: utils.withGrid(12),
-      y: utils.withGrid(8),
+      x: utils.withGrid(6),
+      y: utils.withGrid(10),
       src: "./assets/characters/people/blacksmith.png",
-      behaviorLoop: [{ type: "stand", direction: "left", time: 1000 }],
+      behaviorLoop: [{ type: "stand", direction: "right", time: 1000 }],
       talking: [
         {
-          required: ["DEFEATED_ENEMY_1", "DEFEATED_ENEMY_2"],
+          required: ["DEFEATED_ENEMY_1"],
           events: [
             {
               type: "textMessage",
-              text: "You are no match for my Grassmoo!",
+              text: "You are the chosen one.",
+            },
+          ],
+        },
+        {
+          events: [
+            {
+              type: "textMessage",
+              text: "You are no match for my Pyrogoat!",
             },
             {
               type: "battle",
-              enemyId: "enemy3",
+              enemyId: "enemy1",
               arena: "room3_battle",
             },
-            { type: "addStoryFlag", flag: "DEFEATED_ENEMY_3" },
+            { type: "addStoryFlag", flag: "DEFEATED_ENEMY_1" },
           ],
         },
       ],
@@ -109,10 +117,19 @@ export const Arena = {
       behaviorLoop: [{ type: "stand", direction: "left", time: 1000 }],
       talking: [
         {
+          required: ["DEFEATED_ENEMY_2"],
           events: [
             {
               type: "textMessage",
-              text: "You are no match for my Grassmoo!",
+              text: "Omg how could I be so foulish. I was blinded!",
+            },
+          ],
+        },
+        {
+          events: [
+            {
+              type: "textMessage",
+              text: "Hahaha, you will never get through us! Go Grasserpent",
             },
             {
               type: "battle",
@@ -124,25 +141,35 @@ export const Arena = {
         },
       ],
     },
-    enemy1: {
+    enemy3: {
       type: "Person",
-      x: utils.withGrid(6),
-      y: utils.withGrid(10),
+      x: utils.withGrid(12),
+      y: utils.withGrid(8),
       src: "./assets/characters/people/blacksmith.png",
-      behaviorLoop: [{ type: "stand", direction: "right", time: 1000 }],
+      behaviorLoop: [{ type: "stand", direction: "left", time: 1000 }],
       talking: [
         {
+          required: ["DEFEATED_ENEMY_3"],
           events: [
             {
               type: "textMessage",
-              text: "You are no match for my Grassmoo!",
+              text: "Y.. you.. you will never get through us",
+            },
+          ],
+        },
+        {
+          required: ["DEFEATED_ENEMY_1", "DEFEATED_ENEMY_2"],
+          events: [
+            {
+              type: "textMessage",
+              text: "You are no match for my Darksteed!",
             },
             {
               type: "battle",
-              enemyId: "enemy1",
+              enemyId: "enemy3",
               arena: "room3_battle",
             },
-            { type: "addStoryFlag", flag: "DEFEATED_ENEMY_1" },
+            { type: "addStoryFlag", flag: "DEFEATED_ENEMY_3" },
           ],
         },
       ],
@@ -155,11 +182,20 @@ export const Arena = {
       behaviorLoop: [{ type: "stand", direction: "right", time: 1000 }],
       talking: [
         {
+          required: ["DEFEATED_ENEMY_4"],
+          events: [
+            {
+              type: "textMessage",
+              text: "What have I done!",
+            },
+          ],
+        },
+        {
           required: ["DEFEATED_ENEMY_1", "DEFEATED_ENEMY_2"],
           events: [
             {
               type: "textMessage",
-              text: "You are no match for my Grassmoo!",
+              text: "You still have to face the boss after me. And he has the super farm animals",
             },
             {
               type: "battle",
@@ -186,11 +222,27 @@ export const Arena = {
               text: "So you have defeated all my henchmen. No matter...",
             },
             {
+              type: "textMessage",
+              text: "You see, your Dad has already done the start of my bidding...",
+            },
+            {
+              type: "textMessage",
+              text: "You are no match for my mutant farm animals.",
+            },
+            {
               type: "battle",
               enemyId: "boss",
               arena: "room3_battle",
             },
             { type: "addStoryFlag", flag: "DEFEATED_BOSS" },
+            {
+              type: "textMessage",
+              text: "BUT HOW?!?",
+            },
+            {
+              type: "textMessage",
+              text: "I thought this was the answer, but a meer child has defeated me!",
+            },
           ],
         },
       ],
@@ -202,6 +254,19 @@ export const Arena = {
       src: "./assets/characters/people/farmer.png",
       behaviorLoop: [{ type: "stand", direction: "down", time: 1000 }],
       talking: [
+        {
+          required: ["DEFEATED_BOSS"],
+          events: [
+            {
+              type: "textMessage",
+              text: "You did it son.",
+            },
+            {
+              type: "textMessage",
+              text: "Let's go home",
+            },
+          ],
+        },
         {
           events: [
             {
@@ -225,6 +290,10 @@ export const Arena = {
               type: "textMessage",
               text: "Goodluck, I hate this group!",
             },
+            {
+              type: "textMessage",
+              text: "They are always up to no good...",
+            },
           ],
         },
       ],
@@ -237,11 +306,33 @@ export const Arena = {
       behaviorLoop: [{ type: "stand", direction: "up", time: 1000 }],
       talking: [
         {
+          required: ["SPOKEWITH_npc2_Arena"],
           events: [
             {
               type: "textMessage",
               text: "Man these guys are the worst...",
             },
+          ],
+        },
+        {
+          events: [
+            {
+              type: "textMessage",
+              text: "Man these guys are the worst...",
+            },
+            {
+              type: "textMessage",
+              text: "Take this, hopefully it will help...",
+            },
+            {
+              type: "addItem",
+              itemId: "item_hayBale",
+            },
+            {
+              type: "textMessage",
+              text: "You recieved a hay bale.",
+            },
+            { type: "addStoryFlag", flag: "SPOKEWITH_npc2_Arena" },
           ],
         },
       ],

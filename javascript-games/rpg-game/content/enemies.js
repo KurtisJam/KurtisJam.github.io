@@ -75,14 +75,65 @@ window.Enemies = {
       },
     },
   },
+
+  Max: {
+    name: "Max",
+    src: "./assets/characters/people/kid.png",
+    animals: {
+      a: {
+        animalId: "Grassmoo",
+        maxHp: 80,
+        level: 2,
+      },
+      b: {
+        animalId: "Darksteed",
+        maxHp: 60,
+        level: 1,
+      },
+    },
+  },
+
+  Charlotte: {
+    name: "Charlotte",
+    src: "./assets/characters/people/barmaid2.png",
+    animals: {
+      a: {
+        animalId: "Grasserpent",
+        maxHp: 60,
+        level: 1,
+      },
+      b: {
+        animalId: "Waterhog",
+        maxHp: 60,
+        level: 1,
+      },
+    },
+  },
+
+  Cindy: {
+    name: "Cindy",
+    src: "./assets/characters/people/barmaid.png",
+    animals: {
+      a: {
+        animalId: "RockClaw",
+        maxHp: 60,
+        level: 1,
+      },
+      b: {
+        animalId: "Sparksqueak",
+        maxHp: 60,
+        level: 1,
+      },
+    },
+  },
   Frank: {
     name: "Frank",
     src: "./assets/characters/people/bartender.png",
     animals: {
       a: {
         animalId: "Waterhog",
-        maxHp: 60,
-        level: 1,
+        maxHp: 100,
+        level: 3,
       },
     },
   },
@@ -136,12 +187,12 @@ window.Enemies = {
       a: {
         animalId: "Pyrogoat",
         maxHp: 100,
-        level: 2,
+        level: 3,
       },
       b: {
         animalId: "Aeroonyx",
         maxHp: 100,
-        level: 2,
+        level: 3,
       },
     },
   },
@@ -152,12 +203,12 @@ window.Enemies = {
       a: {
         animalId: "Grasserpent",
         maxHp: 100,
-        level: 2,
+        level: 3,
       },
       b: {
         animalId: "Waterhog",
         maxHp: 100,
-        level: 2,
+        level: 3,
       },
     },
   },
@@ -167,13 +218,13 @@ window.Enemies = {
     animals: {
       a: {
         animalId: "Darksteed",
-        maxHp: 120,
-        level: 3,
+        maxHp: 150,
+        level: 4,
       },
       b: {
         animalId: "Grassmoo",
-        maxHp: 120,
-        level: 3,
+        maxHp: 150,
+        level: 4,
       },
     },
   },
@@ -183,13 +234,13 @@ window.Enemies = {
     animals: {
       a: {
         animalId: "Sparksqueak",
-        maxHp: 120,
-        level: 3,
+        maxHp: 150,
+        level: 4,
       },
       b: {
         animalId: "Wingcluck",
-        maxHp: 120,
-        level: 3,
+        maxHp: 150,
+        level: 4,
       },
     },
   },
@@ -199,18 +250,18 @@ window.Enemies = {
     animals: {
       a: {
         animalId: "RockClaw",
-        maxHp: 150,
-        level: 3,
+        maxHp: 200,
+        level: 5,
       },
       b: {
         animalId: "Aquaminotaur",
-        maxHp: 150,
-        level: 3,
+        maxHp: 200,
+        level: 5,
       },
       c: {
         animalId: "Shadowfang",
-        maxHp: 150,
-        level: 3,
+        maxHp: 200,
+        level: 5,
       },
     },
   },

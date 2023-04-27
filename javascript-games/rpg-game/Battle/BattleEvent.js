@@ -112,7 +112,7 @@ export class BattleEvent {
     if (damage) {
       const damageTypeMultiplier = determineMultiplier(damageType, target.type);
       const levelDiff = caster.level - target.level;
-      const levelMultiplier = 1 + 0.1 * levelDiff;
+      const levelMultiplier = 1 + 0.2 * levelDiff;
       const actualDamage =
         damage * (caster.attack / target.defense) * damageTypeMultiplier * Math.max(0.3, levelMultiplier);
 

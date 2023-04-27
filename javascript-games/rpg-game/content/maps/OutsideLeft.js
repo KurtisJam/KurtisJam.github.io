@@ -271,11 +271,11 @@ export const OutsideLeft = {
               faceHero: "npc2",
             },
             { type: "battle", enemyId: "Bob" },
-            { type: "addStoryFlag", flag: "DEFEATED_npc2_OUTSIDELEFT" },
             {
               type: "textMessage",
               text: "Wow, you are so strong!.",
             },
+            { type: "addStoryFlag", flag: "DEFEATED_npc2_OUTSIDELEFT" },
           ],
         },
       ],
@@ -333,7 +333,7 @@ export const OutsideLeft = {
       behaviorLoop: [{ type: "stand", direction: "down", time: 1000 }],
       talking: [
         {
-          required: ["TALKED_TO_npc4_OUTSIDELEFT"],
+          required: ["DEFEATED_npc4_OUTSIDELEFT"],
           events: [
             {
               type: "textMessage",
@@ -344,18 +344,17 @@ export const OutsideLeft = {
         },
         {
           events: [
-            { type: "addStoryFlag", flag: "TALKED_TO_npc4_OUTSIDELEFT" },
             {
               type: "textMessage",
               text: "Bring it on!",
               faceHero: "npc4",
             },
             { type: "battle", enemyId: "Billy" },
-            { type: "addStoryFlag", flag: "DEFEATED_npc4_OUTSIDELEFT" },
             {
               type: "textMessage",
               text: "Wow, you are so strong!",
             },
+            { type: "addStoryFlag", flag: "DEFEATED_npc4_OUTSIDELEFT" },
           ],
         },
       ],

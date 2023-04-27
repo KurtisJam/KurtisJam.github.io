@@ -139,6 +139,29 @@ export const SocialClubRoom = {
       y: utils.withGrid(2),
       src: "./assets/characters/people/blacksmith2.png",
       behaviorLoop: [{ type: "stand", direction: "right", time: 1000 }],
+      talking: [
+        {
+          required: ["DEFEATED_npc4_OUTSIDELEFT"],
+          events: [
+            {
+              type: "textMessage",
+              text: "Wow, I hope the boss can handle this...",
+              faceHero: "npc4",
+            },
+          ],
+        },
+        {
+          events: [
+            {
+              type: "textMessage",
+              text: "Ha, goodluck!",
+              faceHero: "npc4",
+            },
+            { type: "battle", enemyId: "Frank" },
+            { type: "addStoryFlag", flag: "DEFEATED_npc4_OUTSIDELEFT" },
+          ],
+        },
+      ],
     },
     npc5: {
       type: "Person",

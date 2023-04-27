@@ -55,6 +55,29 @@ export const OutsideBottom = {
       x: utils.withGrid(6),
       y: utils.withGrid(1),
       src: "./assets/characters/people/barmaid2.png",
+      talking: [
+        {
+          required: ["DEFEATED_npcA_OUTSIDEBOTTOM"],
+          events: [
+            {
+              type: "textMessage",
+              text: "Goodluck fighting those bad men!",
+              faceHero: "npcA",
+            },
+          ],
+        },
+        {
+          events: [
+            {
+              type: "textMessage",
+              text: "Hey Sam, want to do abit of training?",
+              faceHero: "npcA",
+            },
+            { type: "battle", enemyId: "Charlotte" },
+            { type: "addStoryFlag", flag: "DEFEATED_npcA_OUTSIDEBOTTOM" },
+          ],
+        },
+      ],
     },
     npc5: {
       type: "Person",
@@ -67,12 +90,28 @@ export const OutsideBottom = {
       ],
       talking: [
         {
+          required: ["DEFEATED_npc5_OUTSIDEBOTTOM"],
+          events: [
+            {
+              type: "textMessage",
+              text: "Wow, you will surely be the one to defeat them!",
+              faceHero: "npc5",
+            },
+          ],
+        },
+        {
           required: ["TALKED_TO_npc5_OUTSIDE"],
           events: [
             {
               type: "textMessage",
-              text: "Hey. We just spoke.",
+              text: "How about a battle to take my mind of it :(",
               faceHero: "npc5",
+            },
+            { type: "battle", enemyId: "Cindy" },
+            { type: "addStoryFlag", flag: "DEFEATED_npc5_OUTSIDEBOTTOM" },
+            {
+              type: "textMessage",
+              text: "Wow, you will surely be the one to defeat them!",
             },
           ],
         },
@@ -81,8 +120,16 @@ export const OutsideBottom = {
             { type: "addStoryFlag", flag: "TALKED_TO_npc5_OUTSIDE" },
             {
               type: "textMessage",
-              text: "Hey! ",
+              text: "These kids are so full of energy.",
               faceHero: "npc5",
+            },
+            {
+              type: "textMessage",
+              text: "I just worry about this secret group causing all these pollutants.",
+            },
+            {
+              type: "textMessage",
+              text: "I don't want to think what they will do next... all those smoke fumes.",
             },
           ],
         },
@@ -107,11 +154,22 @@ export const OutsideBottom = {
       ],
       talking: [
         {
-          required: ["TALKED_TO_npc6_OUTSIDE"],
+          required: ["TALKED_TO_npc6_again_OUTSIDE"],
           events: [
             {
               type: "textMessage",
-              text: "Hey. We just spoke.",
+              text: "Weeeee",
+              faceHero: "npc6",
+            },
+          ],
+        },
+        {
+          required: ["TALKED_TO_npc6_OUTSIDE"],
+          events: [
+            { type: "addStoryFlag", flag: "TALKED_TO_npc6_again_OUTSIDE" },
+            {
+              type: "textMessage",
+              text: "Except Sparksqueak burnt my finger once... ",
               faceHero: "npc6",
             },
           ],
@@ -121,7 +179,7 @@ export const OutsideBottom = {
             { type: "addStoryFlag", flag: "TALKED_TO_npc6_OUTSIDE" },
             {
               type: "textMessage",
-              text: "Hey! ",
+              text: "Hey! Hey! Hey! I love this town, all the animals are so friendly.",
               faceHero: "npc6",
             },
           ],
@@ -146,22 +204,27 @@ export const OutsideBottom = {
       ],
       talking: [
         {
-          required: ["TALKED_TO_npc7_OUTSIDE"],
+          required: ["DEFEATED_npc7_OUTSIDEBOTTOM"],
           events: [
             {
               type: "textMessage",
-              text: "Hey. We just spoke.",
+              text: "Go away! You are too strong",
               faceHero: "npc7",
             },
           ],
         },
         {
           events: [
-            { type: "addStoryFlag", flag: "TALKED_TO_npc7_OUTSIDE" },
             {
               type: "textMessage",
-              text: "Hey! ",
+              text: "Hey! Don't tell my Mum... But I've been training too!",
               faceHero: "npc7",
+            },
+            { type: "battle", enemyId: "Max" },
+            { type: "addStoryFlag", flag: "DEFEATED_npc7_OUTSIDEBOTTOM" },
+            {
+              type: "textMessage",
+              text: "Woahh!!! Mummmm...",
             },
           ],
         },

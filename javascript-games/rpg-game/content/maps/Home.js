@@ -163,6 +163,7 @@ export const Home = {
             type: "textMessage",
             text: "Mum: Oh and son, take Rocky with you! The animals around town will help him.",
           },
+          { type: "addAnimal", animalId: "Rocky", hp: 100 },
           { type: "stand", who: "hero", direction: "down", time: 500 },
         ],
       },
