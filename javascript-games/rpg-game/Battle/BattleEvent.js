@@ -9,54 +9,54 @@ function determineMultiplier(damageType, targetType) {
     case "stone":
       switch (targetType) {
         case "fly":
-          return 2; // stone is strong against fly
+          return 1.5; // stone is strong against fly
         case "water":
-          return 0.5; // stone is weak against water
+          return 0.7; // stone is weak against water
         default:
           return 1; // stone does neutral damage against all other types
       }
     case "fly":
       switch (targetType) {
         case "shadow":
-          return 2; // fly is strong against shadow
+          return 1.5; // fly is strong against shadow
         case "stone":
-          return 0.5; // fly is weak against stone
+          return 0.7; // fly is weak against stone
         default:
           return 1; // fly does neutral damage against all other types
       }
     case "fire":
       switch (targetType) {
         case "nature":
-          return 2; // fire is strong against nature
+          return 1.5; // fire is strong against nature
         case "water":
-          return 0.5; // fire is weak against water
+          return 0.7; // fire is weak against water
         default:
           return 1; // fire does neutral damage against all other types
       }
     case "water":
       switch (targetType) {
         case "fire":
-          return 2; // water is strong against fire
+          return 1.5; // water is strong against fire
         case "shadow":
-          return 0.5; // water is weak against shadow
+          return 0.7; // water is weak against shadow
         default:
           return 1; // water does neutral damage against all other types
       }
     case "shadow":
       switch (targetType) {
         case "stone":
-          return 2; // shadow is strong against stone
+          return 1.5; // shadow is strong against stone
         case "nature":
-          return 0.5; // shadow is weak against nature
+          return 0.7; // shadow is weak against nature
         default:
           return 1; // shadow does neutral damage against all other types
       }
     case "nature":
       switch (targetType) {
         case "water":
-          return 2; // nature is strong against water
+          return 1.5; // nature is strong against water
         case "fire":
-          return 0.5; // nature is weak against fire
+          return 0.7; // nature is weak against fire
         default:
           return 1; // nature does neutral damage against all other types
       }
@@ -82,9 +82,9 @@ export class BattleEvent {
       const targetType = this.event.target.type;
 
       const multiplier = determineMultiplier(attackType, targetType);
-      if (multiplier === 2) {
+      if (multiplier === 1.5) {
         text = text.replace("{EFFECTIVENESS}", "SUPER");
-      } else if (multiplier === 0.5) {
+      } else if (multiplier === 0.7) {
         text = text.replace("{EFFECTIVENESS}", "not very");
       } else {
         resolve();
@@ -110,11 +110,22 @@ export class BattleEvent {
     }
 
     if (damage) {
-      const multiplier = determineMultiplier(damageType, target.type);
-      const levelDamage = damage * multiplier + caster.level * 10;
+      const damageTypeMultiplier = determineMultiplier(damageType, target.type);
+      const levelDiff = caster.level - target.level;
+      const levelMultiplier = 1 + 0.1 * levelDiff;
+      const actualDamage =
+        damage * (caster.attack / target.defense) * damageTypeMultiplier * Math.max(0.3, levelMultiplier);
 
+      console.log(
+        "damage",
+        actualDamage,
+        `${damage} * (${caster.attack} / ${target.defense}) * ${damageTypeMultiplier} * ${Math.max(
+          0.3,
+          levelMultiplier
+        )}`
+      );
       target.update({
-        hp: target.hp - levelDamage,
+        hp: target.hp - actualDamage,
       });
       target.animalElement.classList.add("battle-damage-blink");
     }

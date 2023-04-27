@@ -16,6 +16,8 @@ window.Animals = {
     src: "./assets/characters/animals/static/cow2.png",
     icon: "./assets/icons/stone.png",
     actions: ["boulderRoll", "regeneration"],
+    attack: 20,
+    defense: 20,
   },
 
   RockClaw: {
@@ -24,7 +26,9 @@ window.Animals = {
     type: AnimalTypes.stone,
     src: "./assets/characters/animals/static/bear.png",
     icon: "./assets/icons/stone.png",
-    actions: ["boulderRoll", "regeneration"],
+    actions: ["boulderRoll", "blizzard", "regeneration"],
+    attack: 20,
+    defense: 20,
   },
 
   // Fly
@@ -35,6 +39,8 @@ window.Animals = {
     src: "./assets/characters/animals/static/white_chicken.png",
     icon: "./assets/icons/fly.png",
     actions: ["wingSlap"],
+    attack: 24,
+    defense: 16,
   },
   Aeroonyx: {
     name: "Aeroonyx",
@@ -43,6 +49,8 @@ window.Animals = {
     src: "./assets/characters/animals/static/pigeon.png",
     icon: "./assets/icons/fly.png",
     actions: ["wingSlap"],
+    attack: 24,
+    defense: 16,
   },
 
   // Fire
@@ -53,6 +61,8 @@ window.Animals = {
     src: "./assets/characters/animals/static/goat2.png",
     icon: "./assets/icons/fire.png",
     actions: ["flameBurst"],
+    attack: 24,
+    defense: 16,
   },
   Sparksqueak: {
     name: "Sparksqueak",
@@ -61,6 +71,8 @@ window.Animals = {
     src: "./assets/characters/animals/static/mouse.png",
     icon: "./assets/icons/fire.png",
     actions: ["flameBurst", "scratch"],
+    attack: 26,
+    defense: 14,
   },
 
   // Water
@@ -71,6 +83,8 @@ window.Animals = {
     src: "./assets/characters/animals/static/pig.png",
     icon: "./assets/icons/water.png",
     actions: ["bubbleBeam", "blizzard"],
+    attack: 16,
+    defense: 24,
   },
   Aquaminotaur: {
     name: "Aquaminotaur",
@@ -80,6 +94,8 @@ window.Animals = {
     src: "./assets/characters/animals/static/minotaur.png",
     icon: "./assets/icons/water.png",
     actions: ["bubbleBeam", "blizzard"],
+    attack: 16,
+    defense: 24,
   },
 
   // Shadow
@@ -90,6 +106,8 @@ window.Animals = {
     src: "./assets/characters/animals/static/white_chicken.png",
     icon: "./assets/icons/veggie.png",
     actions: ["shadowBolt"],
+    attack: 22,
+    defense: 18,
   },
   Shadowfang: {
     name: "Shadowfang",
@@ -98,6 +116,8 @@ window.Animals = {
     src: "./assets/characters/animals/static/wolf.png",
     icon: "./assets/icons/veggie.png",
     actions: ["shadowBolt", "scratch"],
+    attack: 22,
+    defense: 18,
   },
 
   // Nature
@@ -108,6 +128,8 @@ window.Animals = {
     src: "./assets/characters/animals/static/cow.png",
     icon: "./assets/icons/nature.png",
     actions: ["blizzard", "revitalize", "regeneration", "scratch"],
+    attack: 18,
+    defense: 22,
   },
   Grasserpent: {
     name: "Grasserpent",
@@ -117,5 +139,7 @@ window.Animals = {
     src: "./assets/characters/animals/static/snake.png",
     icon: "./assets/icons/nature.png",
     actions: ["blizzard", "revitalize", "regeneration", "shadowBolt"],
+    attack: 18,
+    defense: 22,
   },
 };
