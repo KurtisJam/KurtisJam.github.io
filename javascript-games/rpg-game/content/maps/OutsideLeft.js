@@ -372,7 +372,7 @@ export const OutsideLeft = {
             {
               type: "textMessage",
               text: "Unknown: Come back with the password. Only members may come past this point.",
-              faceHero: "npc75",
+              faceHero: "npc5",
             },
           ],
         },

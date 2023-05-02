@@ -180,6 +180,70 @@ window.Enemies = {
       },
     },
   },
+  Mick1: {
+    name: "Mick",
+    src: "./assets/characters/people/merchant2.png",
+    animals: {
+      a: {
+        animalId: "Wingcluck",
+        maxHp: 80,
+        level: 2,
+      },
+      b: {
+        animalId: "Waterhog",
+        maxHp: 120,
+        level: 3,
+      },
+    },
+  },
+  Mick2: {
+    name: "Mick",
+    src: "./assets/characters/people/merchant2.png",
+    animals: {
+      a: {
+        animalId: "RockClaw",
+        maxHp: 80,
+        level: 2,
+      },
+      b: {
+        animalId: "Aeroonyx",
+        maxHp: 80,
+        level: 2,
+      },
+    },
+  },
+  Fred1: {
+    name: "Fred",
+    src: "./assets/characters/people/merchant1.png",
+    animals: {
+      a: {
+        animalId: "Sparksqueak",
+        maxHp: 80,
+        level: 2,
+      },
+      b: {
+        animalId: "Grasserpent",
+        maxHp: 120,
+        level: 3,
+      },
+    },
+  },
+  Mick2: {
+    name: "Fred",
+    src: "./assets/characters/people/merchant1.png",
+    animals: {
+      a: {
+        animalId: "Grassmoo",
+        maxHp: 80,
+        level: 2,
+      },
+      b: {
+        animalId: "Aeroonyx",
+        maxHp: 80,
+        level: 2,
+      },
+    },
+  },
   enemy1: {
     name: "Anthony",
     src: "./assets/characters/people/blacksmith.png",

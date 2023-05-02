@@ -424,6 +424,74 @@ export const OutsideRight = {
         },
       ],
     },
+    npc10: {
+      type: "Person",
+      x: utils.withGrid(20),
+      y: utils.withGrid(4),
+      src: "./assets/characters/people/merchant2.png",
+      behaviorLoop: [],
+      talking: [
+        {
+          required: ["DEFEATED_npc10_OUTSIDERIGHT"],
+          events: [
+            {
+              type: "textMessage",
+              text: "Let's battle again!!",
+              faceHero: "npc10",
+            },
+            { type: "battle", enemyId: "Mick2" },
+            { type: "addStoryFlag", flag: "DEFEATED_npc1_OUTSIDERIGHT" },
+          ],
+        },
+        {
+          events: [
+            {
+              type: "textMessage",
+              text: "Fred and I always like to fight!",
+              faceHero: "npc10",
+            },
+            {
+              type: "textMessage",
+              text: "Let's battle!",
+            },
+            { type: "battle", enemyId: "Mick1" },
+            { type: "addStoryFlag", flag: "DEFEATED_npc10_OUTSIDERIGHT" },
+          ],
+        },
+      ],
+    },
+    npc11: {
+      type: "Person",
+      x: utils.withGrid(21),
+      y: utils.withGrid(4),
+      src: "./assets/characters/people/merchant1.png",
+      behaviorLoop: [],
+      talking: [
+        {
+          required: ["DEFEATED_npc11_OUTSIDERIGHT"],
+          events: [
+            {
+              type: "textMessage",
+              text: "It's so fun battling you, again!",
+              faceHero: "npc11",
+            },
+            { type: "battle", enemyId: "Fred2" },
+            { type: "addStoryFlag", flag: "DEFEATED_npc1_OUTSIDERIGHT" },
+          ],
+        },
+        {
+          events: [
+            {
+              type: "textMessage",
+              text: "Mick and I always like to fight!",
+              faceHero: "npc11",
+            },
+            { type: "battle", enemyId: "Fred1" },
+            { type: "addStoryFlag", flag: "DEFEATED_npc11_OUTSIDERIGHT" },
+          ],
+        },
+      ],
+    },
   },
   walls: {
     [utils.asGridCoord(8, 1)]: true,
