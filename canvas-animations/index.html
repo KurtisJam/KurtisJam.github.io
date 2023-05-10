@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Particle Effects</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+      }
+      canvas {
+        background-color: black;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="canvas"></canvas>
+    <script>
+      // set up canvas
+      var canvas = document.getElementById("canvas");
+      var ctx = canvas.getContext("2d");
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+
+      let isPainting = false;
+      let lineWidth = 5;
+      let startX;
+      let startY;
+      let areas = 60;
+      let angle = ((360 / areas) * Math.PI) / 180;
+      ctx.strokeStyle = "blue";
+      ctx.translate(canvas.width / 2, canvas.height / 2);
+      const draw = (e) => {
+        if (!isPainting) {
+          return;
+        }
+
+        ctx.lineWidth = lineWidth;
+
+        for (let i = 0; i < areas; i++) {
+          ctx.rotate(angle);
+          ctx.moveTo(startX - canvas.width / 2, startY - canvas.height / 2);
+          ctx.lineTo(
+            e.clientX - canvas.width / 2,
+            e.clientY - canvas.height / 2
+          );
+          ctx.stroke();
+        }
+
+        startX = e.clientX;
+        startY = e.clientY;
+      };
+
+      canvas.addEventListener("mousedown", (e) => {
+        isPainting = true;
+        startX = e.clientX;
+        startY = e.clientY;
+      });
+
+      canvas.addEventListener("mouseup", (e) => {
+        isPainting = false;
+        ctx.stroke();
+        ctx.beginPath();
+      });
+
+      canvas.addEventListener("mousemove", draw);
+    </script>
+  </body>
+</html>

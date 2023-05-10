@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Particle Effects</title>
+    <style>
+      canvas {
+        background-color: black;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="canvas"></canvas>
+    <script>
+      // set up canvas
+      var canvas = document.getElementById("canvas");
+      var ctx = canvas.getContext("2d");
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+
+      // define particle class
+      class Particle {
+        constructor(x, y, vx, vy, radius, color) {
+          this.x = x;
+          this.y = y;
+          this.vx = vx;
+          this.vy = vy;
+          this.radius = radius;
+          this.color = color;
+        }
+
+        // update particle position and velocity
+        update(mouseX, mouseY) {
+          // calculate distance from mouse
+          const dx = this.x - mouseX;
+          const dy = this.y - mouseY;
+          const distance = Math.sqrt(dx * dx + dy * dy);
+
+          // apply force if mouse is close
+          if (distance < 300) {
+            this.vx += dx / 10;
+            this.vy += dy / 10;
+          }
+
+          // add gravity
+          //const gravity = 0.25;
+          //this.vy += gravity;
+
+          // update position and velocity
+          this.x += this.vx;
+          this.y += this.vy;
+
+          // bounce off walls
+          if (this.x < this.radius || this.x > canvas.width - this.radius) {
+            this.vx *= -1;
+          }
+
+          // bounce off ground
+          if (this.y > canvas.height - this.radius) {
+            this.y = canvas.height - this.radius;
+            this.vy *= -0.7;
+            this.vx *= 0.8;
+          }
+
+          // add dampening effect
+          if (Math.abs(this.vx) < 0.1) {
+            this.vx = 0;
+          }
+          if (Math.abs(this.vy) < 0.1) {
+            this.vy = 0;
+          }
+        }
+
+        // draw particle
+        draw() {
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+          ctx.fillStyle = this.color;
+          ctx.fill();
+        }
+      }
+
+      // create particles
+      var particles = [];
+      for (var i = 0; i < 100; i++) {
+        var x = Math.random() * canvas.width;
+        var y = Math.random() * canvas.height;
+        var vx = Math.random() * 4 - 2;
+        var vy = Math.random() * 4 - 2;
+        var radius = Math.random() * 50 + 5;
+        var color =
+          "rgb(" +
+          Math.floor(Math.random() * 255) +
+          "," +
+          Math.floor(Math.random() * 255) +
+          "," +
+          Math.floor(Math.random() * 255) +
+          ")";
+        particles.push(new Particle(x, y, vx, vy, radius, color));
+      }
+
+      // listen for mouse clicks
+      canvas.addEventListener("mousedown", function (event) {
+        var mouseX = event.clientX;
+        var mouseY = event.clientY;
+        for (var i = 0; i < particles.length; i++) {
+          particles[i].update(mouseX, mouseY);
+        }
+      });
+
+      // animate particles
+      function animate() {
+        requestAnimationFrame(animate);
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        for (var i = 0; i < particles.length; i++) {
+          particles[i].update(canvas.mouseX, canvas.mouseY);
+          particles[i].draw();
+        }
+      }
+      animate();
+    </script>
+  </body>
+</html>
