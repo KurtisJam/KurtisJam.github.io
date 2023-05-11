@@ -52,22 +52,18 @@
 
           // bounce off walls
           if (this.x < this.radius || this.x > canvas.width - this.radius) {
-            this.vx *= -1;
+            this.vx *= -0.95;
           }
 
           // bounce off ground
           if (this.y > canvas.height - this.radius) {
             this.y = canvas.height - this.radius;
-            this.vy *= -0.7;
-            this.vx *= 0.8;
+            this.vy *= -0.95;
+            this.vx *= 0.95;
           }
 
-          // add dampening effect
-          if (Math.abs(this.vx) < 0.1) {
-            this.vx = 0;
-          }
-          if (Math.abs(this.vy) < 0.1) {
-            this.vy = 0;
+          if (this.y < this.radius) {
+            this.vy *= -0.95;
           }
         }
 
